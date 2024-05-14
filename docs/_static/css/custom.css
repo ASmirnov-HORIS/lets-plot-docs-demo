@@ -1,0 +1,229 @@
+﻿/* All tags */
+
+h2 {
+  margin-top: 3rem;
+}
+
+blockquote {
+  font-size: 1em;
+}
+
+p {
+  max-width: 70ch;
+}
+
+/* Some tags */
+
+section h2:first-of-type>img, section h3:first-of-type>img {
+  height: 1em;
+}
+
+/* Specific classes */
+
+.bd-header.bd-navbar .navbar-brand.logo-title {
+  padding-left: 1ch;
+}
+
+.bd-header.bd-navbar .navbar-brand.logo-title.landing:hover {
+  text-decoration: none;
+}
+
+.bd-container {
+  padding-bottom: 3rem;
+}
+
+.github-logo {
+  background-image: url("../images/GitHub-Mark-Light-120px-plus.png");
+  background-size: contain;
+}
+
+.bd-header .navbar-header-items__start {
+  width: auto;
+}
+
+.bd-header .navbar-nav>.current>.nav-link {
+  border-bottom: none;
+}
+
+.bd-main .bd-content .bd-article-container {
+  max-width: 100%;
+}
+
+.bd-main .bd-content .bd-article-container .bd-article {
+  padding-left: 0px;
+}
+
+.wide-grid {
+  padding-left: -calc(var(--sd-gutter-x) * 0.5);
+  padding-right: -calc(var(--sd-gutter-x) * 0.5);
+}
+
+.wide-grid>.sd-row>.sd-col>.sd-card>.sd-card-body.docutils {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.landing-content>.sd-row:first-child>.sd-col:first-child h1 {
+  font-size: 6vmin;
+}
+
+.landing-content>.sd-row:first-child>.sd-col:first-child .sd-card-body p {
+  display: inline;
+  margin-right: 2ch;
+}
+
+section .reference.internal {
+  text-decoration: none;
+}
+
+section .reference.internal code {
+  border: none;
+  border-bottom: 2px solid;
+  border-radius: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.card-header {
+  font-size: 1.5em;
+}
+
+.preview-gallery .reference.external.image-reference.preview.extref img {
+  border: 2px solid;
+  border-radius: 5px !important;
+}
+
+.sd-card.docutils {
+  border: none;
+}
+
+.sphinx-bs .sd-card .sd-card-header {
+  border: none;
+}
+
+.features-list {
+  margin-bottom: 0 !important;
+}
+
+/*
+  Dirty trick to get Sphinx to make a link to an API function look like a link to a section of the site.
+*/
+.features-list .show-ext .sd-card .reference.internal code {
+  padding: inherit;
+  border-bottom: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.features-list .sd-card img {
+  float: left;
+  height: 2rem;
+  margin-right: 1rem;
+}
+
+.features-list .sd-card .sd-card-text img {
+  float: none;
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+}
+
+.features-list .sd-card p {
+  margin-left: 3rem;
+  margin-bottom: 0;
+}
+
+.features-list .sd-card p:first-of-type {
+  display: table-cell;
+  height: 2rem;
+  vertical-align: middle;
+  margin-left: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.explore-your-data-container .sd-card-body .container {
+  text-align: center;
+}
+
+.explore-your-data-container .sd-card-body .sd-card-text {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.landing-buttons .sd-card-body {
+  padding: 0;
+}
+
+p.admonition-title {
+  max-width: none;
+}
+
+/* Specific id-s */
+
+#preview-gallery-more {
+  text-align: center;
+  padding: 20px;
+}
+
+#plot-preliminaries {
+  display: none;
+}
+
+#key-features, #at-a-glance {
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+}
+
+#quick-start .jupyter_cell {
+  margin: 0;
+}
+
+#quick-start .jupyter_cell .cell_output .text_html {
+  padding: 0;
+}
+
+#quick-start a.image-reference {
+  display: inline-block;
+  padding-top: 1rem;
+  padding-right: 2ch;
+}
+
+#quick-start a.image-reference img {
+  height: 3rem !important;
+}
+
+#explore-your-data-with-lets-plot .jupyter_cell {
+  margin: 0;
+}
+
+#explore-your-data-with-lets-plot .jupyter_cell .cell_output .text_html {
+  margin: 0;
+}
+
+#api-reference table.autosummary tr td:first-child {
+  width:  40%;
+  -moz-hyphens:auto;
+  -ms-hyphens:auto;
+  -webkit-hyphens:auto;
+  hyphens:auto;
+  word-wrap:break-word;
+}
+
+#api-reference code.literal {
+  border: none;
+}
+
+/* theme-specific */
+
+html[data-theme=dark] .bd-content img {
+  background: inherit !important;
+  border-radius: inherit !important;
+}
+
+html[data-theme=dark] .explore-your-data-container div.cell_output .text_html {
+  padding: initial !important;
+}
