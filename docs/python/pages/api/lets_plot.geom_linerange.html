@@ -20,32 +20,32 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/thebelab.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=19257b4b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=44498072" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/colors.css?v=32b6ea70" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/dataframe.css?v=1855a575" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../../_static/documentation_options.js?v=9683ad65"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -71,27 +71,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -113,12 +109,17 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
-  </label>
+  </button>
   
   
   <div class="col-lg-3 navbar-header-items__start">
@@ -173,59 +174,59 @@
   <ul class="bd-navbar-elements navbar-nav">
     
       
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../api.html">
-                        API
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../api.html">
+    API
+  </a>
+</li>
+
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../charts.html">
-                        Charts
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../charts.html">
+    Charts
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../maps.html">
-                        Maps
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../geocoding.html">
-                        Geocoding
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../maps.html">
+    Maps
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../gallery.html">
-                        Gallery
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../bistro.html">
-                        'bistro' Plots
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../geocoding.html">
+    Geocoding
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../whats_new.html">
-                        What is New
-                      </a>
-                    </li>
-                
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../gallery.html">
+    Gallery
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../bistro.html">
+    'bistro' Plots
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../whats_new.html">
+    What is New
+  </a>
+</li>
+
                 </ul>
             </li>
             
@@ -243,7 +244,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -257,10 +258,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script></div>
@@ -309,7 +310,7 @@ document.write(`
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -320,9 +321,9 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-    </label>
+    </button>
   
 </div>
 
@@ -343,70 +344,65 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item">
+          
+          
+            <div class="navbar-item">
 <nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
       
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../api.html">
-                        API
-                      </a>
-                    </li>
-                
-            <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
-                    More
-                </button>
-                <ul id="pst-nav-more-links-2" class="dropdown-menu">
-                    
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../charts.html">
-                        Charts
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../api.html">
+    API
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../maps.html">
-                        Maps
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../geocoding.html">
-                        Geocoding
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../charts.html">
+    Charts
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../gallery.html">
-                        Gallery
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../bistro.html">
-                        'bistro' Plots
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../maps.html">
+    Maps
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../whats_new.html">
-                        What is New
-                      </a>
-                    </li>
-                
-                </ul>
-            </li>
-            
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../geocoding.html">
+    Geocoding
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../gallery.html">
+    Gallery
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../bistro.html">
+    'bistro' Plots
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../whats_new.html">
+    What is New
+  </a>
+</li>
+
     
   </ul>
 </nav></div>
+          
         
       </div>
     
@@ -418,10 +414,10 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script></div>
@@ -474,13 +470,13 @@ document.write(`
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article"></div>
+              <div class="bd-header-article d-print-none"></div>
               
               
               
@@ -569,7 +565,7 @@ or a horizontal interval, defined by <cite>y</cite>, <cite>xmin</cite>, <cite>xm
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="QvbXRT"></div>
+<div id="VUlfSY"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -593,13 +589,13 @@ or a horizontal interval, defined by <cite>y</cite>, <cite>xmin</cite>, <cite>xm
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("QvbXRT").appendChild(div);
+            document.getElementById("VUlfSY").appendChild(div);
         };
-        var e = document.getElementById("QvbXRT");
+        var e = document.getElementById("VUlfSY");
         e.appendChild(script);
     })()
 </script>
-</div><div class="output text_html">   <div id="9KB9mt"></div>
+</div><div class="output text_html">   <div id="ZSmMCC"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -628,7 +624,7 @@ or a horizontal interval, defined by <cite>y</cite>, <cite>xmin</cite>, <cite>xm
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("9KB9mt");
+           var plotContainer = document.getElementById("ZSmMCC");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -662,7 +658,7 @@ or a horizontal interval, defined by <cite>y</cite>, <cite>xmin</cite>, <cite>xm
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="vQD1Yz"></div>
+<div id="HTQXnT"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -686,13 +682,13 @@ or a horizontal interval, defined by <cite>y</cite>, <cite>xmin</cite>, <cite>xm
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("vQD1Yz").appendChild(div);
+            document.getElementById("HTQXnT").appendChild(div);
         };
-        var e = document.getElementById("vQD1Yz");
+        var e = document.getElementById("HTQXnT");
         e.appendChild(script);
     })()
 </script>
-</div><div class="output text_html">   <div id="nyNtfw"></div>
+</div><div class="output text_html">   <div id="sDhIm8"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -706,8 +702,8 @@ or a horizontal interval, defined by <cite>y</cite>, <cite>xmin</cite>, <cite>xm
 "geom":"linerange",
 "data":{
 "x":["a","b","c","d","e","f","g","h"],
-"ymin":[0.18782862425614288,-0.493397379570105,0.07969841297264413,-1.6487172272531052,0.04985864963127962,0.2418145133749121,-0.08326105747931267,-0.4047554724183793],
-"ymax":[4.513920685192893,4.887404593620717,4.851864172842586,3.2114241389939266,3.611949273667502,4.7742069383841885,5.325366101419558,5.1238819706127]
+"ymin":[0.004700265466365261,-1.0977512308402666,-0.45841464027689893,0.08979484196040266,-0.3679497682763162,0.483220887845087,-0.21109442662756717,-0.7065153175201235],
+"ymax":[4.330792326403115,4.2830507423505555,4.313751119593043,4.9499362082074345,3.1941408557599065,5.015613312854363,5.197532732271303,4.8221221255109565]
 },
 "mapping":{
 "x":"x",
@@ -724,7 +720,7 @@ or a horizontal interval, defined by <cite>y</cite>, <cite>xmin</cite>, <cite>xm
 "geom":"point",
 "data":{
 "x":["g","d","e","g","c","h","e","e","g","b","c","g","c","c","h","e","d","h","h","c","f","e","b","h","d","f","f","b","h","d","e","a","d","b","f","e","d","a","a","c","c","g","b","h","d","d","h","g","f","f","g","f","c","d","g","d","h","a","c","e","c","g","e","a","g","b","d","a","d","f","b","b","a","b","e","b","d","d","g","d","g","d","e","h","g","c","f","a","d","b","h","d","b","f","f","f","b","d","f","e","g","b","b","d","b","b","f","d","f","g","h","g","h","f","g","d","a","f","h","e","h","e","b","g","e","h","b","a","d","d","d","e","a","e","g","e","a","a","g","a","h","a","d","h","h","g","c","c","a","h","c","c","a","c","e","b","g","b","a","d","g","a","h","d","b","a","h","g","g","f","h","e","c","d","h","f","c","c","a","c","e","g","f","c","a","e","b","g","g","f","g","c","a","g","g","b","b","d","e","c","g","h","g","a","d","e","h","d","f","e","g","g","e","g","c","e","d","e","h","g","c","c","f","d","b","b","e","f","a","e","f","d","d","d","d","d","f","f","c","h","b","g","d","a","g","f","a","a","a","c","f","a","d","e","a","c","g","f","h","c","a","f","e","a","c","b","d","h","g","c","f","h","h","h","a","d","a","f","a","b","d","d","f","g","b","c","a","e","a","h","a","c","a","b","b","d","f","g","e","h","a","a","c","f","b","e","d","b","h","f","h","g","d","g","c","h","c","a","g","f","h","e","d","b","f","f","c","g","h","h","a","a","d","c","f","h","e","c","d","d","c","d","c","b","c","g","c","d","h","g","d","a","a","h","h","g","b","h","a","c","d","a","a","b","g","g","f","b","c","g","d","h","b","h","a","d","d","a","b","a","h","f","d","e","e","h","c","g","a","a","c","c","h","h","c","d","h","f","h","a","h","d","c","a","h","d","f","h","d","f","c","h","f","a","c","a","e","b","h","f","b","b","f","c","h","e","a","d","a","d","a","f","e","h","d","h","h","h","g","c","a","h","a","h","d","c","c","f","g","f","f","f","f","f","e","c","f","h","c","c","b","e","f","a","d","g","h","a","e","d","e","h","c","d","c","h","a","h","a","d","d","f","e","f","e","f","c","d","a","e","h","e","a","f","e","g","c","d","a","d","g","e","e","h","g","a","h","c","h","b","a","b","g","f","b","c","h","f","h","b","h","g","f","g","b","g","c","b","b","b","a","h","a","a","c","f","h","g","e","b","g","b","c","b","a","h","e","d","b","g","a","d","e","d","a","h","h","f","h","f","d","c","g","g","d","b","b","h","g","g","f","c","a","b","g","f","e","f","b","b","f","a","d","b","f","g","f","c","d","e","a","h","e","d","d","d","e","g","d","f","e","h","d","f","g","c","g","h","d","h","e","b","d","b","f","c","a","h","g","c","d","b","g","b","e","b","e","f","g","g","a","d","e","a","b","b","a","g","b","h","f","f","h","a","h","e","e","a","h","e","g","h","g","e","f","e","g","c","d","b","h","c","e","f","a","e","f","d","e","g","a","f","f","f","d","e","d","h","b","b","h","e","g","d","a","f","f","e","g","b","b","f","e","d","b","d","g","b","b","c","b","h","a","h","e","e","d","h","h","h","g","b","a","d","h","h","c","d","h","d","b","c","d","a","a","e","c","c","e","d","c","a","a","h","b","c","d","e","e","d","g","f","b","e","c","b","c","g","a","b","h","e","b","b","b","f","b","c","a","g","d","b","e","b","e","c","e","h","d","a","e","e","a","d","b","e","a","h","h","c","a","c","h","d","b","a","g","h","h","g","f","h","e","d","a","g","e","g","a","c"],
-"y":[4.070760370305091,1.0691732573212256,2.4449461500171212,2.4550148065573065,2.602670722081168,2.3613568514076255,1.8599891437148752,2.3581502041590707,1.9470608799172902,3.90091106085094,1.272486988093024,1.5510929503630306,3.4366152430927936,3.0701670635556617,3.115619722827465,2.391338687986437,1.0359226428415518,1.5942455342894783,2.5673044639690366,1.6013426580806143,3.6885787469199527,1.6159357972200183,0.9830265883729683,2.1701140641223167,1.4611008699640908,2.1497344606982267,1.89123861793577,2.0522109966573923,2.7364664768840328,0.5412262403173367,1.2919548731038344,2.290670482639635,-0.3999149258088577,0.4010600107889246,1.9950147922497654,1.5495460270103099,1.3590769812864711,3.5339767622315508,2.916280168484018,2.118565839629299,2.259488161690037,1.762752198512954,1.7900106491730898,2.2028412668551716,1.370887976026556,0.22093847213614348,3.0108464200164824,4.29802047615334,2.6046988650453438,3.1151707356011427,3.4554255548618755,2.3122385416163653,2.5025968514031427,1.0607618164702612,2.8629576616995944,0.27515963183299996,2.5160100800342526,2.5566188365274485,3.729647977387768,2.722264004807364,4.431686827104283,1.9979340002627133,2.635313815442835,2.2419625510203502,4.9550844963684355,1.0002254998103284,0.2084475735076904,1.4592278998379764,-1.0757263086213404,2.1877039918214405,1.0493911236117819,1.9589175716416876,2.400376521059158,3.684694624381366,2.7134170169082075,1.2316201295030766,0.1497547443401085,1.540088587194972,1.4450483561301206,2.87962818154282,3.94472168387205,0.5789937635837616,0.04985864963127962,3.845372279940723,2.650741717898145,3.516320681566188,1.1190313547078343,1.4592455223282257,1.0534131154066495,1.855504378930222,2.0414344342960664,1.6710193480359652,0.7409033557828855,2.571079528480908,2.8337546452141003,3.2278978475609503,2.52013866325437,-0.07647267614940279,1.1793448427665791,3.040670000620666,3.0975955751303546,1.0600372486089262,3.3596757606880026,1.1638440499813252,2.9878209692293063,1.8760422665755887,4.7742069383841885,2.803510258131671,2.464494865023128,3.7368525141051183,3.1368758553604574,4.133913120683111,1.5265764451952055,3.3995104735006407,3.8237060500003506,-0.7105700707346478,0.8753620326162235,0.6742268357421008,2.222093071330752,2.4805354345181194,3.993856957871338,1.8370879591419322,3.4371393307367715,1.3851801049358714,0.05961073936700245,2.4359522068786914,2.192589234104787,2.0259257971879054,-1.0192726843514102,0.959049376175678,-0.2563000848163868,2.4326657275521955,2.425218791378847,0.8231133923948019,2.2514146458140694,0.7037796568332055,1.9959414480088267,3.013762865783237,1.779555516815219,2.5626670607998427,1.9612422874028692,1.2657477130196544,0.9411390557339087,1.456257583355936,1.937850600428128,1.5674036705619143,4.243229502509116,2.313767921564455,1.3588950372894129,2.705479816509532,2.166176319901896,2.0575347700595032,2.6727872453254236,3.036012079640031,1.2324920311116296,1.2327055445207997,2.490229865999119,-0.493397379570105,0.5434294830834463,2.415043683132991,4.4102492766520465,1.8095845057256201,3.0680568688310763,1.3594195702320024,4.887404593620717,3.1781954567165753,2.3635823142945434,1.809741122550337,1.1588352428931903,2.9169226493694245,1.7351491604910065,0.34073946912448294,1.6319314853501994,-0.033378587925928516,4.178641540847875,3.595098770451652,2.270531728276109,3.758448508482752,2.135988852929617,1.4172201682644623,3.2861172559918144,3.3041916068354213,1.676212859175745,2.088165691509118,1.1830022918972414,0.38019344775782105,2.7347013326971212,4.674698203620894,1.3667139893316216,3.2764282501927724,2.114638994028936,1.79137898582803,1.4662266210431294,1.9012907934709466,2.8138031910955896,0.9775736687544421,2.078980610945319,0.9979313062393295,1.5240451318557473,1.3709407075511282,2.18851023258243,3.246891131601066,3.2661987507751435,1.0810653004834476,1.1475017211176923,2.5143803020939464,0.8220946246539382,1.5915296080684014,2.050835254556355,2.3335918473153163,2.002022406608246,0.9603994624862437,0.13545074083899444,2.8133665098121448,2.5382268713142078,0.8586765536177485,1.6867618744658404,0.10147311645319723,2.4254201071279935,1.5542653633883061,1.626668261790567,2.32590304090914,1.8530456482182491,0.663613871458641,2.8148165943799204,1.231631915642331,2.598685290787299,1.5837521588445833,2.5884247231972815,3.2045617993800573,0.2418145133749121,0.25127416021798965,1.6252415428690066,0.8451240296454737,1.4193152890597753,0.44418422897264587,2.8000488009751012,2.557781778110122,3.4462864312525334,2.745920749076523,2.146126447240682,2.3534045970282955,0.5605631916159729,1.6260623574623776,3.1597337055290597,2.2924745326819385,2.3483954021784115,4.134021343927437,2.929745248713691,1.952480837424885,3.9146729356661463,1.6505451722604472,-0.9899551194893874,0.754906867804753,0.18782862425614288,1.9269908855514175,2.7836999423403146,4.389896325777484,2.8184272795394727,2.0594038407838617,2.888026126465488,0.5023237044943163,1.9986077368307231,2.829485739168965,0.7999181238128845,2.952277828372409,1.3866658231828806,2.0762119918745086,3.3980634292570477,4.549197227397122,2.8953252685606965,2.739720492075646,2.0321390062350657,1.6416555363105183,2.888956361826244,0.19208558977959922,2.130186782501391,2.2358015667370847,2.5376003710283905,2.1421858904524282,2.0857093599463656,0.5381530168337194,2.44358407820883,1.7865178473684553,1.3642305250893683,2.655804862637578,2.8156091619273504,0.8408278545445317,2.9282264653876586,3.847137764580261,2.4720554485056994,4.155300182150792,1.2848313461784255,0.5638690818540628,0.029803536261201247,2.5442137271776497,3.367824669856259,2.7096968922403075,2.0429618050419776,1.3660108584769335,4.504372524898825,2.187841727257226,2.387899164197619,3.4392256374008934,2.289533016902193,1.9868772030012884,0.2576949602431545,2.2799921423014755,4.373524402250344,4.058879059657179,4.0846865324147075,2.2540658867195775,0.05856459542988557,2.6394946430511146,2.3342292818814205,3.5856914242462583,0.5860397398779067,3.5881708647426125,2.6072736645717733,2.2865779435547813,1.4793955305151425,0.10813650685638776,1.871339999650381,1.8818417523538837,1.4234981137611475,1.4183802414385853,1.9427196703025977,4.4343030884401555,2.231908554411705,0.9883569526572038,1.8128774811960542,1.7858969755343281,-1.6487172272531052,2.224209503074914,2.4825244832935236,3.1877062705887282,3.611949273667502,3.4050693991404835,0.7792807251336359,-0.058356493053203895,4.851864172842586,1.1073878497029548,2.2924336615056724,1.7843986980554765,2.476589130360581,2.6209211512268205,1.7048423627124898,0.5013104744480743,2.4587466355593115,2.2218567920169976,0.3353236330113021,2.1650507729738955,1.8036433278611432,3.995492894357999,-0.159469902617702,3.8567884150732246,3.0546089776631087,0.41810967336716054,1.71593295120165,1.9070635035969346,-0.3593422790293548,1.2808038576911231,0.9480446998161698,3.5607942285891028,3.700959956298224,4.036836658144922,3.4351310775454365,0.6794720139482506,1.7539841033129524,3.254656124378681,-0.17395839320347894,3.204498335947698,1.5681983870073448,2.1166790982257124,2.76958051348549,1.4924327271745061,0.6872032498693865,3.2179503486462466,0.7274604575655825,2.674556152226262,3.084601163743694,2.4039125741882112,1.3743024379305844,0.5118796023368541,2.687020197929058,2.306597769332321,1.7557813490736867,3.814290788987652,1.3542768547392394,0.6501592489184389,0.7218751960688223,2.884514320938366,1.211070553279027,4.246294087759675,0.19657496170900401,2.7446257839785044,2.7025173729779284,2.616745901631809,1.9465808189663603,2.4577566596340694,2.4538652033504618,2.1514712977049877,2.392732018254766,2.2089223067438764,2.127887693561454,0.991223791967399,3.0212607823942608,0.7813315131186844,-0.3000160064172466,3.4567231075249163,2.449369807720668,2.307516569422631,2.7318929465675947,2.4062022506436698,1.7387446892833647,1.2803158198796858,1.9588384338198386,0.8301510075504478,2.899752661489782,1.010875409264361,2.8376794224911235,2.2811212675785226,2.969488747816077,3.26119535353824,4.156974350237887,2.7773632437402878,0.21774631395035327,-0.2314075510472351,1.4338019675863198,1.0742604658993002,2.5762795657511215,1.987715200348736,1.9497599431992354,1.7361169734219875,0.4366516126965182,1.0848388089270877,1.5682666596644057,1.1398153001589764,1.78940831017343,3.3321461662005656,1.1092216564500554,5.1238819706127,2.551938446162888,2.6763360294701837,0.18981163550725288,2.9788142490017173,1.7028665433549521,2.835468828147563,5.325366101419558,2.6173991137775516,3.8627323397878772,2.010282588376314,2.67847052300524,4.484259649137711,1.1360261209343898,4.090952927589655,3.4212109489576767,1.9290331298810424,2.910912108648247,3.251058819219456,2.4303337473826763,0.19276845883170068,1.9863218376773328,1.811101909730494,0.9737359865884202,3.385953660701441,2.669200906708564,0.7232761865718973,2.1431910297281203,1.6587551609722895,2.322783626653197,3.5722806313299316,3.1124265241416302,1.507349494916903,2.208338658134079,0.8305389722593186,2.4882387644145845,2.6991875929384213,2.330199382477372,-0.22857916013184298,-0.032887124719795935,3.766611866835105,1.7234380248655021,3.3949597108748257,1.7913115548526182,2.7432151529979465,3.2167881755687238,0.5321246874710925,2.154741322222982,1.3007178900171146,2.0570036783429946,1.4538210552535178,2.2807543169157114,2.234710391838724,3.018749304295678,1.870674260931259,2.091632725431367,0.6084383574142915,3.5055984296357314,1.2447241922000412,3.797126102619398,0.27743280568518514,2.030043444591416,3.381130701398747,2.847565552426187,3.1241009203473498,1.9742114556749377,3.687851809778306,4.79039802939456,1.4456852247258207,1.6131180238812268,3.261908262283181,4.344853708881475,2.1905989863489332,1.3883369680696225,1.996719760732219,1.147049394741033,1.7948070670180032,1.4873591390232421,1.0407262200613514,2.4568150183885287,2.9994962956872837,4.2639595063162785,1.7669275224119718,2.7928461836420637,2.5512927189252537,2.229040659940293,2.4833432773320836,0.6858017636031812,2.1909335313495304,2.2250727534950547,2.983951169783459,2.347789189189817,4.513920685192893,1.6407643853414102,2.1824620585003838,1.8683593793505455,2.209804443990508,1.1256060514156394,2.9975403162730316,4.185785811140618,1.2377774914160036,1.4461487964884974,2.279939341551884,1.5063975010010273,3.1244317235308205,1.9659161995734569,-0.4675746993087655,3.3560289864955415,4.561159236246285,1.4458318547976123,0.6604678557524823,2.048858569447062,1.3826262056754914,2.717164817954829,4.50170444454166,2.3145526782812604,1.9151617689637477,1.1121806777607828,1.9825289735602825,1.0150424428146694,4.073062233110514,2.2476702641145914,2.9890695147896613,1.0317465196157143,2.9969170586135636,4.3354562110391015,1.9606311328549895,2.2758421206325408,3.8094424402198346,3.3953505031285127,4.12521169532876,2.6425487306079622,1.4492316943784203,3.355936393843072,3.822162594085109,2.5834753599195213,3.2207330446094993,2.875198474754634,2.9778193756111526,4.095618004539729,2.7073304328716414,0.8810513353716121,1.9552374715988026,3.9199679800105582,1.9483458921635268,3.0821323223751027,1.8851655572653654,1.076914238623284,3.041445041329456,2.249719613301902,2.537936453931459,0.40313703774223786,1.7944229817156871,1.6936535968295419,3.2114241389939266,1.4552149437691564,2.984431890814702,1.2975530993992217,4.290912293265675,1.667697646335205,2.7705214315456494,1.6560659254050056,2.9000681366585597,2.3188479486002347,2.4725943624910336,3.8389133130105346,1.4649846063642498,1.1811390898353424,1.791379090836137,2.9580398076469994,0.2853368803817051,0.4892475684168781,2.1857356602300007,4.278983042736542,2.2127541085197384,1.5034210185888002,4.3726569752159,1.3172676627345188,0.07969841297264413,1.488183865741799,1.3064695608128687,1.7440487460200496,2.516880232464833,2.0067938924933557,1.2444451544287514,0.4826887800512627,3.585916341782346,3.4154827411094235,2.66610569937138,3.9052575413296644,-0.021915350637686126,0.23746800779741828,1.366712475400754,1.762937768809982,2.0518632344881715,1.8173844874256686,3.1173369596650597,0.5569843609750358,3.9352645098485697,2.6313078351096326,3.830754845090329,2.834225252153014,2.5153737644357825,3.061267186007514,2.210701738739472,2.405715938589701,3.38777307541443,2.68802107547678,2.4719969363106693,2.6755458688635363,3.931617121224783,2.0888892610914933,3.5639336116329727,2.673301062857858,0.33221807660410896,2.893385978061552,1.5974527121178452,1.8888129646771905,1.155899805863089,2.0453164725605304,0.3889636386471951,1.3106868594730803,0.28957968687324476,0.47471772179627525,2.5234078348664544,3.4992591721530335,1.4736269774734312,0.7960170355929441,2.717570207008783,2.05501800619143,1.5550943243096587,4.216857315269352,3.5908213040778727,0.8272052418588025,1.789879017716688,1.256552223636019,0.44976503735101936,1.561346402644883,1.1265395371676812,1.4898798958803945,1.4818928858362022,4.562968090000285,1.6890122769554763,1.4874415554992018,3.28604179485836,4.112814450088203,2.687626861634926,2.824911933070937,1.161587007459906,2.5067470987790696,3.106944398923951,2.6581863987498893,1.6833412173704358,2.858076500484815,0.5129342041278985,4.082675628785088,2.0061233898578794,3.8837846577907453,1.5893165515031582,3.544487588330729,2.689410689237958,1.4072025416675502,2.0076140717209885,1.4426458705278369,2.1871591251240736,1.5710049037239662,1.917799901836731,2.4671453135143273,4.633770264387174,4.492824733251474,2.244847454839512,2.096624023450199,1.1682007424067278,3.1050178785057265,1.4687073405769044,2.021127832169381,-0.620414658189123,2.8907230283805894,1.6953653553912074,1.3253373228661058,3.8524911328827587,-0.1775962473138748,0.5942456650721784,2.2830723638419705,2.810091481334312,3.9624320610505945,1.819620106723786,2.8416740121534527,1.0096609461877593,2.1058770696519065,2.942280482768671,2.710943423695418,0.9151077487910606,3.2850641348913756,3.6585957237401776,0.422606714178937,2.158796712159566,2.257023365004896,1.3088431815123736,2.2149764093053426,2.04183564556415,1.7829697141740346,2.935722197981522,2.8221045241871585,1.437909453079374,3.050203080241071,-0.08326105747931267,3.207386245654102,0.06881000638738022,2.129058964372178,0.6433232840960132,0.5138423094445741,2.9693505725439993,1.3408225838535885,3.059962895232917,1.7616032062862959,2.7555451968158478,2.1354424363422537,1.4822893389621932,2.0444362351356062,1.3147672020041674,0.20641128006240606,1.3804086241995672,3.263752969356468,3.128726111706219,1.4143410443142979,2.1422422014568814,0.7265343644710838,4.1353685288428395,2.1449286309537103,2.1930348259132266,3.0889039993138407,1.2869585747149799,1.5494816393447768,1.566643329637179,1.9870192858679345,2.454277669265468,3.2191294494122897,2.3304502554000255,2.791260622497578,2.1977877894841438,2.5701350960914007,-0.9500312688436412,2.724851459867961,2.4051090211799915,3.763291673010415,-0.4047554724183793,4.579874610556038,2.625691934995589,3.821641830239718,1.4515939786497791,2.375767083784727,-0.0052461474851897005,1.4348515845861933,4.679312917017549,1.5723107779588106,2.9827144363304856,2.9286882759707527,2.7741862575653307]
+"y":[3.9429270011568374,2.8076853265347332,2.027137732109525,2.3271814374090525,2.064557668831625,2.0595970063058813,1.4421807258072794,1.940341786251475,1.8192275107690357,3.2965572095807785,0.734373934843481,1.4232595812147761,2.898502189843251,2.532054010306119,2.813859877725721,1.9735302700788413,2.7744347120550596,1.292485689187734,2.265544618867292,1.0632296048310712,3.9299851213901276,1.1981273793124227,0.3786727371028067,1.8683542190205724,3.1996129391775985,2.3911408351684016,2.132644992405945,1.4478571453872306,2.4347066317822885,2.2797383095308446,0.8741464551962386,2.107542123849857,1.3385971434046502,-0.203293840481237,2.23642116671994,1.131737609102714,3.097589050499979,3.350848403441773,2.7331518096942404,1.580452786379756,1.7213751084404942,1.6349188293646995,1.1856567979029282,1.9010814217534273,3.1094000452400636,1.9594505413496512,2.709086574914738,4.170187107005086,2.8461052395155186,3.356577110071318,3.3275921857136206,2.55364491608654,1.9644837981535999,2.7992738856837693,2.73512429255134,2.013671701046508,2.2142502349325084,2.3734904777376706,3.1915349241382245,2.3044555868997683,3.8935737738547394,1.8701006311144588,2.2175053975352395,2.058834192230573,4.827251127220181,0.39587164854016677,1.9469596427211981,1.2760995410481988,0.6627857605921674,2.4291103662916154,0.44503727234162027,1.354563720371526,2.2172481622693803,3.0803407731112045,2.2956085990006114,0.6272662782329151,1.8882668135536163,3.27860065640848,1.3172149869818661,4.618140250756328,3.816888314723795,2.3175058327972695,-0.3679497682763162,3.5436124348389786,2.5229083487498905,2.9782076283166448,1.3604377291780092,1.276117163538448,2.7919251846201574,1.2511505276600603,1.7396745891943222,3.409531417249473,0.13654950451272385,2.812485902951083,3.075161019684275,3.469304222031125,1.915784811984208,1.662039393064105,1.420751217236754,2.62286158271307,2.9697622059821,0.4556833973387646,2.755321909417841,2.902356119194833,2.3834671179591447,1.271688415305427,5.015613312854363,4.542022327345179,2.705901239493303,3.609019144956864,2.835116010258713,4.006079751534857,1.2248166000934613,3.6409168479708156,3.695872680852096,1.02794199847886,0.6922336738264458,0.9156332102122757,1.920333226229008,2.0627270166105234,3.692097112769594,1.4192795412343364,2.83278547946661,1.257346735787617,-0.35819767854059337,2.134192361776947,1.5882353828346254,1.8427974383981278,0.7192393848620977,2.697561445389186,1.482211984397121,2.0148573096446,2.242090432589069,0.40530497448720604,2.123581276665815,0.2859712389256097,1.812813089219049,2.830634506993459,1.6517221476669646,2.3795387020100653,1.659482442301125,1.0826193542298768,2.6796511249474166,1.1544977382541917,1.6360907553263837,1.4395703014136598,3.705116449259572,1.7756548683149116,1.1757666784996355,2.4037199714077877,1.6280632666523531,1.51942171680996,2.489658886535646,2.4978990263904883,0.8146836132040338,0.6283516932506382,2.3623964968508644,-1.0977512308402666,0.3603011242936687,4.153555752346499,4.2824159075037915,1.6264561469358427,2.766297023729332,3.0979316394455103,4.2830507423505555,2.995067097926798,2.061822469192799,1.6819077534020825,1.0310018737449358,3.1583290238395993,1.4333893153892623,-0.07706894878311288,1.0938184321006563,1.7051334812875794,3.8768816957461305,3.836505144921827,1.7324186750265655,3.220335455233209,1.9528604941398393,0.8791071150149193,2.8683088380842188,3.176358237687167,1.91761923364592,1.5500526382595747,0.9998739331074638,-0.037614970149774773,2.1303474814269596,4.546864834472639,1.238880620183367,3.5178346246629473,1.9868056248806814,1.253265932578487,1.2830982622533518,1.7734574243226922,2.685969821947335,0.37321981748428046,1.474626759675157,2.7364433754528372,1.1062367139481515,0.8328276543015851,2.0606768634341757,2.945131286499322,3.138365381626889,0.8979369416936699,2.8860137903312,2.0965718841863503,0.520334779552194,3.3300416772819093,2.2922416290265297,1.9157834294077207,1.8741890374599914,0.8325660933379893,-0.2823576770686014,2.6855331406638903,2.0001138180646647,0.4408681357101527,3.4252739436793482,-0.3163353014543986,2.1236602620262492,1.4264319942400516,1.088555208541024,1.787789987659597,2.094452022688424,2.402125940672149,2.2104627431097588,0.6272780643721695,2.180876872879703,1.8251585333147582,2.4052963644075036,2.7867533814724617,0.483220887845087,1.9897862294314974,3.3637536120825144,2.5836360988589817,3.157827358273283,2.182696298186154,3.041455175445276,2.799188152580297,2.9081733780029904,2.4441609039747787,1.5417725959705204,2.225571227880041,2.299075260829481,1.4429339986726,3.0319003363808052,2.5338809071521133,2.165267043388634,3.95089298513766,2.746616889923913,1.414367784175342,4.156079310136321,1.4674168134706695,0.7485569497241205,0.3370984498971572,0.004700265466365261,1.3888778323018744,2.65586657319206,4.631302700247659,2.5166674344377284,1.5212907875343187,2.70489776767571,0.7437300789644912,1.5807993189231273,2.6463573803791878,0.26180507056334146,2.3479239771022473,3.1251778923963887,1.7744521467727645,3.2702300601087932,4.0110841741475785,3.1367316430308714,2.437960646973902,1.7303791611333217,1.339895691208774,2.7058280030364665,1.930597658993107,1.9470584237116133,2.4772079412072596,2.3544720122386127,1.5378320391822666,3.8242214291598735,2.2766650860472275,2.684990452679005,1.6586844782202008,0.7598766738192066,2.117691809388035,2.6324808031375726,0.42301943663693586,2.7450981065978812,3.5453779194785167,2.288927089715922,3.617187128901249,1.101702987388648,-0.0404847694160988,-0.5745503150089604,4.282725796391158,3.609231044326434,2.581863523092053,1.6251533871343815,1.0642510133751892,4.3212441661090475,2.0047133684674483,1.849786110948076,3.6806320118710683,1.6851791656320314,1.5690687850936926,1.9962070294566625,1.675638291031314,4.071764557148599,4.300285434127354,3.7829266873129628,2.126232517571323,1.7970766646433933,2.51166127390286,1.7961162286318777,3.2839315791445145,0.047926686628363635,3.4050425059528346,2.479440295423519,2.527984318024956,1.1776356854133982,-0.30967191105120806,3.609852068863889,1.2774879010837221,1.6649044882313224,1.6597866159087602,1.4046066170530547,4.3064697192919015,1.930148709309961,0.6865971075554596,1.6297491224062766,1.6027686167445505,0.08979484196040266,1.6860964498253708,2.7239308577636985,2.885946425486984,3.1941408557599065,2.8669563458909404,2.5177927943471436,1.680155576160304,4.313751119593043,2.8458999189164627,1.7543206082561291,1.1800448467853148,1.9384760771110379,2.493087782078566,1.1667293094629467,2.239822543661582,2.1569867904575672,2.0940234228687435,2.0738357022248097,1.9819224141841179,1.6205149690713656,3.693733049256254,-0.46122974771944625,3.72895504592497,2.450255126392947,0.11634982826541629,1.532804592411872,1.3689504503473915,1.379169790184153,1.0976754989013457,0.7649163410263922,2.956440377318941,3.5731265871499693,3.909003288996667,3.6765374520156113,0.07511816267808902,1.2158710500634093,3.1268227552304264,1.564553676010029,2.902738490845954,0.9638445357371832,1.8149192531239682,2.5864521546957127,3.2309447963880142,2.4257153190828946,3.034821989856469,0.12310660629542092,2.491427793436485,2.7828413186419496,2.645318948658386,3.1128145071440922,0.09407118442925833,2.2692117800214624,2.0048379242305767,1.2176682958241436,3.686457419839398,1.1711484959494616,0.4670308901286613,0.18376214281927927,2.3464012676888224,0.9093107081772827,3.94453424265793,-0.34153809154053905,4.483137853192012,2.400757527876184,2.858152276101984,1.644820973864616,2.2746283008442916,2.1521053582487175,3.8899833669184956,1.8546189650052227,2.0257939479540985,1.8261278484597099,2.729735861180907,3.2626671568644356,0.4795716680169402,1.4384960627962613,3.698129481995091,1.911256754471125,2.0057567243208867,2.9732993210377696,2.223073891853892,1.2006316360338216,1.0971874610899084,1.5410300159122428,0.22579715628028618,2.5979928163880377,1.252281783734536,2.233325571220962,1.6767674163083612,3.210895122286252,2.723082300288697,3.8552145051361424,2.3595548258326917,0.03461795516057564,1.5071045181662728,1.250673608796542,2.812772535112808,2.393151206961344,2.229121574818911,1.5319515252916396,1.4343571283202432,2.175163681910026,0.7830789638253435,1.2665068145626615,0.8380554550572321,1.6615749410251754,2.7940331129510225,0.9260932976602779,4.8221221255109565,2.3688100873731104,2.37457618436844,1.9283237047207606,2.4407011957521743,1.164753490105409,3.076875202617738,5.197532732271303,2.8588054882477265,4.1041387142580525,2.251688962846489,2.919876897475415,4.725666023607886,0.7182177030267939,3.552839874340112,3.6626173234278516,1.6272732847792981,2.372799055398704,2.7129457659699128,1.8259798961125147,-0.22503995907589514,2.2277282121475075,1.6279735509407163,2.712248055801928,3.2581202915531864,2.3674410616068196,0.5401478277821197,1.7253826118205244,3.3972672301857973,1.9049752087456011,3.2705207862281878,2.574313470892087,3.245861564130411,1.670225604884536,0.5287791271575744,2.3051104056248066,2.397427747836677,2.1470710236875945,1.5099329090816649,1.705624944493712,4.00801824130528,1.3056296069579063,3.6363660853450006,1.3735031369450224,2.9846215274681214,2.6786751223191807,2.2706367566846004,1.9716129634332042,0.8829094721095188,1.75524383324125,1.036012637345922,2.097625958125934,2.476116766308899,2.600940886388082,1.7428408917830045,1.553519672181824,2.3469504266277994,3.322470070845954,2.983236261413549,3.669292733471143,-0.14037561222241068,1.6122350266838201,3.079370856297003,2.7197321832779324,2.9409725615575724,1.6724516105731935,3.149738756528763,4.488638184292816,0.8413313734556591,1.4299896650914492,2.6575544110130194,4.217020339733221,2.432005360819108,0.783983116799461,1.4586067074826758,0.8452895496392887,2.036213441488178,1.1855992939214979,0.4363723687911898,2.1550551732867844,2.871662926539029,4.505365880786453,1.6390941532637173,2.188492332371902,2.423459349776999,1.6909276066907502,1.878989426061922,0.08144791233301962,1.5865796800793688,2.041944394705277,2.682191324681715,2.164660830400039,4.330792326403115,1.1026513320918672,2.4238684329705587,1.5665995342488013,2.0819710748422535,0.7077976335080436,2.39318646500287,4.057952441992363,0.633423640145842,0.9080357432389543,1.6755854902817222,1.3232691422112497,2.8226718784290767,1.548107781665861,1.2709373699047424,2.75167513522538,4.43332586709803,1.2627034960078347,2.39897992496599,1.6310501515394662,3.1211382748889993,2.5340364591650513,4.199944599439915,2.012792833179516,2.1565681434339226,0.8104208326590385,2.2239353480304573,2.753554512028177,3.5349491798609707,2.119836894966337,2.861236145641407,2.7702585888292224,2.392563207343402,3.73110235976894,1.6588712877532452,2.1480087514842863,3.6816090710715805,3.6367568775986876,3.5870986420792166,2.459420371818185,0.8448778431082586,3.2281030246948177,4.063568968555284,2.1656669420119252,3.462139419079674,2.2708446234844724,2.373465524340991,4.337024379009904,2.5242020740818636,2.61956340458512,1.350883620328641,4.161374354480733,1.8205125230152723,3.3235386968452776,1.3470525040158223,2.8154263078367916,2.62363662342186,2.066591254512124,2.2361766088297146,-0.014671380165357961,3.5329350509291952,3.4321656660430495,4.9499362082074345,1.0374065258615603,2.8565985216664473,3.03606516861273,4.532318667735851,1.2498892284276093,2.4687615864439048,3.3945779946185137,3.1414745111287345,2.19101457945198,1.9344813092414905,3.7110799438622806,1.1632247612625055,2.9196511590488505,1.4896192457343926,2.5402313897394038,-0.3190169708884565,2.227759637630386,1.581381808959839,4.520389417206717,1.6746410552701951,1.3202926597990225,4.070897130114156,1.1894342935862643,-0.45841464027689893,3.226695934955307,0.7021157095427071,1.616215376871795,1.9125263811946716,1.5889854745857601,0.6400913031585899,0.06488036214366688,3.827322716252521,3.2876493719611695,2.5382723302231254,3.722129182539887,1.7165967185758217,-0.18034041011017754,1.1835841166109766,1.1585839175398205,1.4475093832180101,1.634256128635891,2.9895035905168053,-0.04736949029512583,3.633504664746825,2.8727142095798075,4.072161219560504,2.5324654070512698,2.3322454056460047,2.7595073409057695,1.7928933208318762,1.9879075206821053,3.204644716624652,2.3862612303750357,2.0541885184030737,2.5477124997152814,3.6298572761230385,1.9610558919432386,3.1461251937253767,2.914707437328033,-0.08559034130348686,2.7655526089132976,1.0593396588683022,3.627325033890698,0.5515459545929273,1.7435566274587861,-0.14914941460234798,0.8928784415654846,0.5309860613434196,0.2915893630064976,2.1055994169588588,3.7406655466232084,3.2121390466869393,0.3782086176853483,2.5897368378605283,1.8718896474016524,1.7965006987798335,4.4582636897395265,3.8322276785480476,2.5657173110723104,1.372070599809092,2.995064292849527,0.1480051922492751,0.9569925513747213,0.5221856858975197,1.1881200507786502,1.0640844679286063,4.435134720852031,3.427524346168984,1.3043131967094241,3.527448169328535,4.354220824558379,2.2698184437273303,2.6970785639226826,0.5572331561897443,1.902393247508908,3.348350773394126,2.2403779808422937,3.4218532865839437,2.2537226492146534,2.2514462733414065,3.954842259636834,1.4017695385877178,3.2794308065205837,1.0512034982536151,2.9401337370605676,2.3876508441362136,1.2240741828777726,1.7058542266192442,1.024837452620241,1.7693507072164776,3.309516972937474,1.6160400567349869,2.165385468412583,4.33201041928543,4.364991364103219,1.6404936035693503,1.9134956646604213,2.9067128116202356,2.8032580334039823,1.1669474954751602,1.4830147789198378,1.1180974110243849,2.588963183278845,3.4338774246047152,0.7209834715959442,3.314378079633216,1.560915821899633,0.41111730628240073,2.099944005052193,2.392283063426716,3.424319007801052,1.281507053474243,2.423865594245857,2.748173015401267,1.5677640164023634,2.759152123978893,2.5278150649056403,0.6133479036893164,2.680710283621214,3.1204826704906345,2.161118783392445,1.7409882942519703,1.8392149470973,3.0473552507258814,2.087143040157088,2.283242020034325,1.178615862903873,2.517913780073926,2.2839914709376155,0.8335556018092123,2.512090026991528,-0.21109442662756717,3.0242578868643246,-0.5355438448827814,1.8272991192704335,0.22551486618841743,-0.09051154182558752,2.3649967212738376,0.7364687325834269,3.301369269703092,1.1572493550161342,2.2174321435663042,1.9523140775524763,1.3544559698139387,3.782948304349114,0.7104133507340058,-0.21139713784518976,0.7760547729294057,2.845944551448872,2.5906130584566758,0.996532626406702,1.840482356355137,2.465046433684592,3.952240170053062,1.7271202130461147,1.775226408005631,2.9057756405240633,3.0254706439284877,0.9451277880746152,1.148834911729583,1.803890927078157,2.152517824163724,2.9173696043105455,1.7923372021504824,2.6081322637078,1.6596747362346007,2.2683752509896564,0.7884808003698667,2.1204976085977996,2.2219806623902136,3.6354583038621606,-0.7065153175201235,4.278114765454293,2.4978585658473347,4.063048204709893,1.1498341335480349,1.9579586658771309,1.7332659217283182,1.251723225796416,4.551479547869294,1.1545023600512148,2.854881067182231,2.7455599171809753,2.2360732043157876]
 },
 "mapping":{
 "x":"x",
@@ -742,7 +738,7 @@ or a horizontal interval, defined by <cite>y</cite>, <cite>xmin</cite>, <cite>xm
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("nyNtfw");
+           var plotContainer = document.getElementById("sDhIm8");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -792,8 +788,8 @@ or a horizontal interval, defined by <cite>y</cite>, <cite>xmin</cite>, <cite>xm
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -815,7 +811,7 @@ or a horizontal interval, defined by <cite>y</cite>, <cite>xmin</cite>, <cite>xm
   <a class="reference external" href="https://www.sphinx-doc.org/" target="_blank">Sphinx</a>
   7.3.7 and
   <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html" target="_blank">PyData Sphinx Theme</a>
-  0.15.2.
+  0.15.4.
 <p></div>
       
     </div>

@@ -20,32 +20,32 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/thebelab.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=19257b4b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=44498072" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/colors.css?v=32b6ea70" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/dataframe.css?v=1855a575" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../../_static/documentation_options.js?v=9683ad65"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -71,27 +71,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -113,12 +109,17 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
-  </label>
+  </button>
   
   
   <div class="col-lg-3 navbar-header-items__start">
@@ -173,59 +174,59 @@
   <ul class="bd-navbar-elements navbar-nav">
     
       
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../api.html">
-                        API
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../api.html">
+    API
+  </a>
+</li>
+
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../charts.html">
-                        Charts
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../charts.html">
+    Charts
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../maps.html">
-                        Maps
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../geocoding.html">
-                        Geocoding
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../maps.html">
+    Maps
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../gallery.html">
-                        Gallery
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../bistro.html">
-                        'bistro' Plots
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../geocoding.html">
+    Geocoding
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../whats_new.html">
-                        What is New
-                      </a>
-                    </li>
-                
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../gallery.html">
+    Gallery
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../bistro.html">
+    'bistro' Plots
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../whats_new.html">
+    What is New
+  </a>
+</li>
+
                 </ul>
             </li>
             
@@ -243,7 +244,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -257,10 +258,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script></div>
@@ -309,7 +310,7 @@ document.write(`
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -320,9 +321,9 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-    </label>
+    </button>
   
 </div>
 
@@ -343,70 +344,65 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item">
+          
+          
+            <div class="navbar-item">
 <nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
       
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../api.html">
-                        API
-                      </a>
-                    </li>
-                
-            <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
-                    More
-                </button>
-                <ul id="pst-nav-more-links-2" class="dropdown-menu">
-                    
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../charts.html">
-                        Charts
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../api.html">
+    API
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../maps.html">
-                        Maps
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../geocoding.html">
-                        Geocoding
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../charts.html">
+    Charts
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../gallery.html">
-                        Gallery
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../bistro.html">
-                        'bistro' Plots
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../maps.html">
+    Maps
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../whats_new.html">
-                        What is New
-                      </a>
-                    </li>
-                
-                </ul>
-            </li>
-            
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../geocoding.html">
+    Geocoding
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../gallery.html">
+    Gallery
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../bistro.html">
+    'bistro' Plots
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../whats_new.html">
+    What is New
+  </a>
+</li>
+
     
   </ul>
 </nav></div>
+          
         
       </div>
     
@@ -418,10 +414,10 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script></div>
@@ -474,13 +470,13 @@ document.write(`
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article"></div>
+              <div class="bd-header-article d-print-none"></div>
               
               
               
@@ -542,7 +538,7 @@ If it is of <cite>Geocoder</cite> type then it must contain only one object.</p>
 </pre></div>
 </div>
 <div class="output text_html">
-<div id="ZYUA5E"></div>
+<div id="D5vVOU"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -566,9 +562,9 @@ If it is of <cite>Geocoder</cite> type then it must contain only one object.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("ZYUA5E").appendChild(div);
+            document.getElementById("D5vVOU").appendChild(div);
         };
-        var e = document.getElementById("ZYUA5E");
+        var e = document.getElementById("D5vVOU");
         e.appendChild(script);
     })()
 </script>
@@ -604,7 +600,7 @@ If it is of <cite>Geocoder</cite> type then it must contain only one object.</p>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html">   <div id="LcMjMT"></div>
+</div></div><div class="output text_html">   <div id="cKUkHR"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -632,7 +628,7 @@ If it is of <cite>Geocoder</cite> type then it must contain only one object.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("LcMjMT");
+           var plotContainer = document.getElementById("cKUkHR");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -762,7 +758,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="yX2gj2"></div>
+<div id="JlH9mK"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -786,9 +782,9 @@ as the number of names of <cite>Geocoder</cite>.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("yX2gj2").appendChild(div);
+            document.getElementById("JlH9mK").appendChild(div);
         };
-        var e = document.getElementById("yX2gj2");
+        var e = document.getElementById("JlH9mK");
         e.appendChild(script);
     })()
 </script>
@@ -833,7 +829,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html">   <div id="00vsDP"></div>
+</div></div><div class="output text_html">   <div id="CYGBhT"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -877,7 +873,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("00vsDP");
+           var plotContainer = document.getElementById("CYGBhT");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -926,7 +922,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="Ndp59J"></div>
+<div id="uIQC3f"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -950,9 +946,9 @@ as the number of names of <cite>Geocoder</cite>.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("Ndp59J").appendChild(div);
+            document.getElementById("uIQC3f").appendChild(div);
         };
-        var e = document.getElementById("Ndp59J");
+        var e = document.getElementById("uIQC3f");
         e.appendChild(script);
     })()
 </script>
@@ -997,7 +993,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html">   <div id="tsAEK4"></div>
+</div></div><div class="output text_html">   <div id="Trzu1g"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -1041,7 +1037,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("tsAEK4");
+           var plotContainer = document.getElementById("Trzu1g");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -1091,7 +1087,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="DnZOYQ"></div>
+<div id="rkthAZ"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -1115,9 +1111,9 @@ as the number of names of <cite>Geocoder</cite>.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("DnZOYQ").appendChild(div);
+            document.getElementById("rkthAZ").appendChild(div);
         };
-        var e = document.getElementById("DnZOYQ");
+        var e = document.getElementById("rkthAZ");
         e.appendChild(script);
     })()
 </script>
@@ -1162,7 +1158,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html">   <div id="1URph1"></div>
+</div></div><div class="output text_html">   <div id="MA5z2u"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -1206,7 +1202,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("1URph1");
+           var plotContainer = document.getElementById("MA5z2u");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -1243,7 +1239,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="2NMZaa"></div>
+<div id="8UTr0I"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -1267,9 +1263,9 @@ as the number of names of <cite>Geocoder</cite>.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("2NMZaa").appendChild(div);
+            document.getElementById("8UTr0I").appendChild(div);
         };
-        var e = document.getElementById("2NMZaa");
+        var e = document.getElementById("8UTr0I");
         e.appendChild(script);
     })()
 </script>
@@ -1311,7 +1307,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html">   <div id="BDfSSY"></div>
+</div></div><div class="output text_html">   <div id="MUo2Eh"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -1339,7 +1335,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("BDfSSY");
+           var plotContainer = document.getElementById("MUo2Eh");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -1376,7 +1372,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="7Vh7z0"></div>
+<div id="eIVxLi"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -1400,9 +1396,9 @@ as the number of names of <cite>Geocoder</cite>.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("7Vh7z0").appendChild(div);
+            document.getElementById("eIVxLi").appendChild(div);
         };
-        var e = document.getElementById("7Vh7z0");
+        var e = document.getElementById("eIVxLi");
         e.appendChild(script);
     })()
 </script>
@@ -1444,7 +1440,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html">   <div id="CqOAQa"></div>
+</div></div><div class="output text_html">   <div id="ARcWTf"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -1488,7 +1484,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("CqOAQa");
+           var plotContainer = document.getElementById("ARcWTf");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -1525,7 +1521,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="vhjxKH"></div>
+<div id="OyZL52"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -1549,9 +1545,9 @@ as the number of names of <cite>Geocoder</cite>.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("vhjxKH").appendChild(div);
+            document.getElementById("OyZL52").appendChild(div);
         };
-        var e = document.getElementById("vhjxKH");
+        var e = document.getElementById("OyZL52");
         e.appendChild(script);
     })()
 </script>
@@ -1599,7 +1595,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html">   <div id="TuXfr6"></div>
+</div></div><div class="output text_html">   <div id="y7HPEM"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -1643,7 +1639,7 @@ as the number of names of <cite>Geocoder</cite>.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("TuXfr6");
+           var plotContainer = document.getElementById("y7HPEM");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -1703,7 +1699,7 @@ geoobject centroid should fall into bbox of the polygon.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="074re3"></div>
+<div id="jffmNY"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -1727,9 +1723,9 @@ geoobject centroid should fall into bbox of the polygon.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("074re3").appendChild(div);
+            document.getElementById("jffmNY").appendChild(div);
         };
-        var e = document.getElementById("074re3");
+        var e = document.getElementById("jffmNY");
         e.appendChild(script);
     })()
 </script>
@@ -1767,7 +1763,7 @@ geoobject centroid should fall into bbox of the polygon.</p>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html">   <div id="hmvPLa"></div>
+</div></div><div class="output text_html">   <div id="gYC01L"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -1811,7 +1807,7 @@ geoobject centroid should fall into bbox of the polygon.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("hmvPLa");
+           var plotContainer = document.getElementById("gYC01L");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -1837,7 +1833,7 @@ geoobject centroid should fall into bbox of the polygon.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="Mr1Vfm"></div>
+<div id="62zaLB"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -1861,9 +1857,9 @@ geoobject centroid should fall into bbox of the polygon.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("Mr1Vfm").appendChild(div);
+            document.getElementById("62zaLB").appendChild(div);
         };
-        var e = document.getElementById("Mr1Vfm");
+        var e = document.getElementById("62zaLB");
         e.appendChild(script);
     })()
 </script>
@@ -1899,7 +1895,7 @@ geoobject centroid should fall into bbox of the polygon.</p>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html">   <div id="e4O9TP"></div>
+</div></div><div class="output text_html">   <div id="biw0XC"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -1943,7 +1939,7 @@ geoobject centroid should fall into bbox of the polygon.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("e4O9TP");
+           var plotContainer = document.getElementById("biw0XC");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -2022,7 +2018,7 @@ Use explicit resolution or <cite>inc_res()</cite> function for better quality.</
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="ffUvw7"></div>
+<div id="0mjXJx"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -2046,9 +2042,9 @@ Use explicit resolution or <cite>inc_res()</cite> function for better quality.</
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("ffUvw7").appendChild(div);
+            document.getElementById("0mjXJx").appendChild(div);
         };
-        var e = document.getElementById("ffUvw7");
+        var e = document.getElementById("0mjXJx");
         e.appendChild(script);
     })()
 </script>
@@ -2090,7 +2086,7 @@ Use explicit resolution or <cite>inc_res()</cite> function for better quality.</
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html">   <div id="5YhlLj"></div>
+</div></div><div class="output text_html">   <div id="YFEWCe"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -2118,7 +2114,7 @@ Use explicit resolution or <cite>inc_res()</cite> function for better quality.</
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("5YhlLj");
+           var plotContainer = document.getElementById("YFEWCe");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -2154,7 +2150,7 @@ Use explicit resolution or <cite>inc_res()</cite> function for better quality.</
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="EmlbkE"></div>
+<div id="2fmAav"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -2178,9 +2174,9 @@ Use explicit resolution or <cite>inc_res()</cite> function for better quality.</
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("EmlbkE").appendChild(div);
+            document.getElementById("2fmAav").appendChild(div);
         };
-        var e = document.getElementById("EmlbkE");
+        var e = document.getElementById("2fmAav");
         e.appendChild(script);
     })()
 </script>
@@ -2222,7 +2218,7 @@ Use explicit resolution or <cite>inc_res()</cite> function for better quality.</
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html">   <div id="4ZNdrj"></div>
+</div></div><div class="output text_html">   <div id="M1CxkP"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -2250,7 +2246,7 @@ Use explicit resolution or <cite>inc_res()</cite> function for better quality.</
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("4ZNdrj");
+           var plotContainer = document.getElementById("M1CxkP");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -2360,7 +2356,7 @@ and stored as two rows.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="qTFJPH"></div>
+<div id="auGb0F"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -2384,9 +2380,9 @@ and stored as two rows.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("qTFJPH").appendChild(div);
+            document.getElementById("auGb0F").appendChild(div);
         };
-        var e = document.getElementById("qTFJPH");
+        var e = document.getElementById("auGb0F");
         e.appendChild(script);
     })()
 </script>
@@ -2428,7 +2424,7 @@ and stored as two rows.</p>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html">   <div id="VWXHCA"></div>
+</div></div><div class="output text_html">   <div id="aCHiwP"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -2456,7 +2452,7 @@ and stored as two rows.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("VWXHCA");
+           var plotContainer = document.getElementById("aCHiwP");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -2498,7 +2494,7 @@ and stored as two rows.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="YUrgJc"></div>
+<div id="LrwEiV"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -2522,9 +2518,9 @@ and stored as two rows.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("YUrgJc").appendChild(div);
+            document.getElementById("LrwEiV").appendChild(div);
         };
-        var e = document.getElementById("YUrgJc");
+        var e = document.getElementById("LrwEiV");
         e.appendChild(script);
     })()
 </script>
@@ -2566,7 +2562,7 @@ and stored as two rows.</p>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html">   <div id="1Edvad"></div>
+</div></div><div class="output text_html">   <div id="LJvsIH"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -2594,7 +2590,7 @@ and stored as two rows.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("1Edvad");
+           var plotContainer = document.getElementById("LJvsIH");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -2663,8 +2659,8 @@ and stored as two rows.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -2686,7 +2682,7 @@ and stored as two rows.</p>
   <a class="reference external" href="https://www.sphinx-doc.org/" target="_blank">Sphinx</a>
   7.3.7 and
   <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html" target="_blank">PyData Sphinx Theme</a>
-  0.15.2.
+  0.15.4.
 <p></div>
       
     </div>

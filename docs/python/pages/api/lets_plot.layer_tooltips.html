@@ -20,32 +20,32 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/thebelab.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=19257b4b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=44498072" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/colors.css?v=32b6ea70" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/dataframe.css?v=1855a575" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../../_static/documentation_options.js?v=9683ad65"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
@@ -71,27 +71,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -113,12 +109,17 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
-  </label>
+  </button>
   
   
   <div class="col-lg-3 navbar-header-items__start">
@@ -173,59 +174,59 @@
   <ul class="bd-navbar-elements navbar-nav">
     
       
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../api.html">
-                        API
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../api.html">
+    API
+  </a>
+</li>
+
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../charts.html">
-                        Charts
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../charts.html">
+    Charts
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../maps.html">
-                        Maps
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../geocoding.html">
-                        Geocoding
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../maps.html">
+    Maps
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../gallery.html">
-                        Gallery
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../bistro.html">
-                        'bistro' Plots
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../geocoding.html">
+    Geocoding
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../whats_new.html">
-                        What is New
-                      </a>
-                    </li>
-                
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../gallery.html">
+    Gallery
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../bistro.html">
+    'bistro' Plots
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../whats_new.html">
+    What is New
+  </a>
+</li>
+
                 </ul>
             </li>
             
@@ -243,7 +244,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -257,10 +258,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script></div>
@@ -309,7 +310,7 @@ document.write(`
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -320,9 +321,9 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-    </label>
+    </button>
   
 </div>
 
@@ -343,70 +344,65 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item">
+          
+          
+            <div class="navbar-item">
 <nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
       
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../api.html">
-                        API
-                      </a>
-                    </li>
-                
-            <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
-                    More
-                </button>
-                <ul id="pst-nav-more-links-2" class="dropdown-menu">
-                    
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../charts.html">
-                        Charts
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../api.html">
+    API
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../maps.html">
-                        Maps
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../geocoding.html">
-                        Geocoding
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../charts.html">
+    Charts
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../gallery.html">
-                        Gallery
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../bistro.html">
-                        'bistro' Plots
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../maps.html">
+    Maps
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="../whats_new.html">
-                        What is New
-                      </a>
-                    </li>
-                
-                </ul>
-            </li>
-            
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../geocoding.html">
+    Geocoding
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../gallery.html">
+    Gallery
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../bistro.html">
+    'bistro' Plots
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../whats_new.html">
+    What is New
+  </a>
+</li>
+
     
   </ul>
 </nav></div>
+          
         
       </div>
     
@@ -418,10 +414,10 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script></div>
@@ -474,13 +470,13 @@ document.write(`
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article"></div>
+              <div class="bd-header-article d-print-none"></div>
               
               
               
@@ -524,7 +520,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="CtHCDC"></div>
+<div id="6jlBFr"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -548,13 +544,13 @@ document.write(`
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("CtHCDC").appendChild(div);
+            document.getElementById("6jlBFr").appendChild(div);
         };
-        var e = document.getElementById("CtHCDC");
+        var e = document.getElementById("6jlBFr");
         e.appendChild(script);
     })()
 </script>
-</div><div class="output text_html">   <div id="yKN8qE"></div>
+</div><div class="output text_html">   <div id="ArioGP"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -596,7 +592,7 @@ document.write(`
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("yKN8qE");
+           var plotContainer = document.getElementById("ArioGP");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -625,7 +621,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="zFvixG"></div>
+<div id="fPJ2Ln"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -649,13 +645,13 @@ document.write(`
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("zFvixG").appendChild(div);
+            document.getElementById("fPJ2Ln").appendChild(div);
         };
-        var e = document.getElementById("zFvixG");
+        var e = document.getElementById("fPJ2Ln");
         e.appendChild(script);
     })()
 </script>
-</div><div class="output text_html">   <div id="wXwPpb"></div>
+</div><div class="output text_html">   <div id="xmo360"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -685,7 +681,7 @@ document.write(`
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("wXwPpb");
+           var plotContainer = document.getElementById("xmo360");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -732,7 +728,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="18FwwM"></div>
+<div id="7R0bMm"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -756,9 +752,9 @@ document.write(`
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("18FwwM").appendChild(div);
+            document.getElementById("7R0bMm").appendChild(div);
         };
-        var e = document.getElementById("18FwwM");
+        var e = document.getElementById("7R0bMm");
         e.appendChild(script);
     })()
 </script>
@@ -847,7 +843,7 @@ will not be applied to aes, mapped to this variable.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="gsUcmI"></div>
+<div id="49RkjO"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -871,13 +867,13 @@ will not be applied to aes, mapped to this variable.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("gsUcmI").appendChild(div);
+            document.getElementById("49RkjO").appendChild(div);
         };
-        var e = document.getElementById("gsUcmI");
+        var e = document.getElementById("49RkjO");
         e.appendChild(script);
     })()
 </script>
-</div><div class="output text_html">   <div id="W1ZFzb"></div>
+</div><div class="output text_html">   <div id="lCICe0"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -933,7 +929,7 @@ will not be applied to aes, mapped to this variable.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("W1ZFzb");
+           var plotContainer = document.getElementById("lCICe0");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -963,7 +959,7 @@ will not be applied to aes, mapped to this variable.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="2Vgi63"></div>
+<div id="5GpMoY"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -987,13 +983,13 @@ will not be applied to aes, mapped to this variable.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("2Vgi63").appendChild(div);
+            document.getElementById("5GpMoY").appendChild(div);
         };
-        var e = document.getElementById("2Vgi63");
+        var e = document.getElementById("5GpMoY");
         e.appendChild(script);
     })()
 </script>
-</div><div class="output text_html">   <div id="mdQkl3"></div>
+</div><div class="output text_html">   <div id="oH7N7f"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -1053,7 +1049,7 @@ will not be applied to aes, mapped to this variable.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("mdQkl3");
+           var plotContainer = document.getElementById("oH7N7f");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -1127,7 +1123,7 @@ If a label is not specified, the string will be centered in the tooltip.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="TTYlFJ"></div>
+<div id="oQUdL7"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -1151,13 +1147,13 @@ If a label is not specified, the string will be centered in the tooltip.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("TTYlFJ").appendChild(div);
+            document.getElementById("oQUdL7").appendChild(div);
         };
-        var e = document.getElementById("TTYlFJ");
+        var e = document.getElementById("oQUdL7");
         e.appendChild(script);
     })()
 </script>
-</div><div class="output text_html">   <div id="uR74pw"></div>
+</div><div class="output text_html">   <div id="oOEK5b"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -1194,7 +1190,7 @@ If a label is not specified, the string will be centered in the tooltip.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("uR74pw");
+           var plotContainer = document.getElementById("oOEK5b");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -1232,7 +1228,7 @@ If a label is not specified, the string will be centered in the tooltip.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="h2m3IF"></div>
+<div id="OlWGBq"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -1256,13 +1252,13 @@ If a label is not specified, the string will be centered in the tooltip.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("h2m3IF").appendChild(div);
+            document.getElementById("OlWGBq").appendChild(div);
         };
-        var e = document.getElementById("h2m3IF");
+        var e = document.getElementById("OlWGBq");
         e.appendChild(script);
     })()
 </script>
-</div><div class="output text_html">   <div id="26Zlpk"></div>
+</div><div class="output text_html">   <div id="PxB6RV"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -1309,7 +1305,7 @@ If a label is not specified, the string will be centered in the tooltip.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("26Zlpk");
+           var plotContainer = document.getElementById("PxB6RV");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -1354,7 +1350,7 @@ If a label is not specified, the string will be centered in the tooltip.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="ySY2iD"></div>
+<div id="RNudEc"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -1378,13 +1374,13 @@ If a label is not specified, the string will be centered in the tooltip.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("ySY2iD").appendChild(div);
+            document.getElementById("RNudEc").appendChild(div);
         };
-        var e = document.getElementById("ySY2iD");
+        var e = document.getElementById("RNudEc");
         e.appendChild(script);
     })()
 </script>
-</div><div class="output text_html">   <div id="wERkD7"></div>
+</div><div class="output text_html">   <div id="jsZybY"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -1416,7 +1412,7 @@ If a label is not specified, the string will be centered in the tooltip.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("wERkD7");
+           var plotContainer = document.getElementById("jsZybY");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -1461,7 +1457,7 @@ If a label is not specified, the string will be centered in the tooltip.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="HIcMdn"></div>
+<div id="9n1Ndu"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -1485,13 +1481,13 @@ If a label is not specified, the string will be centered in the tooltip.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("HIcMdn").appendChild(div);
+            document.getElementById("9n1Ndu").appendChild(div);
         };
-        var e = document.getElementById("HIcMdn");
+        var e = document.getElementById("9n1Ndu");
         e.appendChild(script);
     })()
 </script>
-</div><div class="output text_html">   <div id="C3E1TE"></div>
+</div><div class="output text_html">   <div id="7lRUrD"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -1523,7 +1519,7 @@ If a label is not specified, the string will be centered in the tooltip.</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("C3E1TE");
+           var plotContainer = document.getElementById("7lRUrD");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -1589,7 +1585,7 @@ A long title can be split into multiple lines using <cite>\n</cite> as a text se
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="5yD4Tv"></div>
+<div id="nHkfEg"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -1613,13 +1609,13 @@ A long title can be split into multiple lines using <cite>\n</cite> as a text se
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("5yD4Tv").appendChild(div);
+            document.getElementById("nHkfEg").appendChild(div);
         };
-        var e = document.getElementById("5yD4Tv");
+        var e = document.getElementById("nHkfEg");
         e.appendChild(script);
     })()
 </script>
-</div><div class="output text_html">   <div id="6mEbZE"></div>
+</div><div class="output text_html">   <div id="UKRQtI"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -1657,7 +1653,7 @@ A long title can be split into multiple lines using <cite>\n</cite> as a text se
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("6mEbZE");
+           var plotContainer = document.getElementById("UKRQtI");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -1701,7 +1697,7 @@ the general tooltip will get the given lines, and the side tooltips will be hidd
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="Tf8SE6"></div>
+<div id="97cFM8"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -1725,13 +1721,13 @@ the general tooltip will get the given lines, and the side tooltips will be hidd
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("Tf8SE6").appendChild(div);
+            document.getElementById("97cFM8").appendChild(div);
         };
-        var e = document.getElementById("Tf8SE6");
+        var e = document.getElementById("97cFM8");
         e.appendChild(script);
     })()
 </script>
-</div><div class="output text_html">   <div id="rbs0fM"></div>
+</div><div class="output text_html">   <div id="vbFgmk"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -1783,7 +1779,7 @@ the general tooltip will get the given lines, and the side tooltips will be hidd
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("rbs0fM");
+           var plotContainer = document.getElementById("vbFgmk");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -1816,7 +1812,7 @@ the general tooltip will get the given lines, and the side tooltips will be hidd
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="9oRXU3"></div>
+<div id="dyI9ZL"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -1840,14 +1836,14 @@ the general tooltip will get the given lines, and the side tooltips will be hidd
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("9oRXU3").appendChild(div);
+            document.getElementById("dyI9ZL").appendChild(div);
         };
-        var e = document.getElementById("9oRXU3");
+        var e = document.getElementById("dyI9ZL");
         e.appendChild(script);
     })()
 </script>
 </div><div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;data&#39;: {&#39;x&#39;: [0], &#39;y&#39;: [0]},
- &#39;mapping&#39;: &lt;lets_plot.plot.core.FeatureSpec at 0x706b4081b1c0&gt;,
+ &#39;mapping&#39;: &lt;lets_plot.plot.core.FeatureSpec at 0x7b4f381f3ca0&gt;,
  &#39;data_meta&#39;: {}}
 </pre></div>
 </div>
@@ -1910,8 +1906,8 @@ the general tooltip will get the given lines, and the side tooltips will be hidd
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1933,7 +1929,7 @@ the general tooltip will get the given lines, and the side tooltips will be hidd
   <a class="reference external" href="https://www.sphinx-doc.org/" target="_blank">Sphinx</a>
   7.3.7 and
   <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html" target="_blank">PyData Sphinx Theme</a>
-  0.15.2.
+  0.15.4.
 <p></div>
       
     </div>
