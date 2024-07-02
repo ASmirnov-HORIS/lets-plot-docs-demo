@@ -41,7 +41,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=44498072" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=c6e90fe5" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/colors.css?v=32b6ea70" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/dataframe.css?v=1855a575" />
   
@@ -298,7 +298,7 @@ document.write(`
           
           
           
-          <a href="https://pypi.org/project/lets-plot" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" excluded_from="['index']"><img src="../../_static/images/logo/pypi.svg" class="icon-link-image" alt="PyPI"/></a>
+          <a href="https://pypi.org/project/lets-plot" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" excluded_from="['index', '404']"><img src="../../_static/images/logo/pypi.svg" class="icon-link-image" alt="PyPI"/></a>
         </li>
 </ul></div>
       
@@ -456,7 +456,7 @@ document.write(`
           
           
           
-          <a href="https://pypi.org/project/lets-plot" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" excluded_from="['index']"><img src="../../_static/images/logo/pypi.svg" class="icon-link-image" alt="PyPI"/></a>
+          <a href="https://pypi.org/project/lets-plot" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" excluded_from="['index', '404']"><img src="../../_static/images/logo/pypi.svg" class="icon-link-image" alt="PyPI"/></a>
         </li>
 </ul></div>
         
@@ -489,7 +489,7 @@ document.write(`
                   
   <section id="no-javascript-mode">
 <h1>‘No Javascript’ Mode<a class="headerlink" href="#no-javascript-mode" title="Link to this heading">#</a></h1>
-<p>In the ‘no javascript’ mode Lets-Plot generates plots as bare-bones SVG images.</p>
+<p>In the ‘no javascript’ mode <em>Lets-Plot</em> generates plots as bare-bones SVG images.</p>
 <p>This mode is helpful when there is a requirement to render notebooks in an ‘ipnb’ renderer which does not support javascript (like GitHub’s built-in renderer).</p>
 <p>Activate ‘no javascript’ mode using the <code class="docutils literal notranslate"><span class="pre">LetsPlot.setup_html()</span></code> method call:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lets_plot</span> <span class="kn">import</span> <span class="o">*</span>
@@ -505,8 +505,8 @@ document.write(`
 </section>
 <section id="offline-mode">
 <h1>Offline Mode<a class="headerlink" href="#offline-mode" title="Link to this heading">#</a></h1>
-<p>In classic Jupyter notebook the <code class="docutils literal notranslate"><span class="pre">LetsPlot.setup_html()</span></code> statement by default pre-loads <code class="docutils literal notranslate"><span class="pre">Lets-Plot</span></code> JS library from CDN.
-Alternatively, option <code class="docutils literal notranslate"><span class="pre">offline=True</span></code> will force <code class="docutils literal notranslate"><span class="pre">Lets-Plot</span></code> adding the full Lets-Plot JS bundle to the notebook.
+<p>In classic Jupyter notebook the <code class="docutils literal notranslate"><span class="pre">LetsPlot.setup_html()</span></code> statement by default pre-loads <code class="docutils literal notranslate"><span class="pre">lets-plot</span></code> JS library from CDN.
+Alternatively, option <code class="docutils literal notranslate"><span class="pre">offline=True</span></code> will force <code class="docutils literal notranslate"><span class="pre">lets-plot</span></code> adding the full <em>Lets-Plot</em> JS bundle to the notebook.
 In this case, plots in the notebook will be working without an Internet connection.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lets_plot</span> <span class="kn">import</span> <span class="o">*</span>
 

@@ -41,7 +41,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=44498072" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=c6e90fe5" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/colors.css?v=32b6ea70" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/dataframe.css?v=1855a575" />
   
@@ -298,7 +298,7 @@ document.write(`
           
           
           
-          <a href="https://pypi.org/project/lets-plot" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" excluded_from="['index']"><img src="../../_static/images/logo/pypi.svg" class="icon-link-image" alt="PyPI"/></a>
+          <a href="https://pypi.org/project/lets-plot" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" excluded_from="['index', '404']"><img src="../../_static/images/logo/pypi.svg" class="icon-link-image" alt="PyPI"/></a>
         </li>
 </ul></div>
       
@@ -456,7 +456,7 @@ document.write(`
           
           
           
-          <a href="https://pypi.org/project/lets-plot" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" excluded_from="['index']"><img src="../../_static/images/logo/pypi.svg" class="icon-link-image" alt="PyPI"/></a>
+          <a href="https://pypi.org/project/lets-plot" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" excluded_from="['index', '404']"><img src="../../_static/images/logo/pypi.svg" class="icon-link-image" alt="PyPI"/></a>
         </li>
 </ul></div>
         
@@ -2785,7 +2785,7 @@ Note that bbox of the polygon will be used:</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="NupIox"></div>
+<div id="1raq1e"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -2809,13 +2809,13 @@ Note that bbox of the polygon will be used:</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("NupIox").appendChild(div);
+            document.getElementById("1raq1e").appendChild(div);
         };
-        var e = document.getElementById("NupIox");
+        var e = document.getElementById("1raq1e");
         e.appendChild(script);
     })()
 </script>
-</div><div class="output text_html">   <div id="mJ94Us"></div>
+</div><div class="output text_html">   <div id="iajB1n"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -2846,7 +2846,7 @@ Note that bbox of the polygon will be used:</p>
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("mJ94Us");
+           var plotContainer = document.getElementById("iajB1n");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -2865,7 +2865,7 @@ Just pass a <code class="docutils literal notranslate"><span class="pre">Geocode
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">   <div id="yWSot9"></div>
+<div class="output text_html">   <div id="I9MkGH"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -2896,7 +2896,7 @@ Just pass a <code class="docutils literal notranslate"><span class="pre">Geocode
 }],
 "metainfo_list":[]
 };
-           var plotContainer = document.getElementById("yWSot9");
+           var plotContainer = document.getElementById("I9MkGH");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -2949,11 +2949,11 @@ same as <code class="docutils literal notranslate"><span class="pre">[['data_col
 same as <code class="docutils literal notranslate"><span class="pre">[['data_column_1',</span> <span class="pre">'data_column_2'],</span> <span class="pre">['map_column_1',</span> <span class="pre">'map_column_2']]</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">map_join=[['City_Name',</span> <span class="pre">'State_Name'],</span> <span class="pre">['city',</span> <span class="pre">'state']]</span></code>:</p></li>
 </ul>
-<p>Single string key is not allowed - Lets-Plot can’t deduce a map key on a user generated GeoDataFrames.</p>
+<p>Single string key is not allowed - <em>Lets-Plot</em> can’t deduce a map key on a user generated GeoDataFrames.</p>
 </section>
 <section id="join-with-geocoder">
 <span id="geocoding-join-geocoder"></span><h5>Join with <code class="docutils literal notranslate"><span class="pre">Geocoder</span></code><a class="headerlink" href="#join-with-geocoder" title="Link to this heading">#</a></h5>
-<p><code class="docutils literal notranslate"><span class="pre">Geocoder</span></code> and <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code>, returned by a <code class="docutils literal notranslate"><span class="pre">Geocoder</span></code> geometries fetching functions, contains metadata so in most cases only data keys have to be provided - Lets-Plot will generate map keys automatically with columns that were used for geocoding.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Geocoder</span></code> and <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code>, returned by a <code class="docutils literal notranslate"><span class="pre">Geocoder</span></code> geometries fetching functions, contains metadata so in most cases only data keys have to be provided - <em>Lets-Plot</em> will generate map keys automatically with columns that were used for geocoding.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">map_join='State_Name'</span></code>:
 same as <code class="docutils literal notranslate"><span class="pre">[['State_Name'],</span> <span class="pre">['state']]</span></code></p></li>

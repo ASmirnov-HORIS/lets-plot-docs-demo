@@ -41,7 +41,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=44498072" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=c6e90fe5" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/colors.css?v=32b6ea70" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/dataframe.css?v=1855a575" />
   
@@ -298,7 +298,7 @@ document.write(`
           
           
           
-          <a href="https://pypi.org/project/lets-plot" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" excluded_from="['index']"><img src="../../_static/images/logo/pypi.svg" class="icon-link-image" alt="PyPI"/></a>
+          <a href="https://pypi.org/project/lets-plot" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" excluded_from="['index', '404']"><img src="../../_static/images/logo/pypi.svg" class="icon-link-image" alt="PyPI"/></a>
         </li>
 </ul></div>
       
@@ -456,7 +456,7 @@ document.write(`
           
           
           
-          <a href="https://pypi.org/project/lets-plot" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" excluded_from="['index']"><img src="../../_static/images/logo/pypi.svg" class="icon-link-image" alt="PyPI"/></a>
+          <a href="https://pypi.org/project/lets-plot" title="PyPI" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" excluded_from="['index', '404']"><img src="../../_static/images/logo/pypi.svg" class="icon-link-image" alt="PyPI"/></a>
         </li>
 </ul></div>
         
@@ -491,9 +491,9 @@ document.write(`
 <h1>Configuring Basemap Tiles for Interactive Maps<a class="headerlink" href="#configuring-basemap-tiles-for-interactive-maps" title="Link to this heading">#</a></h1>
 <section id="configuring-globally">
 <span id="basemap-tiles-global-cfg"></span><h2>Configuring Globally<a class="headerlink" href="#configuring-globally" title="Link to this heading">#</a></h2>
-<p>You can configure global Lets-Plot options using the <a class="reference internal" href="api/lets_plot.LetsPlot.html#lets_plot.LetsPlot" title="lets_plot.LetsPlot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">LestPlot.set(dictionary)</span></code></a> method.</p>
-<p>Where the <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> can contain all sorts of Lets-Plot options, including basemap tiles configuration options.</p>
-<p>Lets-Plot provides a variety of constants and functions which make configuring of basemap tiles simple:</p>
+<p>You can configure global <em>Lets-Plot</em> options using the <a class="reference internal" href="api/lets_plot.LetsPlot.html#lets_plot.LetsPlot" title="lets_plot.LetsPlot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">LestPlot.set(dictionary)</span></code></a> method.</p>
+<p>Where the <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> can contain all sorts of <em>Lets-Plot</em> options, including basemap tiles configuration options.</p>
+<p><em>Lets-Plot</em> provides a variety of constants and functions which make configuring of basemap tiles simple:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lets_plot</span> <span class="kn">import</span> <span class="n">tilesets</span>
 
 <span class="n">LetsPlot</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">tilesets</span><span class="o">.</span><span class="n">LETS_PLOT_DARK</span><span class="p">)</span>
@@ -517,15 +517,15 @@ document.write(`
 If the tiles don’t load please try disabling the NSURLSession Websocket feature
 (<cite>Develop -&gt; Experimental Features -&gt; NSURLSession Websocket</cite>) or use <a class="reference internal" href="#basemap-tiles-raster-tiles"><span class="std std-ref">raster tiles</span></a>.</p>
 </div>
-<p>Lets-Plot provides its own vector basemap tiles available in four variants:</p>
+<p><em>Lets-Plot</em> provides its own vector basemap tiles available in four variants:</p>
 <ul class="simple">
 <li><p>color</p></li>
 <li><p>dark</p></li>
 <li><p>light</p></li>
 <li><p>bw</p></li>
 </ul>
-<p>By default Lets-Plot uses its “color” tiles.</p>
-<p>Configure Lets-Plot vector tiles (globally or on the per-plot basis) with the help of the <a class="reference internal" href="api/lets_plot.maptiles_lets_plot.html#lets_plot.maptiles_lets_plot" title="lets_plot.maptiles_lets_plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">LetsPlot.maptiles_lets_plot(...)</span></code></a> function:</p>
+<p>By default <em>Lets-Plot</em> uses its “color” tiles.</p>
+<p>Configure <em>Lets-Plot</em> vector tiles (globally or on the per-plot basis) with the help of the <a class="reference internal" href="api/lets_plot.maptiles_lets_plot.html#lets_plot.maptiles_lets_plot" title="lets_plot.maptiles_lets_plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">LetsPlot.maptiles_lets_plot(...)</span></code></a> function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_livemap</span><span class="p">(</span><span class="n">tiles</span><span class="o">=</span><span class="n">maptiles_lets_plot</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="s1">&#39;dark&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -552,13 +552,13 @@ If the tiles don’t load please try disabling the NSURLSession Websocket featur
 </section>
 <section id="raster-tiles">
 <span id="basemap-tiles-raster-tiles"></span><h2>Raster Tiles<a class="headerlink" href="#raster-tiles" title="Link to this heading">#</a></h2>
-<p>With Lets-Plot you can use ZXY raster tiles provided by 3rd party maptile services.</p>
+<p>With <em>Lets-Plot</em> you can use ZXY raster tiles provided by 3rd party maptile services.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Always read the providers <strong>Terms of Service</strong> before using this provider’s tiles in your project.</p>
 </div>
-<p>Some services provide free of charge raster tilesets. The <code class="docutils literal notranslate"><span class="pre">tilesets</span></code> module in Lets-Plot contains many such tilesets pre-configured.</p>
-<p>Again, you can use these tilesets to configure Lets-Plot globally or on the per-plot basis:</p>
+<p>Some services provide free of charge raster tilesets. The <code class="docutils literal notranslate"><span class="pre">tilesets</span></code> module in <em>Lets-Plot</em> contains many such tilesets pre-configured.</p>
+<p>Again, you can use these tilesets to configure <em>Lets-Plot</em> globally or on the per-plot basis:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lets_plot</span> <span class="kn">import</span> <span class="n">tilesets</span>
 
 <span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_livemap</span><span class="p">(</span><span class="n">tiles</span><span class="o">=</span><span class="n">tilesets</span><span class="o">.</span><span class="n">OSM</span><span class="p">)</span>
