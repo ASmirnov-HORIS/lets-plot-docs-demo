@@ -38,7 +38,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/thebelab.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=c6e90fe5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ac35cfe9" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/colors.css?v=32b6ea70" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/dataframe.css?v=1855a575" />
   
@@ -515,7 +515,7 @@ Use <cite>show()</cite> to draw all plots in bunch.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="XosIcT"></div>
+<div id="AyL67y"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -539,13 +539,13 @@ Use <cite>show()</cite> to draw all plots in bunch.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("XosIcT").appendChild(div);
+            document.getElementById("AyL67y").appendChild(div);
         };
-        var e = document.getElementById("XosIcT");
+        var e = document.getElementById("AyL67y");
         e.appendChild(script);
     })()
 </script>
-</div><div class="output text_html">   <div id="Xd1Tga"></div>
+</div><div class="output text_html">   <div id="L0IA0w"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
        (function() {
            var plotSpec={
@@ -652,7 +652,7 @@ Use <cite>show()</cite> to draw all plots in bunch.</p>
 }
 }]
 };
-           var plotContainer = document.getElementById("Xd1Tga");
+           var plotContainer = document.getElementById("L0IA0w");
            window.letsPlotCall(function() {{
                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
            }});
@@ -712,7 +712,7 @@ applied recursively to all subproperties of <cite>FeatureSpec</cite> type.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="9WUK06"></div>
+<div id="P7NjV5"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -736,9 +736,9 @@ applied recursively to all subproperties of <cite>FeatureSpec</cite> type.</p>
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("9WUK06").appendChild(div);
+            document.getElementById("P7NjV5").appendChild(div);
         };
-        var e = document.getElementById("9WUK06");
+        var e = document.getElementById("P7NjV5");
         e.appendChild(script);
     })()
 </script>
@@ -761,69 +761,6 @@ applied recursively to all subproperties of <cite>FeatureSpec</cite> type.</p>
 <dt class="sig sig-object py" id="lets_plot.GGBunch.show">
 <span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lets_plot.GGBunch.show" title="Link to this definition">#</a></dt>
 <dd><p>Draw all plots currently in this ‘bunch’.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lets_plot.GGBunch.props">
-<span class="sig-name descname"><span class="pre">props</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lets_plot.GGBunch.props" title="Link to this definition">#</a></dt>
-<dd><p>Return the dictionary of all properties of the object in their initial form.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt>dict</dt><dd><p>Dictionary of properties.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="jupyter_cell jupyter_container docutils container">
-<div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">lets_plot</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="linenos">2</span><span class="n">LetsPlot</span><span class="o">.</span><span class="n">setup_html</span><span class="p">()</span>
-<span class="linenos">3</span><span class="n">p</span> <span class="o">=</span> <span class="n">ggplot</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">]})</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">))</span>
-<span class="hll"><span class="linenos">4</span><span class="n">p</span><span class="o">.</span><span class="n">props</span><span class="p">()</span>
-</span></pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<div id="WpOBlX"></div>
-<script type="text/javascript" data-lets-plot-script="library">
-    if(!window.letsPlotCallQueue) {
-        window.letsPlotCallQueue = [];
-    }; 
-    window.letsPlotCall = function(f) {
-        window.letsPlotCallQueue.push(f);
-    };
-    (function() {
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.3.3/js-package/distr/lets-plot.min.js";
-        script.onload = function() {
-            window.letsPlotCall = function(f) {f();};
-            window.letsPlotCallQueue.forEach(function(f) {f();});
-            window.letsPlotCallQueue = [];
-
-        };
-        script.onerror = function(event) {
-            window.letsPlotCall = function(f) {};    // noop
-            window.letsPlotCallQueue = [];
-            var div = document.createElement("div");
-            div.style.color = 'darkred';
-            div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("WpOBlX").appendChild(div);
-        };
-        var e = document.getElementById("WpOBlX");
-        e.appendChild(script);
-    })()
-</script>
-</div><div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;data&#39;: {&#39;x&#39;: [0], &#39;y&#39;: [0]},
- &#39;mapping&#39;: &lt;lets_plot.plot.core.FeatureSpec at 0x73cae42526e0&gt;,
- &#39;data_meta&#39;: {}}
-</pre></div>
-</div>
-</div>
-</div>
 </dd></dl>
 
 </dd></dl>
@@ -857,7 +794,6 @@ applied recursively to all subproperties of <cite>FeatureSpec</cite> type.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lets_plot.GGBunch.add_plot"><code class="docutils literal notranslate"><span class="pre">GGBunch.add_plot()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lets_plot.GGBunch.as_dict"><code class="docutils literal notranslate"><span class="pre">GGBunch.as_dict()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lets_plot.GGBunch.show"><code class="docutils literal notranslate"><span class="pre">GGBunch.show()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lets_plot.GGBunch.props"><code class="docutils literal notranslate"><span class="pre">GGBunch.props()</span></code></a></li>
 </ul>
 </li>
 </ul>
