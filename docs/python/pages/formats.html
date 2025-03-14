@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta content="Formatting in Lets-Plot provides the ability to do complex variable substitutions and value formatting." name="description" />
-<meta content="formatting, number format, date format, time format, tooltip customization" name="keywords" />
+<meta content="formatting, number format, date format, time format, tooltip customization, annotation customization" name="keywords" />
 <meta property="og:title" content="Lets-Plot: Advanced Formatting and Substitutions" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://lets-plot.org/python/pages/formats.html" />
@@ -25,38 +25,42 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ac35cfe9" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/colors.css?v=32b6ea70" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=defcf438" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/colors.css?v=75bbc594" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/dataframe.css?v=1855a575" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=9683ad65"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/documentation_options.js?v=68f2c66a"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'python/pages/formats';</script>
     <script src="../../_static/js/custom.js?v=a8badf0c"></script>
     <script src="../../_static/js/language_data.js?v=2e3e2f07"></script>
@@ -80,19 +84,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -100,7 +93,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -108,8 +100,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -160,7 +152,7 @@
    
 
 <a class="navbar-brand version" href="whats_new.html">
-  <p>v4.3.3</p>
+  <p>v4.6.1</p>
 </a>
 </div>
     
@@ -176,13 +168,15 @@
     
       
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="api.html">
-    API
+  <a class="nav-link nav-internal" href="notebooks.html">
+    Notebooks
   </a>
 </li>
 
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
@@ -243,29 +237,21 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
         <div class="navbar-item">
 <ul class="navbar-icon-links navbar-nav"
@@ -309,15 +295,11 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
@@ -338,7 +320,8 @@ document.write(`
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -355,8 +338,8 @@ document.write(`
     
       
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="api.html">
-    API
+  <a class="nav-link nav-internal" href="notebooks.html">
+    Notebooks
   </a>
 </li>
 
@@ -415,15 +398,11 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
           <div class="navbar-item">
 <ul class="navbar-icon-links navbar-nav"
@@ -466,9 +445,14 @@ document.write(`
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -530,7 +514,7 @@ The general form of a format specifier is:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">e</span></code> - exponent notation;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">f</span></code> - fixed point notation;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">g</span></code> - either decimal or exponent notation, rounded to significant digits;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code> - decimal notation with an SI prefix, rounded to significant digits;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code> - decimal notation followed by SI prefix symbol, rounded to significant digits;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">%</span></code> - multiply by 100, and then decimal notation with a percent sign;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">b</span></code> - binary notation, rounded to integer;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">o</span></code> - octal notation, rounded to integer;</p></li>
@@ -539,7 +523,7 @@ The general form of a format specifier is:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">X</span></code> - hexadecimal notation, using upper-case letters, rounded to integer;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">c</span></code> - simple toString.</p></li>
 </ul>
-<p>The following SI prefixes are supported for <code class="docutils literal notranslate"><span class="pre">s</span></code> type:</p>
+<p>The following prefix symbols are supported for <code class="docutils literal notranslate"><span class="pre">s</span></code> type:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">y</span></code> - yocto, 10⁻²⁴</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">z</span></code> - zepto, 10⁻²¹</p></li>
@@ -561,37 +545,48 @@ The general form of a format specifier is:</p>
 </ul>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These formatting rules are compatible with formatting from the d3 library, so you can find out more about the options listed above by visiting <a class="reference external" href="https://d3js.org/d3-format">this page</a>.</p>
+</div>
 <section id="examples">
 <span id="formats-examples-number-format"></span><h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
-<p>Let’s format the number <cite>42</cite>:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>08d       --&gt;  &quot;00000042&quot;
-_&lt;8d      --&gt;  &quot;______42&quot;
-_=8d      --&gt;  &quot;___42___&quot;
-_=+8d     --&gt;  &quot;+_____42&quot;
-_^11.0%   --&gt;  &quot;____42%____&quot;
-_^11,.0%  --&gt;  &quot;__42,200%__&quot;
-+08,d     --&gt;  &quot;+0,000,042&quot;
-.1f       --&gt;  &quot;42.0&quot;
-+.3f      --&gt;  &quot;+42.000&quot;
-b         --&gt;  &quot;101010&quot;
-#b        --&gt;  &quot;0b101010&quot;
-o         --&gt;  &quot;52&quot;
-e         --&gt;  &quot;4.200000e+1&quot;
-~e        --&gt;  &quot;4.2e+1&quot;
-s         --&gt;  &quot;42.0000&quot;
-020,s     --&gt;  &quot;000,000,000,042.0000&quot;
-020.0%    --&gt;  &quot;0000000000000004200%&quot;
+<p>Let’s format the number <code class="docutils literal notranslate"><span class="pre">1024</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>010d      --&gt;  &quot;0000001024&quot;
+_&lt;10d     --&gt;  &quot;1024______&quot;
+_=10d     --&gt;  &quot;______1024&quot;
+_=+10d    --&gt;  &quot;+_____1024&quot;
+_^11.0%   --&gt;  &quot;__102400%__&quot;
+_^11,.0%  --&gt;  &quot;_102,400%__&quot;
++010,d    --&gt;  &quot;+00,001,024&quot;
+.1f       --&gt;  &quot;1024.0&quot;
++.3f      --&gt;  &quot;+1024.000&quot;
+b         --&gt;  &quot;10000000000&quot;
+#b        --&gt;  &quot;0b10000000000&quot;
+o         --&gt;  &quot;2000&quot;
+e         --&gt;  &quot;1.024000e+3&quot;
+~e        --&gt;  &quot;1.024e+3&quot;
+s         --&gt;  &quot;1.02400k&quot;
+020,s     --&gt;  &quot;0,000,000,001.02400k&quot;
+020.0%    --&gt;  &quot;0000000000000102400%&quot;
 </pre></div>
 </div>
 <p>Some other examples:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>format   number        result
 .1f      0.42          &quot;0.4&quot;
-.3g      0.4449        &quot;0.445&quot;
-,.12g    -4200000      &quot;-4,200,000&quot;
-0,.2f    1234567.449   &quot;1,234,567.45&quot;
+0,.1f    1234567.89    &quot;1,234,567.9&quot;
 +$,.2f   1e4           &quot;+$10,000.00&quot;
++$,.2~f  1e4           &quot;+$10,000&quot;
+~g       0.0000042     &quot;0.0000042&quot;
+~g       0.00000042    &quot;4.2e-7&quot;
+~g       420000        &quot;420000&quot;
+~g       4200000       &quot;4.2e+6&quot;
+,.2g     -4231         &quot;-4,2e+3&quot;
+,.6g     -4231         &quot;-4,231.00&quot;
+,.6~g    -4231         &quot;-4,231&quot;
 </pre></div>
 </div>
+<p>See more examples <a class="reference external" href="https://observablehq.com/&#64;d3/d3-format">here</a>.</p>
 </section>
 </section>
 <section id="string-template">
@@ -600,8 +595,9 @@ s         --&gt;  &quot;42.0000&quot;
 The string template contains “replacement fields” surrounded by curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code>.
 Anything that is not contained in braces is considered literal text, which is copied unchanged to the result string.
 If you need to include a brace character in the literal text, it can be escaped by doubling: {{ and }}.
-This approach is used in function <a class="reference internal" href="api/lets_plot.layer_tooltips.html#lets_plot.layer_tooltips" title="lets_plot.layer_tooltips"><code class="xref py py-mod docutils literal notranslate"><span class="pre">layer_tooltips()</span></code></a> to customize the content of tooltips.</p>
-<p>See: <a class="reference internal" href="tooltips.html"><span class="doc">Tooltip Customization in Lets-Plot</span></a>.</p>
+This approach is used in functions <code class="xref py py-mod docutils literal notranslate"><span class="pre">layer_tooltips()</span></code> and
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">layer_labels()</span></code> to customize the content of tooltips and annotations.</p>
+<p>See: <a class="reference internal" href="tooltips.html"><span class="doc">Tooltip Customization in Lets-Plot</span></a> and <a class="reference internal" href="annotations.html"><span class="doc">Annotating Charts in Lets-Plot</span></a>.</p>
 </section>
 <section id="date-and-time-format">
 <span id="formats-datetime"></span><h2>Date and Time Format<a class="headerlink" href="#date-and-time-format" title="Link to this heading">#</a></h2>
@@ -663,154 +659,23 @@ This approach is used in function <a class="reference internal" href="api/lets_p
 </div>
 </section>
 </section>
-<section id="exponent-format">
-<span id="formats-exponent"></span><h2>Exponent Format<a class="headerlink" href="#exponent-format" title="Link to this heading">#</a></h2>
-<p>The format of numbers in scientific notation can be further customised using the <a class="reference internal" href="api/lets_plot.theme.html#lets_plot.theme" title="lets_plot.theme"><code class="xref py py-mod docutils literal notranslate"><span class="pre">theme</span></code></a> parameter <code class="docutils literal notranslate"><span class="pre">exponent_format</span></code>:</p>
-<div class="jupyter_cell docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html">
-<div id="VXCU6x"></div>
-<script type="text/javascript" data-lets-plot-script="library">
-    if(!window.letsPlotCallQueue) {
-        window.letsPlotCallQueue = [];
-    }; 
-    window.letsPlotCall = function(f) {
-        window.letsPlotCallQueue.push(f);
-    };
-    (function() {
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.3.3/js-package/distr/lets-plot.min.js";
-        script.onload = function() {
-            window.letsPlotCall = function(f) {f();};
-            window.letsPlotCallQueue.forEach(function(f) {f();});
-            window.letsPlotCallQueue = [];
-
-        };
-        script.onerror = function(event) {
-            window.letsPlotCall = function(f) {};    // noop
-            window.letsPlotCallQueue = [];
-            var div = document.createElement("div");
-            div.style.color = 'darkred';
-            div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("VXCU6x").appendChild(div);
-        };
-        var e = document.getElementById("VXCU6x");
-        e.appendChild(script);
-    })()
-</script>
-</div></div>
-</div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
-<div class="sd-card-body docutils">
-<h3>"e" notation</h3><div class="jupyter_cell jupyter_container docutils container">
-<div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span> \
-<span class="linenos">2</span>    <span class="n">geom_label</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="mi">12</span><span class="p">,</span> \
-<span class="linenos">3</span>               <span class="n">label_format</span><span class="o">=</span><span class="s2">&quot;.2~e&quot;</span><span class="p">,</span> \
-<span class="linenos">4</span>               <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span> <span class="o">+</span> \
-<span class="hll"><span class="linenos">5</span>    <span class="n">theme</span><span class="p">(</span><span class="n">exponent_format</span><span class="o">=</span><span class="s1">&#39;e&#39;</span><span class="p">)</span>
-</span></pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">   <div id="ytFmI5"></div>
-   <script type="text/javascript" data-lets-plot-script="plot">
-       (function() {
-           var plotSpec={
-"mapping":{
-},
-"data_meta":{
-},
-"theme":{
-"exponent_format":"e"
-},
-"kind":"plot",
-"scales":[],
-"layers":[{
-"geom":"label",
-"mapping":{
-},
-"data_meta":{
-},
-"label_format":".2~e",
-"x":0.0,
-"label":1.0E12,
-"size":15.0,
-"data":{
-}
-}],
-"metainfo_list":[]
-};
-           var plotContainer = document.getElementById("ytFmI5");
-           window.letsPlotCall(function() {{
-               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
-           }});
-       })();
-   </script></div></div>
-</div>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
-<div class="sd-card-body docutils">
-<h3>"pow" notation</h3><div class="jupyter_cell jupyter_container docutils container">
-<div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span> \
-<span class="linenos">2</span>    <span class="n">geom_label</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="mi">12</span><span class="p">,</span> \
-<span class="linenos">3</span>               <span class="n">label_format</span><span class="o">=</span><span class="s2">&quot;.2~e&quot;</span><span class="p">,</span> \
-<span class="linenos">4</span>               <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span> <span class="o">+</span> \
-<span class="hll"><span class="linenos">5</span>    <span class="n">theme</span><span class="p">(</span><span class="n">exponent_format</span><span class="o">=</span><span class="s1">&#39;pow&#39;</span><span class="p">)</span>
-</span></pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">   <div id="spPYuE"></div>
-   <script type="text/javascript" data-lets-plot-script="plot">
-       (function() {
-           var plotSpec={
-"mapping":{
-},
-"data_meta":{
-},
-"theme":{
-"exponent_format":"pow"
-},
-"kind":"plot",
-"scales":[],
-"layers":[{
-"geom":"label",
-"mapping":{
-},
-"data_meta":{
-},
-"label_format":".2~e",
-"x":0.0,
-"label":1.0E12,
-"size":15.0,
-"data":{
-}
-}],
-"metainfo_list":[]
-};
-           var plotContainer = document.getElementById("spPYuE");
-           window.letsPlotCall(function() {{
-               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
-           }});
-       })();
-   </script></div></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<section id="scientific-notation">
+<span id="formats-scientific-notation"></span><h2>Scientific Notation<a class="headerlink" href="#scientific-notation" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">exponent_format</span></code> parameter of the <code class="xref py py-mod docutils literal notranslate"><span class="pre">theme()</span></code> function controls the appearance of numbers formatted with <code class="docutils literal notranslate"><span class="pre">e</span></code> or <code class="docutils literal notranslate"><span class="pre">g</span></code> types. Scientific notation can be displayed using regular e-notation or with superscript powers of 10. For <code class="docutils literal notranslate"><span class="pre">g</span></code> type formatting, you can also specify when scientific notation should be applied based on exponent bounds.</p>
+<p>The value is either a string - <code class="docutils literal notranslate"><span class="pre">style</span></code>, or a tuple: (<code class="docutils literal notranslate"><span class="pre">style</span></code>, <code class="docutils literal notranslate"><span class="pre">lower</span> <span class="pre">exp.bound</span></code>, <code class="docutils literal notranslate"><span class="pre">upper</span> <span class="pre">exp.bound</span></code>). Where the <code class="docutils literal notranslate"><span class="pre">style</span></code> can be:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;e&quot;</span></code> for e-notation (e.g., 1e+6);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;pow&quot;</span></code> for superscript powers of 10 in shortened form (e.g., 10^6);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;pow_full&quot;</span></code> for superscript powers of 10 with coefficient (e.g., 1×10^6).</p></li>
+</ul>
+<p>For <code class="docutils literal notranslate"><span class="pre">g</span></code> type formatting, scientific notation is applied when the number’s exponent is less than or equal to the <code class="docutils literal notranslate"><span class="pre">lower</span> <span class="pre">exp.bound</span></code> (-7 by default) or greater than or equal to the <code class="docutils literal notranslate"><span class="pre">upper</span> <span class="pre">exp.bound</span></code> (6 by default, but can be affected by <code class="docutils literal notranslate"><span class="pre">precision</span></code> in format specifier).</p>
+<p>The following table demonstrates the behavior with format string <code class="docutils literal notranslate"><span class="pre">&quot;,~g&quot;</span></code>:</p>
+<a class="only-light reference internal image-reference" href="../../_images/formats_scientific_notation_table.png"><img alt="Scientific notation table" class="only-light" src="../../_images/formats_scientific_notation_table.png" style="width: 800px;" />
+</a>
+<a class="only-dark reference internal image-reference" href="../../_images/formats_scientific_notation_table_dark.png"><img alt="Scientific notation table (dark)" class="only-dark" src="../../_images/formats_scientific_notation_table_dark.png" style="width: 800px;" />
+</a>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>Superscript is not fully support by CairoSVG library and export to PNG/PDF may produce unexpected results.</p>
 </div>
 </section>
@@ -822,14 +687,19 @@ This approach is used in function <a class="reference internal" href="api/lets_p
 <p>To format the axis tooltips, follow the rules:</p>
 <ul class="simple">
 <li><p>the scale’s <code class="docutils literal notranslate"><span class="pre">format</span></code> parameter is applied to tick labels only and does not affect tooltips;</p></li>
-<li><p>the tooltip <a class="reference internal" href="api/lets_plot.layer_tooltips.html#lets_plot.layer_tooltips.format" title="lets_plot.layer_tooltips.format"><code class="xref py py-meth docutils literal notranslate"><span class="pre">format()</span></code></a> is also applied to the axis tooltip;</p></li>
-<li><p>if the tooltip <a class="reference internal" href="api/lets_plot.layer_tooltips.html#lets_plot.layer_tooltips.format" title="lets_plot.layer_tooltips.format"><code class="xref py py-meth docutils literal notranslate"><span class="pre">format()</span></code></a> is not specified, the tooltip will get the value after applying the default formatting from the scale (without using the specified format for the scale).</p></li>
+<li><p>the tooltip <code class="xref py py-meth docutils literal notranslate"><span class="pre">format()</span></code> is also applied to the axis tooltip;</p></li>
+<li><p>if the tooltip <code class="xref py py-meth docutils literal notranslate"><span class="pre">format()</span></code> is not specified, the tooltip will get the value after applying the default formatting from the scale (without using the specified format for the scale).</p></li>
 </ul>
 </section>
+</section>
+<section id="annotating-charts">
+<span id="formats-annotations"></span><h2>Annotating Charts<a class="headerlink" href="#annotating-charts" title="Link to this heading">#</a></h2>
+<p>In the same way you can use formatting for annotation pies and bar charts using the <code class="xref py py-meth docutils literal notranslate"><span class="pre">format()</span></code> method, see: <a class="reference internal" href="annotations.html"><span class="doc">Annotating Charts</span></a>.</p>
 </section>
 <section id="demo-notebooks">
 <span id="formats-demo-notebooks"></span><h2>Demo Notebooks<a class="headerlink" href="#demo-notebooks" title="Link to this heading">#</a></h2>
 <ul>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/formatting.ipynb">Formatting numbers</a></li>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/formatting_axes_etc.ipynb">Formatting labels on plots</a></li>
 <li><a class="reference external extref" href="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/YSqbXvO69pkPF7hBftxHwv">Text geoms</a></li>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/superscript_exponent.ipynb">Exponent format in Lets-Plot</a></li>
@@ -848,7 +718,8 @@ This approach is used in function <a class="reference internal" href="api/lets_p
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -868,11 +739,12 @@ This approach is used in function <a class="reference internal" href="api/lets_p
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formats-examples-datetime">Examples</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exponent-format">Exponent Format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-notation">Scientific Notation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tooltip-customization">Tooltip Customization</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#axis-tooltips">Axis Tooltips</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotating-charts">Annotating Charts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-notebooks">Demo Notebooks</a></li>
 </ul>
   </nav></div>
@@ -890,8 +762,8 @@ This approach is used in function <a class="reference internal" href="api/lets_p
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -899,7 +771,7 @@ This approach is used in function <a class="reference internal" href="api/lets_p
     <div class="footer-items__start">
       
         <div class="footer-item"><p class="copyright">
-  Copyright © 2019-2024 JetBrains s.r.o.
+  Copyright © 2019-2025 JetBrains s.r.o.
 </p></div>
       
     </div>
@@ -911,9 +783,9 @@ This approach is used in function <a class="reference internal" href="api/lets_p
 <p class="sphinx-version theme-version">
   Created using
   <a class="reference external" href="https://www.sphinx-doc.org/" target="_blank">Sphinx</a>
-  7.3.7 and
+  8.1.3 and
   <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html" target="_blank">PyData Sphinx Theme</a>
-  0.15.4.
+  0.16.1.
 <p></div>
       
     </div>

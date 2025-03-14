@@ -25,38 +25,42 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ac35cfe9" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/colors.css?v=32b6ea70" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=defcf438" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/colors.css?v=75bbc594" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/dataframe.css?v=1855a575" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=9683ad65"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/documentation_options.js?v=68f2c66a"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'python/pages/maps';</script>
     <script src="../../_static/js/custom.js?v=a8badf0c"></script>
     <script src="../../_static/js/language_data.js?v=2e3e2f07"></script>
@@ -82,19 +86,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -102,7 +95,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -110,8 +102,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -162,7 +154,7 @@
    
 
 <a class="navbar-brand version" href="whats_new.html">
-  <p>v4.3.3</p>
+  <p>v4.6.1</p>
 </a>
 </div>
     
@@ -178,13 +170,15 @@
     
       
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="api.html">
-    API
+  <a class="nav-link nav-internal" href="notebooks.html">
+    Notebooks
   </a>
 </li>
 
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
@@ -245,29 +239,21 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
         <div class="navbar-item">
 <ul class="navbar-icon-links navbar-nav"
@@ -311,15 +297,11 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
@@ -338,7 +320,8 @@ document.write(`
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -355,8 +338,8 @@ document.write(`
     
       
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="api.html">
-    API
+  <a class="nav-link nav-internal" href="notebooks.html">
+    Notebooks
   </a>
 </li>
 
@@ -415,15 +398,11 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
           <div class="navbar-item">
 <ul class="navbar-icon-links navbar-nav"
@@ -466,9 +445,14 @@ document.write(`
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -489,7 +473,7 @@ document.write(`
                   
   <section id="id1">
 <h1>Maps<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Create beautiful maps just by adding an interactive basemap layer to your plot: <a class="reference internal" href="api/lets_plot.geom_livemap.html#lets_plot.geom_livemap" title="lets_plot.geom_livemap"><code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_livemap()</span></code></a>.</p>
+<p>Create beautiful maps just by adding an interactive basemap layer to your plot: <code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_livemap()</span></code>.</p>
 <section id="proportional-symbol-map">
 <h2>Proportional Symbol Map<a class="headerlink" href="#proportional-symbol-map" title="Link to this heading">#</a></h2>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 wide-grid docutils">
@@ -497,7 +481,7 @@ document.write(`
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<a class="reference external image-reference preview extref" href="https://datalore.jetbrains.com/view/notebook/NCimfm45sYdFyh0JosywnO"><img alt="Visulizing spatial information - california housing" title="Visulizing spatial information - california housing" src="../../_extref_images/4x3-map_california_housing.png" style=""/></a></div>
+<a class="reference external image-reference preview extref" href="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/NCimfm45sYdFyh0JosywnO"><img alt="Visulizing spatial information - California housing" title="Visulizing spatial information - California housing" src="../../_extref_images/4x3-map_california_housing.png" style=""/></a></div>
 </div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
@@ -542,36 +526,37 @@ document.write(`
 </section>
 <section id="layers-primitives-light-layers-primitives-dark-primitives">
 <h3><img alt="layers_primitives-light" class="only-light" src="../../_images/layers_primitives-light.svg" /> <img alt="layers_primitives-dark" class="only-dark" src="../../_images/layers_primitives-dark.svg" /> Primitives<a class="headerlink" href="#layers-primitives-light-layers-primitives-dark-primitives" title="Link to this heading">#</a></h3>
-<p><a class="reference internal" href="api/lets_plot.geom_point.html#lets_plot.geom_point" title="lets_plot.geom_point"><code class="xref py py-mod docutils literal notranslate"><span class="pre">point</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_pie.html#lets_plot.geom_pie" title="lets_plot.geom_pie"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pie</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_path.html#lets_plot.geom_path" title="lets_plot.geom_path"><code class="xref py py-mod docutils literal notranslate"><span class="pre">path</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_tile.html#lets_plot.geom_tile" title="lets_plot.geom_tile"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tiles</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_polygon.html#lets_plot.geom_polygon" title="lets_plot.geom_polygon"><code class="xref py py-mod docutils literal notranslate"><span class="pre">polygon</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_map.html#lets_plot.geom_map" title="lets_plot.geom_map"><code class="xref py py-mod docutils literal notranslate"><span class="pre">map</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_hline.html#lets_plot.geom_hline" title="lets_plot.geom_hline"><code class="xref py py-mod docutils literal notranslate"><span class="pre">horizontal</span> <span class="pre">line</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_vline.html#lets_plot.geom_vline" title="lets_plot.geom_vline"><code class="xref py py-mod docutils literal notranslate"><span class="pre">vertical</span> <span class="pre">line</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_rect.html#lets_plot.geom_rect" title="lets_plot.geom_rect"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rectangle</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_segment.html#lets_plot.geom_segment" title="lets_plot.geom_segment"><code class="xref py py-mod docutils literal notranslate"><span class="pre">segment</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_curve.html#lets_plot.geom_curve" title="lets_plot.geom_curve"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curve</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_text.html#lets_plot.geom_text" title="lets_plot.geom_text"><code class="xref py py-mod docutils literal notranslate"><span class="pre">text</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_label.html#lets_plot.geom_label" title="lets_plot.geom_label"><code class="xref py py-mod docutils literal notranslate"><span class="pre">label</span></code></a>.</p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">point</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">pie</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">path</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">tiles</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">polygon</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">map</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">horizontal</span> <span class="pre">line</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">vertical</span> <span class="pre">line</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">rectangle</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">segment</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">curve</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">text</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">label</span></code>.</p>
 <p><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/param_geodesic.ipynb">Geodesic option</a>.</p>
 </section>
 <section id="layers-contours-light-layers-contours-dark-contours">
 <h3><img alt="layers_contours-light" class="only-light" src="../../_images/layers_contours-light.svg" /> <img alt="layers_contours-dark" class="only-dark" src="../../_images/layers_contours-dark.svg" /> Contours<a class="headerlink" href="#layers-contours-light-layers-contours-dark-contours" title="Link to this heading">#</a></h3>
-<p><a class="reference internal" href="api/lets_plot.geom_contour.html#lets_plot.geom_contour" title="lets_plot.geom_contour"><code class="xref py py-mod docutils literal notranslate"><span class="pre">contour</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_contourf.html#lets_plot.geom_contourf" title="lets_plot.geom_contourf"><code class="xref py py-mod docutils literal notranslate"><span class="pre">filled</span> <span class="pre">contour</span></code></a>.</p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">contour</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">filled</span> <span class="pre">contour</span></code>.</p>
 </section>
 <section id="layers-bivariate-light-layers-bivariate-dark-bivariate-distribution">
 <h3><img alt="layers_bivariate-light" class="only-light" src="../../_images/layers_bivariate-light.svg" /> <img alt="layers_bivariate-dark" class="only-dark" src="../../_images/layers_bivariate-dark.svg" /> Bivariate Distribution<a class="headerlink" href="#layers-bivariate-light-layers-bivariate-dark-bivariate-distribution" title="Link to this heading">#</a></h3>
-<p><a class="reference internal" href="api/lets_plot.geom_bin2d.html#lets_plot.geom_bin2d" title="lets_plot.geom_bin2d"><code class="xref py py-mod docutils literal notranslate"><span class="pre">2d</span> <span class="pre">bins</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_density2d.html#lets_plot.geom_density2d" title="lets_plot.geom_density2d"><code class="xref py py-mod docutils literal notranslate"><span class="pre">2d</span> <span class="pre">density</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_density2df.html#lets_plot.geom_density2df" title="lets_plot.geom_density2df"><code class="xref py py-mod docutils literal notranslate"><span class="pre">filled</span> <span class="pre">2d</span> <span class="pre">density</span></code></a>.</p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">2d</span> <span class="pre">bins</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">2d</span> <span class="pre">hexagonal</span> <span class="pre">bins</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">2d</span> <span class="pre">density</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">filled</span> <span class="pre">2d</span> <span class="pre">density</span></code>.</p>
 </section>
 </section>
 <section id="geopandas-shapes">
 <h2>GeoPandas Shapes<a class="headerlink" href="#geopandas-shapes" title="Link to this heading">#</a></h2>
-<p>GeoPandas <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> is supported by the following geometry layers: <a class="reference internal" href="api/lets_plot.geom_polygon.html#lets_plot.geom_polygon" title="lets_plot.geom_polygon"><code class="xref py py-mod docutils literal notranslate"><span class="pre">polygon</span></code></a>, <a class="reference internal" href="api/lets_plot.geom_map.html#lets_plot.geom_map" title="lets_plot.geom_map"><code class="xref py py-mod docutils literal notranslate"><span class="pre">map</span></code></a>, <a class="reference internal" href="api/lets_plot.geom_point.html#lets_plot.geom_point" title="lets_plot.geom_point"><code class="xref py py-mod docutils literal notranslate"><span class="pre">point</span></code></a>, <a class="reference internal" href="api/lets_plot.geom_pie.html#lets_plot.geom_pie" title="lets_plot.geom_pie"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pie</span></code></a>, <a class="reference internal" href="api/lets_plot.geom_text.html#lets_plot.geom_text" title="lets_plot.geom_text"><code class="xref py py-mod docutils literal notranslate"><span class="pre">text</span></code></a>, <a class="reference internal" href="api/lets_plot.geom_path.html#lets_plot.geom_path" title="lets_plot.geom_path"><code class="xref py py-mod docutils literal notranslate"><span class="pre">path</span></code></a>, <a class="reference internal" href="api/lets_plot.geom_rect.html#lets_plot.geom_rect" title="lets_plot.geom_rect"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rect</span></code></a>.</p>
+<p>GeoPandas <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> is supported by the following geometry layers: <code class="xref py py-mod docutils literal notranslate"><span class="pre">polygon</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">map</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">point</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">pie</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">text</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">path</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">rect</span></code>.</p>
 <p>Learn more: <a class="reference internal" href="geopandas.html"><span class="doc">GeoPandas Support</span></a>.</p>
 </section>
 <section id="use-a-basemap-that-is-right-for-you-licenses">
@@ -697,7 +682,8 @@ document.write(`
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
 <div class="sd-card-body docutils">
-<img alt="../../_images/kotlin.svg" src="../../_images/kotlin.svg" /><p class="sd-card-text">Multiplatform</p>
+<img alt="../../_images/kotlin.svg" src="../../_images/kotlin.svg" />
+<p class="sd-card-text">Multiplatform</p>
 <p class="sd-card-text">A <a class="reference internal" href="../index.html"><span class="doc">Grammar of Graphics for Python</span></a> - works in Python notebooks (<a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/quickstart.ipynb">Jupyter</a>, <a class="reference external extref" href="https://datalore.jetbrains.com/view/notebook/Vl3fAET56UBray6rPufmDA">Datalore</a>, <a class="reference external extref" href="https://www.kaggle.com/alshan/lets-plot-quickstart">Kaggle</a>, <a class="reference external extref" href="https://colab.research.google.com/drive/1uYYZcG0g0kP4lJdPkpWB8aBS96ioDii2?usp=sharing">Colab</a>, <a class="reference external extref" href="https://deepnote.com/project/673ea421-638e-469d-8d04-5cc4c6e0258f#%2Fnotebook.ipynb">Deepnote</a>, <a class="reference external extref" href="https://nextjournal.com/alshan/lets-plot-quickstart?token=H8DPBC6A3kZqWmusxWzZ9c">Nextjournal</a>) as well as in <a class="reference external extref" href="https://plugins.jetbrains.com/plugin/14379-lets-plot-in-sciview">PyCharm and Intellij IDEA IDEs</a>.</p>
 <p class="sd-card-text">A <a class="reference external" href="https://lets-plot.org/kotlin/index.html">Grammar of Graphics for Kotlin</a> - a Kotlin multiplatform visualization library which fulfills your needs in the Kotlin ecosystem: from Kotlin notebooks to <a class="reference external" href="https://github.com/JetBrains/lets-plot-skia">Compose-Multiplatform apps</a>.</p>
 </div>
@@ -706,7 +692,9 @@ document.write(`
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
 <div class="sd-card-body docutils">
-<img alt="../../_images/geospatial-visualization-light.svg" class="only-light" src="../../_images/geospatial-visualization-light.svg" /><img alt="../../_images/geospatial-visualization-dark.svg" class="only-dark" src="../../_images/geospatial-visualization-dark.svg" /><p class="sd-card-text">Geospatial Visualization</p>
+<img alt="../../_images/geospatial-visualization-light.svg" class="only-light" src="../../_images/geospatial-visualization-light.svg" />
+<img alt="../../_images/geospatial-visualization-dark.svg" class="only-dark" src="../../_images/geospatial-visualization-dark.svg" />
+<p class="sd-card-text">Geospatial Visualization</p>
 <p class="sd-card-text">Find spatial objects with the help of our powerful and easy to use <a class="reference internal" href="geocoding.html"><span class="doc">Geocoding</span></a> module. In case you already have <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> on hand - <a class="reference internal" href="geopandas.html"><span class="doc">plot it</span></a> straight away.</p>
 </div>
 </div>
@@ -714,7 +702,8 @@ document.write(`
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
 <div class="sd-card-body docutils">
-<img alt="../../_images/interactive-maps.svg" src="../../_images/interactive-maps.svg" /><p class="sd-card-text">Interactive Maps</p>
+<img alt="../../_images/interactive-maps.svg" src="../../_images/interactive-maps.svg" />
+<p class="sd-card-text">Interactive Maps</p>
 <p class="sd-card-text">Interactive maps allow zooming and panning around your geospatial data with customizable vector or raster basemaps as a backdrop. <a class="reference internal" href="#"><span class="doc">Learn more</span></a>.</p>
 </div>
 </div>
@@ -722,7 +711,9 @@ document.write(`
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
 <div class="sd-card-body docutils">
-<img alt="../../_images/tooltips-light.svg" class="only-light" src="../../_images/tooltips-light.svg" /><img alt="../../_images/tooltips-dark.svg" class="only-dark" src="../../_images/tooltips-dark.svg" /><p class="sd-card-text">Customizable Tooltips and Annotations</p>
+<img alt="../../_images/tooltips-light.svg" class="only-light" src="../../_images/tooltips-light.svg" />
+<img alt="../../_images/tooltips-dark.svg" class="only-dark" src="../../_images/tooltips-dark.svg" />
+<p class="sd-card-text">Customizable Tooltips and Annotations</p>
 <p class="sd-card-text">You can customize the content, values formatting and appearance of <a class="reference internal" href="tooltips.html"><span class="doc">tooltip</span></a> and <a class="reference internal" href="annotations.html"><span class="doc">annotation</span></a> for layers of your plot.</p>
 </div>
 </div>
@@ -730,7 +721,9 @@ document.write(`
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
 <div class="sd-card-body docutils">
-<img alt="../../_images/formatting-light.svg" class="only-light" src="../../_images/formatting-light.svg" /><img alt="../../_images/formatting-dark.svg" class="only-dark" src="../../_images/formatting-dark.svg" /><p class="sd-card-text">Formatting</p>
+<img alt="../../_images/formatting-light.svg" class="only-light" src="../../_images/formatting-light.svg" />
+<img alt="../../_images/formatting-dark.svg" class="only-dark" src="../../_images/formatting-dark.svg" />
+<p class="sd-card-text">Formatting</p>
 <p class="sd-card-text"><em>Lets-Plot</em> supports formatting of numeric and date-time values in tooltips, annotations, legends, on the axes and text geometry layer. <a class="reference internal" href="formats.html"><span class="doc">Learn more</span></a>.</p>
 </div>
 </div>
@@ -738,8 +731,10 @@ document.write(`
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
 <div class="sd-card-body docutils">
-<img alt="../../_images/export-light.svg" class="only-light" src="../../_images/export-light.svg" /><img alt="../../_images/export-dark.svg" class="only-dark" src="../../_images/export-dark.svg" /><p class="sd-card-text">Export to SVG, HTML, PNG and PDF</p>
-<p class="sd-card-text">Use the <a class="reference internal" href="api/lets_plot.ggsave.html#lets_plot.ggsave" title="lets_plot.ggsave"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ggsave()</span></code></a> function to save your plot to a file. Alternatively, leverage the <a class="reference internal" href="api/lets_plot.plot.core.PlotSpec.html#lets_plot.plot.core.PlotSpec.to_svg" title="lets_plot.plot.core.PlotSpec.to_svg"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_svg()</span></code></a>, <a class="reference internal" href="api/lets_plot.plot.core.PlotSpec.html#lets_plot.plot.core.PlotSpec.to_html" title="lets_plot.plot.core.PlotSpec.to_html"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_html()</span></code></a>, <a class="reference internal" href="api/lets_plot.plot.core.PlotSpec.html#lets_plot.plot.core.PlotSpec.to_png" title="lets_plot.plot.core.PlotSpec.to_png"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_png()</span></code></a>, or <a class="reference internal" href="api/lets_plot.plot.core.PlotSpec.html#lets_plot.plot.core.PlotSpec.to_pdf" title="lets_plot.plot.core.PlotSpec.to_pdf"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_pdf()</span></code></a> methods of the plot object to save it to a file or an in-memory file-like object. <a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/export.ipynb">Learn more</a>.</p>
+<img alt="../../_images/export-light.svg" class="only-light" src="../../_images/export-light.svg" />
+<img alt="../../_images/export-dark.svg" class="only-dark" src="../../_images/export-dark.svg" />
+<p class="sd-card-text">Export to SVG, HTML, PNG and PDF</p>
+<p class="sd-card-text">Use the <code class="xref py py-mod docutils literal notranslate"><span class="pre">ggsave()</span></code> function to save your plot to a file. Alternatively, leverage the <code class="xref py py-meth docutils literal notranslate"><span class="pre">to_svg()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">to_html()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">to_png()</span></code>, or <code class="xref py py-meth docutils literal notranslate"><span class="pre">to_pdf()</span></code> methods of the plot object to save it to a file or an in-memory file-like object. <a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/export.ipynb">Learn more</a>.</p>
 </div>
 </div>
 </div>
@@ -749,14 +744,16 @@ document.write(`
 <img alt="../../_images/show-ext-light.png" class="only-light" src="../../_images/show-ext-light.png" />
 <img alt="../../_images/show-ext-dark.png" class="only-dark" src="../../_images/show-ext-dark.png" />
 <p class="sd-card-text">Option to Display Plots in External Browser</p>
-<p class="sd-card-text">With the “show externally” mode enabled, you can easily display a plot in an external browser by invoking its <code class="docutils literal notranslate"><span class="pre">show()</span></code> method. <a class="reference internal" href="api/lets_plot.LetsPlot.html#lets_plot.LetsPlot.setup_show_ext" title="lets_plot.LetsPlot.setup_show_ext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Learn</span> <span class="pre">more</span></code></a>.</p>
+<p class="sd-card-text">With the “show externally” mode enabled, you can easily display a plot in an external browser by invoking its <code class="docutils literal notranslate"><span class="pre">show()</span></code> method. <code class="xref py py-meth docutils literal notranslate"><span class="pre">Learn</span> <span class="pre">more</span></code>.</p>
 </div>
 </div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
 <div class="sd-card-body docutils">
-<img alt="../../_images/sampling-light.svg" class="only-light" src="../../_images/sampling-light.svg" /><img alt="../../_images/sampling-dark.svg" class="only-dark" src="../../_images/sampling-dark.svg" /><p class="sd-card-text">Sampling</p>
+<img alt="../../_images/sampling-light.svg" class="only-light" src="../../_images/sampling-light.svg" />
+<img alt="../../_images/sampling-dark.svg" class="only-dark" src="../../_images/sampling-dark.svg" />
+<p class="sd-card-text">Sampling</p>
 <p class="sd-card-text">Sampling is a special technique of data transformation, which helps to deal with large datasets and overplotting. <a class="reference internal" href="sampling.html"><span class="doc">Learn more</span></a>.</p>
 </div>
 </div>
@@ -764,7 +761,9 @@ document.write(`
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
 <div class="sd-card-body docutils">
-<img alt="../../_images/offline-mode-light.svg" class="only-light" src="../../_images/offline-mode-light.svg" /><img alt="../../_images/offline-mode-dark.svg" class="only-dark" src="../../_images/offline-mode-dark.svg" /><p class="sd-card-text">‘No Javascript’ and Offline Mode</p>
+<img alt="../../_images/offline-mode-light.svg" class="only-light" src="../../_images/offline-mode-light.svg" />
+<img alt="../../_images/offline-mode-dark.svg" class="only-dark" src="../../_images/offline-mode-dark.svg" />
+<p class="sd-card-text">‘No Javascript’ and Offline Mode</p>
 <p class="sd-card-text">In the ‘no javascript’ mode <em>Lets-Plot</em> generates plots as bare-bones SVG images. Plots in the notebook with option <code class="docutils literal notranslate"><span class="pre">offline=True</span></code> will be working without an Internet connection. <a class="reference internal" href="no_js_and_offline_mode.html"><span class="doc">Learn more</span></a>.</p>
 </div>
 </div>
@@ -785,7 +784,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -827,8 +827,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -836,7 +836,7 @@ document.write(`
     <div class="footer-items__start">
       
         <div class="footer-item"><p class="copyright">
-  Copyright © 2019-2024 JetBrains s.r.o.
+  Copyright © 2019-2025 JetBrains s.r.o.
 </p></div>
       
     </div>
@@ -848,9 +848,9 @@ document.write(`
 <p class="sphinx-version theme-version">
   Created using
   <a class="reference external" href="https://www.sphinx-doc.org/" target="_blank">Sphinx</a>
-  7.3.7 and
+  8.1.3 and
   <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html" target="_blank">PyData Sphinx Theme</a>
-  0.15.4.
+  0.16.1.
 <p></div>
       
     </div>

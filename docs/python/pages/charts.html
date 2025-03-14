@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta content="An overview of the basic building blocks and more complex charts provided by Lets-Plot." name="description" />
-<meta content="data visualization, charts, visualization of distribution, marginal plots, visualization of errors, smoothing line, visualize time series, images, faceting, coordinate systems, EDA, pandas DataFrame, polars DataFrame, geopandas GeoDataFrame, collection of plots, plot themes, plot flavors, cookbooks" name="keywords" />
+<meta content="data visualization, charts, visualization of distribution, marginal plots, visualization of errors, smoothing line, visualize time series, images, faceting, coordinate systems, EDA, pandas DataFrame, polars DataFrame, geopandas GeoDataFrame, collection of plots, plot themes, plot flavors, panning, zooming, interactive links, LaTeX, markdown, manual legend, multiple color scales, quantiles, cookbooks" name="keywords" />
 <meta property="og:title" content="Lets-Plot Charts: From Basics to Advanced Visualizations" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://lets-plot.org/python/pages/charts.html" />
@@ -25,38 +25,42 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ac35cfe9" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/colors.css?v=32b6ea70" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=defcf438" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/colors.css?v=75bbc594" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/dataframe.css?v=1855a575" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=9683ad65"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/documentation_options.js?v=68f2c66a"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'python/pages/charts';</script>
     <script src="../../_static/js/custom.js?v=a8badf0c"></script>
     <script src="../../_static/js/language_data.js?v=2e3e2f07"></script>
@@ -64,7 +68,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Maps" href="maps.html" />
-    <link rel="prev" title="lets_plot.tilesets.NASA_TERRA_TRUECOLOR" href="api/lets_plot.tilesets.NASA_TERRA_TRUECOLOR.html" />
+    <link rel="prev" title="Notebooks" href="notebooks.html" />
   <meta name="google-site-verification" content="FfoGmeQ4UDHfoTW3e2ngIW5d8JW_TPcSKV7GMH3jK40" />
 
   </head>
@@ -82,19 +86,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -102,7 +95,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -110,8 +102,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -162,7 +154,7 @@
    
 
 <a class="navbar-brand version" href="whats_new.html">
-  <p>v4.3.3</p>
+  <p>v4.6.1</p>
 </a>
 </div>
     
@@ -178,13 +170,15 @@
     
       
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="api.html">
-    API
+  <a class="nav-link nav-internal" href="notebooks.html">
+    Notebooks
   </a>
 </li>
 
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
@@ -245,29 +239,21 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
         <div class="navbar-item">
 <ul class="navbar-icon-links navbar-nav"
@@ -311,15 +297,11 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
@@ -338,7 +320,8 @@ document.write(`
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -355,8 +338,8 @@ document.write(`
     
       
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="api.html">
-    API
+  <a class="nav-link nav-internal" href="notebooks.html">
+    Notebooks
   </a>
 </li>
 
@@ -415,15 +398,11 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
           <div class="navbar-item">
 <ul class="navbar-icon-links navbar-nav"
@@ -466,9 +445,14 @@ document.write(`
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -500,31 +484,32 @@ and each column represents a variable that describes some property of each obser
 <section id="l2-d2-basic-building-blocks">
 <h2><img alt="l2" class="only-light" src="../../_images/basic-building-blocks-light.svg" /> <img alt="d2" class="only-dark" src="../../_images/basic-building-blocks-dark.svg" /> Basic Building Blocks<a class="headerlink" href="#l2-d2-basic-building-blocks" title="Link to this heading">#</a></h2>
 <p>Points:
-<a class="reference internal" href="api/lets_plot.geom_point.html#lets_plot.geom_point" title="lets_plot.geom_point"><code class="xref py py-mod docutils literal notranslate"><span class="pre">points</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_jitter.html#lets_plot.geom_jitter" title="lets_plot.geom_jitter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">jittered</span> <span class="pre">points</span></code></a></p>
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">points</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">jittered</span> <span class="pre">points</span></code></p>
 <p>Lines:
-<a class="reference internal" href="api/lets_plot.geom_line.html#lets_plot.geom_line" title="lets_plot.geom_line"><code class="xref py py-mod docutils literal notranslate"><span class="pre">line</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_path.html#lets_plot.geom_path" title="lets_plot.geom_path"><code class="xref py py-mod docutils literal notranslate"><span class="pre">path</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_abline.html#lets_plot.geom_abline" title="lets_plot.geom_abline"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diagonal</span> <span class="pre">line</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_hline.html#lets_plot.geom_hline" title="lets_plot.geom_hline"><code class="xref py py-mod docutils literal notranslate"><span class="pre">horizontal</span> <span class="pre">line</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_vline.html#lets_plot.geom_vline" title="lets_plot.geom_vline"><code class="xref py py-mod docutils literal notranslate"><span class="pre">vertical</span> <span class="pre">line</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_segment.html#lets_plot.geom_segment" title="lets_plot.geom_segment"><code class="xref py py-mod docutils literal notranslate"><span class="pre">segment</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_curve.html#lets_plot.geom_curve" title="lets_plot.geom_curve"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curve</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_spoke.html#lets_plot.geom_spoke" title="lets_plot.geom_spoke"><code class="xref py py-mod docutils literal notranslate"><span class="pre">spoke</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_step.html#lets_plot.geom_step" title="lets_plot.geom_step"><code class="xref py py-mod docutils literal notranslate"><span class="pre">step-function</span></code></a></p>
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">line</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">path</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">diagonal</span> <span class="pre">line</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">horizontal</span> <span class="pre">line</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">vertical</span> <span class="pre">line</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">segment</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">curve</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">spoke</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">step-function</span></code></p>
 <p>Areas:
-<a class="reference internal" href="api/lets_plot.geom_area.html#lets_plot.geom_area" title="lets_plot.geom_area"><code class="xref py py-mod docutils literal notranslate"><span class="pre">area</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_ribbon.html#lets_plot.geom_ribbon" title="lets_plot.geom_ribbon"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ribbon</span></code></a></p>
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">area</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">band</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">ribbon</span></code></p>
 <p>Polygons:
-<a class="reference internal" href="api/lets_plot.geom_polygon.html#lets_plot.geom_polygon" title="lets_plot.geom_polygon"><code class="xref py py-mod docutils literal notranslate"><span class="pre">polygon</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_map.html#lets_plot.geom_map" title="lets_plot.geom_map"><code class="xref py py-mod docutils literal notranslate"><span class="pre">map</span></code></a></p>
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">polygon</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">map</span></code></p>
 <p>Tiles:
-<a class="reference internal" href="api/lets_plot.geom_tile.html#lets_plot.geom_tile" title="lets_plot.geom_tile"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tiles</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_rect.html#lets_plot.geom_rect" title="lets_plot.geom_rect"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rectangles</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_raster.html#lets_plot.geom_raster" title="lets_plot.geom_raster"><code class="xref py py-mod docutils literal notranslate"><span class="pre">raster</span> <span class="pre">plot</span></code></a></p>
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">tiles</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">rectangles</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">raster</span> <span class="pre">plot</span></code></p>
 <p>Text:
-<a class="reference internal" href="api/lets_plot.geom_text.html#lets_plot.geom_text" title="lets_plot.geom_text"><code class="xref py py-mod docutils literal notranslate"><span class="pre">text</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_label.html#lets_plot.geom_label" title="lets_plot.geom_label"><code class="xref py py-mod docutils literal notranslate"><span class="pre">label</span></code></a></p>
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">text</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">label</span></code></p>
 <p>Examples:</p>
 <ul>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/demo/covid19_and_mobility.ipynb">Population mobility and COVID-19</a></li>
@@ -538,15 +523,18 @@ and each column represents a variable that describes some property of each obser
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/aes_size_color_variadic_lines.ipynb">Variadic lines in geom_path() and geom_line()</a></li>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/geom_spoke.ipynb">Spoke geometry</a></li>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/geom_curve.ipynb">Curve geometry</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/linetype_custom.ipynb">Customizing line type</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/expand_limits.ipynb">Expanding plot limits with expand_limits()</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/position_nudge_unit.ipynb">Configuring nudge units in position adjustments</a></li>
 </ul>
 </section>
 <section id="l3-d3-discrete">
 <h2><img alt="l3" class="only-light" src="../../_images/discrete-light.svg" /> <img alt="d3" class="only-dark" src="../../_images/discrete-dark.svg" /> Discrete<a class="headerlink" href="#l3-d3-discrete" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="api/lets_plot.geom_bar.html#lets_plot.geom_bar" title="lets_plot.geom_bar"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bar</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_pie.html#lets_plot.geom_pie" title="lets_plot.geom_pie"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pie</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_lollipop.html#lets_plot.geom_lollipop" title="lets_plot.geom_lollipop"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lollipop</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_boxplot.html#lets_plot.geom_boxplot" title="lets_plot.geom_boxplot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">boxplot</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_count.html#lets_plot.geom_count" title="lets_plot.geom_count"><code class="xref py py-mod docutils literal notranslate"><span class="pre">count</span></code></a>/<a class="reference internal" href="api/lets_plot.stat_sum.html#lets_plot.stat_sum" title="lets_plot.stat_sum"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sum</span></code></a></p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">bar</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">pie</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">lollipop</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">boxplot</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">count</span></code>/<code class="xref py py-mod docutils literal notranslate"><span class="pre">sum</span></code></p>
 <p>
   Learn more:
   <a class="reference internal" href="as_discrete.html">Working with Categorical Variables and the <strong class="code-like">as_discrete()</strong> Function</a>.
@@ -566,8 +554,8 @@ and each column represents a variable that describes some property of each obser
 </section>
 <section id="l4-d4-contours">
 <h2><img alt="l4" class="only-light" src="../../_images/contours-light.svg" /> <img alt="d4" class="only-dark" src="../../_images/contours-dark.svg" /> Contours<a class="headerlink" href="#l4-d4-contours" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="api/lets_plot.geom_contour.html#lets_plot.geom_contour" title="lets_plot.geom_contour"><code class="xref py py-mod docutils literal notranslate"><span class="pre">contours</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_contourf.html#lets_plot.geom_contourf" title="lets_plot.geom_contourf"><code class="xref py py-mod docutils literal notranslate"><span class="pre">filled</span> <span class="pre">contours</span></code></a></p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">contours</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">filled</span> <span class="pre">contours</span></code></p>
 <p>Examples:</p>
 <ul>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/contours.ipynb">Contours</a></li>
@@ -576,13 +564,13 @@ and each column represents a variable that describes some property of each obser
 </section>
 <section id="l5-d5-visualization-of-distribution">
 <h2><img alt="l5" class="only-light" src="../../_images/visualization-of-distribution-light.svg" /> <img alt="d5" class="only-dark" src="../../_images/visualization-of-distribution-dark.svg" /> Visualization of Distribution<a class="headerlink" href="#l5-d5-visualization-of-distribution" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="api/lets_plot.geom_histogram.html#lets_plot.geom_histogram" title="lets_plot.geom_histogram"><code class="xref py py-mod docutils literal notranslate"><span class="pre">histogram</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_density.html#lets_plot.geom_density" title="lets_plot.geom_density"><code class="xref py py-mod docutils literal notranslate"><span class="pre">density</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_dotplot.html#lets_plot.geom_dotplot" title="lets_plot.geom_dotplot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dotplot</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_ydotplot.html#lets_plot.geom_ydotplot" title="lets_plot.geom_ydotplot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ydotplot</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_violin.html#lets_plot.geom_violin" title="lets_plot.geom_violin"><code class="xref py py-mod docutils literal notranslate"><span class="pre">violin</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_area_ridges.html#lets_plot.geom_area_ridges" title="lets_plot.geom_area_ridges"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ridgeline</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_freqpoly.html#lets_plot.geom_freqpoly" title="lets_plot.geom_freqpoly"><code class="xref py py-mod docutils literal notranslate"><span class="pre">frequency</span> <span class="pre">polygon</span></code></a></p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">histogram</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">density</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">dotplot</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">ydotplot</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">violin</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">ridgeline</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">frequency</span> <span class="pre">polygon</span></code></p>
 <p>Examples:</p>
 <ul>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/histogram.ipynb">Histogram</a></li>
@@ -593,13 +581,14 @@ and each column represents a variable that describes some property of each obser
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/netflix_movies.ipynb">Netflix movies</a></li>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/y_orientation.ipynb">The orientation parameter</a></li>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/continuous_color_scales.ipynb">Using scales</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/geom_histogram_threshold.ipynb">Parameter threshold in geom_histogram()</a></li>
 </ul>
 </section>
 <section id="l6-d6-stats">
 <h2><img alt="l6" class="only-light" src="../../_images/stats-light.svg" /> <img alt="d6" class="only-dark" src="../../_images/stats-dark.svg" /> Stats<a class="headerlink" href="#l6-d6-stats" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="api/lets_plot.stat_ecdf.html#lets_plot.stat_ecdf" title="lets_plot.stat_ecdf"><code class="xref py py-mod docutils literal notranslate"><span class="pre">stat_ecdf()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.stat_summary.html#lets_plot.stat_summary" title="lets_plot.stat_summary"><code class="xref py py-mod docutils literal notranslate"><span class="pre">stat_summary()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.stat_summary_bin.html#lets_plot.stat_summary_bin" title="lets_plot.stat_summary_bin"><code class="xref py py-mod docutils literal notranslate"><span class="pre">stat_summary_bin()</span></code></a></p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">stat_ecdf()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">stat_summary()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">stat_summary_bin()</span></code></p>
 <p>Examples:</p>
 <ul>
 <li><a class="reference external extref" href="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/rSO3wAghj64LUyyVjqqvEW">Explicit use of statistics</a></li>
@@ -610,7 +599,7 @@ and each column represents a variable that describes some property of each obser
 </section>
 <section id="l7-d7-function">
 <h2><img alt="l7" class="only-light" src="../../_images/function-light.svg" /> <img alt="d7" class="only-dark" src="../../_images/function-dark.svg" /> Function<a class="headerlink" href="#l7-d7-function" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="api/lets_plot.geom_function.html#lets_plot.geom_function" title="lets_plot.geom_function"><code class="xref py py-mod docutils literal notranslate"><span class="pre">function</span></code></a></p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">function</span></code></p>
 <p>Examples:</p>
 <ul>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/geom_function.ipynb">Function geometry</a></li>
@@ -618,10 +607,10 @@ and each column represents a variable that describes some property of each obser
 </section>
 <section id="l8-d8-visualization-of-errors">
 <h2><img alt="l8" class="only-light" src="../../_images/visualization-of-errors-light.svg" /> <img alt="d8" class="only-dark" src="../../_images/visualization-of-errors-dark.svg" /> Visualization of Errors<a class="headerlink" href="#l8-d8-visualization-of-errors" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="api/lets_plot.geom_crossbar.html#lets_plot.geom_crossbar" title="lets_plot.geom_crossbar"><code class="xref py py-mod docutils literal notranslate"><span class="pre">crossbar</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_errorbar.html#lets_plot.geom_errorbar" title="lets_plot.geom_errorbar"><code class="xref py py-mod docutils literal notranslate"><span class="pre">errorbar</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_linerange.html#lets_plot.geom_linerange" title="lets_plot.geom_linerange"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linerange</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_pointrange.html#lets_plot.geom_pointrange" title="lets_plot.geom_pointrange"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pointrange</span></code></a></p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">crossbar</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">errorbar</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">linerange</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">pointrange</span></code></p>
 <p>Examples:</p>
 <ul>
 <li><a class="reference external extref" href="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/j7e8nKA6HBZqkT3m4Ctlu0">Plotting means and error ranges</a></li>
@@ -629,7 +618,7 @@ and each column represents a variable that describes some property of each obser
 </section>
 <section id="l9-d9-smoothing">
 <h2><img alt="l9" class="only-light" src="../../_images/smoothing-light.svg" /> <img alt="d9" class="only-dark" src="../../_images/smoothing-dark.svg" /> Smoothing<a class="headerlink" href="#l9-d9-smoothing" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="api/lets_plot.geom_smooth.html#lets_plot.geom_smooth" title="lets_plot.geom_smooth"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smoothing</span> <span class="pre">line</span></code></a></p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">smoothing</span> <span class="pre">line</span></code></p>
 <p>Examples:</p>
 <ul>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/scatter_plot.ipynb">Draw a scatter plot</a></li>
@@ -638,17 +627,20 @@ and each column represents a variable that describes some property of each obser
 </section>
 <section id="l10-d10-bivariate-distribution">
 <h2><img alt="l10" class="only-light" src="../../_images/bivariate-distribution-light.svg" /> <img alt="d10" class="only-dark" src="../../_images/bivariate-distribution-dark.svg" /> Bivariate Distribution<a class="headerlink" href="#l10-d10-bivariate-distribution" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="api/lets_plot.geom_bin2d.html#lets_plot.geom_bin2d" title="lets_plot.geom_bin2d"><code class="xref py py-mod docutils literal notranslate"><span class="pre">2d</span> <span class="pre">bins</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_density2d.html#lets_plot.geom_density2d" title="lets_plot.geom_density2d"><code class="xref py py-mod docutils literal notranslate"><span class="pre">2d</span> <span class="pre">density</span></code></a>,
-<a class="reference internal" href="api/lets_plot.geom_density2df.html#lets_plot.geom_density2df" title="lets_plot.geom_density2df"><code class="xref py py-mod docutils literal notranslate"><span class="pre">filled</span> <span class="pre">2d</span> <span class="pre">density</span></code></a></p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">2d</span> <span class="pre">bins</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">2d</span> <span class="pre">hexagonal</span> <span class="pre">bins</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">2d</span> <span class="pre">density</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">filled</span> <span class="pre">2d</span> <span class="pre">density</span></code></p>
 <p>Examples:</p>
 <ul>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/density_2d.ipynb">2d density</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/geom_hex.ipynb">Hexagonal heatmap</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/param_width_unit.ipynb">Absolute unit specification for width and height aesthetics</a></li>
 </ul>
 </section>
 <section id="l11-d11-marginal-plots">
 <h2><img alt="l11" class="only-light" src="../../_images/marginal-light.svg" /> <img alt="d11" class="only-dark" src="../../_images/marginal-dark.svg" /> Marginal Plots<a class="headerlink" href="#l11-d11-marginal-plots" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="api/lets_plot.ggmarginal.html#lets_plot.ggmarginal" title="lets_plot.ggmarginal"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ggmarginal</span></code></a></p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">ggmarginal</span></code></p>
 <p>See also: <a class="reference internal" href="bistro.html#bistro-joint-plot"><span class="std std-ref">Joint Plot</span></a>, <a class="reference internal" href="bistro.html#bistro-residual-plot"><span class="std std-ref">Residual Plot</span></a>.</p>
 <p>Examples:</p>
 <ul>
@@ -657,10 +649,10 @@ and each column represents a variable that describes some property of each obser
 </section>
 <section id="l12-d12-time-series">
 <h2><img alt="l12" class="only-light" src="../../_images/time-series-light.svg" /> <img alt="d12" class="only-dark" src="../../_images/time-series-dark.svg" /> Time Series<a class="headerlink" href="#l12-d12-time-series" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="api/lets_plot.scale_x_datetime.html#lets_plot.scale_x_datetime" title="lets_plot.scale_x_datetime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">scale_x_datetime()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.scale_y_datetime.html#lets_plot.scale_y_datetime" title="lets_plot.scale_y_datetime"><code class="xref py py-mod docutils literal notranslate"><span class="pre">scale_y_datetime()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.scale_x_time.html#lets_plot.scale_x_time" title="lets_plot.scale_x_time"><code class="xref py py-mod docutils literal notranslate"><span class="pre">scale_x_time()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.scale_y_time.html#lets_plot.scale_y_time" title="lets_plot.scale_y_time"><code class="xref py py-mod docutils literal notranslate"><span class="pre">scale_y_time()</span></code></a></p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">scale_x_datetime()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">scale_y_datetime()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">scale_x_time()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">scale_y_time()</span></code></p>
 <p>Examples:</p>
 <ul>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/scale_time.ipynb">Scale time</a></li>
@@ -669,8 +661,8 @@ and each column represents a variable that describes some property of each obser
 </section>
 <section id="l13-d13-images">
 <h2><img alt="l13" class="only-light" src="../../_images/images-light.svg" /> <img alt="d13" class="only-dark" src="../../_images/images-dark.svg" /> Images<a class="headerlink" href="#l13-d13-images" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="api/lets_plot.geom_imshow.html#lets_plot.geom_imshow" title="lets_plot.geom_imshow"><code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_imshow()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.bistro.im.image_matrix.html#lets_plot.bistro.im.image_matrix" title="lets_plot.bistro.im.image_matrix"><code class="xref py py-mod docutils literal notranslate"><span class="pre">matrix</span> <span class="pre">of</span> <span class="pre">images</span></code></a></p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_imshow()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">matrix</span> <span class="pre">of</span> <span class="pre">images</span></code></p>
 <p>Examples:</p>
 <ul>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/image_101.ipynb">geom_imshow()</a></li>
@@ -686,8 +678,8 @@ and each column represents a variable that describes some property of each obser
 </section>
 <section id="l14-d14-facets">
 <h2><img alt="l14" class="only-light" src="../../_images/facets-light.svg" /> <img alt="d14" class="only-dark" src="../../_images/facets-dark.svg" /> Facets<a class="headerlink" href="#l14-d14-facets" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="api/lets_plot.facet_grid.html#lets_plot.facet_grid" title="lets_plot.facet_grid"><code class="xref py py-mod docutils literal notranslate"><span class="pre">facet_grid()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.facet_wrap.html#lets_plot.facet_wrap" title="lets_plot.facet_wrap"><code class="xref py py-mod docutils literal notranslate"><span class="pre">facet_wrap()</span></code></a></p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">facet_grid()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">facet_wrap()</span></code></p>
 <p>Examples:</p>
 <ul>
 <li><a class="reference external extref" href="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/2mTXwTPwB1TJLvjI36Lm9K">Multipanel plots with facets</a></li>
@@ -696,11 +688,11 @@ and each column represents a variable that describes some property of each obser
 </section>
 <section id="l15-d15-coordinate-systems">
 <h2><img alt="l15" class="only-light" src="../../_images/coordinate-systems-light.svg" /> <img alt="d15" class="only-dark" src="../../_images/coordinate-systems-dark.svg" /> Coordinate Systems<a class="headerlink" href="#l15-d15-coordinate-systems" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="api/lets_plot.coord_cartesian.html#lets_plot.coord_cartesian" title="lets_plot.coord_cartesian"><code class="xref py py-mod docutils literal notranslate"><span class="pre">coord_cartesian()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.coord_fixed.html#lets_plot.coord_fixed" title="lets_plot.coord_fixed"><code class="xref py py-mod docutils literal notranslate"><span class="pre">coord_fixed()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.coord_polar.html#lets_plot.coord_polar" title="lets_plot.coord_polar"><code class="xref py py-mod docutils literal notranslate"><span class="pre">coord_polar()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.coord_flip.html#lets_plot.coord_flip" title="lets_plot.coord_flip"><code class="xref py py-mod docutils literal notranslate"><span class="pre">coord_flip()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.coord_map.html#lets_plot.coord_map" title="lets_plot.coord_map"><code class="xref py py-mod docutils literal notranslate"><span class="pre">coord_map()</span></code></a></p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">coord_cartesian()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">coord_fixed()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">coord_polar()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">coord_flip()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">coord_map()</span></code></p>
 <p>Examples:</p>
 <ul>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/coordinate_systems.ipynb">Coordinate systems</a></li>
@@ -708,14 +700,33 @@ and each column represents a variable that describes some property of each obser
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/coord_polar.ipynb">Polar coordinate system</a></li>
 </ul>
 </section>
-<section id="l16-d16-bistro-plots">
-<h2><img alt="l16" class="only-light" src="../../_images/bistro-light.svg" /> <img alt="d16" class="only-dark" src="../../_images/bistro-dark.svg" /> ‘bistro’ Plots<a class="headerlink" href="#l16-d16-bistro-plots" title="Link to this heading">#</a></h2>
-<p>Exploratory Data Analysis (EDA) is an open-ended, highly interactive, iterative process, whose actual steps are segments of a stubbily branching, tree-like pattern of possible actions.</p>
-<p>Learn more about instruments for EDA in <em>Lets-Plot</em>: <a class="reference internal" href="bistro.html"><span class="doc">‘bistro’ Plots</span></a>.</p>
+<section id="l16-d16-legends-and-guides">
+<h2><img alt="l16" class="only-light" src="../../_images/legend-light.svg" /> <img alt="d16" class="only-dark" src="../../_images/legend-dark.svg" /> Legends and Guides<a class="headerlink" href="#l16-d16-legends-and-guides" title="Link to this heading">#</a></h2>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">guide_legend()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">guide_colorbar()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">guides()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">layer_key()</span></code></p>
+<p>Examples:</p>
+<ul>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/legend.ipynb">Legend customization</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/manual_legend.ipynb">Manual legend</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/legend_theme.ipynb">Customize legend appearance</a></li>
+</ul>
 </section>
-<section id="l17-d17-geopandas-shapes">
-<h2><img alt="l17" class="only-light" src="../../_images/geopandas-light.svg" /> <img alt="d17" class="only-dark" src="../../_images/geopandas-dark.svg" /> GeoPandas Shapes<a class="headerlink" href="#l17-d17-geopandas-shapes" title="Link to this heading">#</a></h2>
-<p>GeoPandas <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> is supported by the following geometry layers: <a class="reference internal" href="api/lets_plot.geom_polygon.html#lets_plot.geom_polygon" title="lets_plot.geom_polygon"><code class="xref py py-mod docutils literal notranslate"><span class="pre">polygon</span></code></a>, <a class="reference internal" href="api/lets_plot.geom_map.html#lets_plot.geom_map" title="lets_plot.geom_map"><code class="xref py py-mod docutils literal notranslate"><span class="pre">map</span></code></a>, <a class="reference internal" href="api/lets_plot.geom_point.html#lets_plot.geom_point" title="lets_plot.geom_point"><code class="xref py py-mod docutils literal notranslate"><span class="pre">point</span></code></a>, <a class="reference internal" href="api/lets_plot.geom_pie.html#lets_plot.geom_pie" title="lets_plot.geom_pie"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pie</span></code></a>, <a class="reference internal" href="api/lets_plot.geom_text.html#lets_plot.geom_text" title="lets_plot.geom_text"><code class="xref py py-mod docutils literal notranslate"><span class="pre">text</span></code></a>, <a class="reference internal" href="api/lets_plot.geom_label.html#lets_plot.geom_label" title="lets_plot.geom_label"><code class="xref py py-mod docutils literal notranslate"><span class="pre">label</span></code></a>, <a class="reference internal" href="api/lets_plot.geom_path.html#lets_plot.geom_path" title="lets_plot.geom_path"><code class="xref py py-mod docutils literal notranslate"><span class="pre">path</span></code></a>, <a class="reference internal" href="api/lets_plot.geom_rect.html#lets_plot.geom_rect" title="lets_plot.geom_rect"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rect</span></code></a>.</p>
+<section id="l17-d17-bistro-plots">
+<h2><img alt="l17" class="only-light" src="../../_images/bistro-light.svg" /> <img alt="d17" class="only-dark" src="../../_images/bistro-dark.svg" /> ‘bistro’ Plots<a class="headerlink" href="#l17-d17-bistro-plots" title="Link to this heading">#</a></h2>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">corr_plot()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">qq_plot()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">joint_plot()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">residual_plot()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">waterfall_plot()</span></code></p>
+<p>“Bistro” plots is a collection of “compound plots” allowing users to generate intricate charts without the need for extensive coding.</p>
+<p>With these high-level functions you can create visualizations like correlation matrices, quantile-quantile plots, and joint distribution plots using single function calls.</p>
+<p>Learn more: <a class="reference internal" href="bistro.html"><span class="doc">‘bistro’ Plots</span></a>.</p>
+</section>
+<section id="l18-d18-geopandas-shapes">
+<h2><img alt="l18" class="only-light" src="../../_images/geopandas-light.svg" /> <img alt="d18" class="only-dark" src="../../_images/geopandas-dark.svg" /> GeoPandas Shapes<a class="headerlink" href="#l18-d18-geopandas-shapes" title="Link to this heading">#</a></h2>
+<p>GeoPandas <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> is supported by the following geometry layers: <code class="xref py py-mod docutils literal notranslate"><span class="pre">polygon</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">map</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">point</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">pie</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">text</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">label</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">path</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">rect</span></code>.</p>
 <p>Learn more: <a class="reference internal" href="geopandas.html"><span class="doc">GeoPandas Support</span></a>.</p>
 <p>Examples:</p>
 <ul>
@@ -727,38 +738,49 @@ and each column represents a variable that describes some property of each obser
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/projection_provided.ipynb">Using exotic map projections</a></li>
 </ul>
 </section>
-<section id="l18-d18-grouping-plots">
-<h2><img alt="l18" class="only-light" src="../../_images/grouping-plots-light.svg" /> <img alt="d18" class="only-dark" src="../../_images/grouping-plots-dark.svg" /> Grouping Plots<a class="headerlink" href="#l18-d18-grouping-plots" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="api/lets_plot.GGBunch.html#lets_plot.GGBunch" title="lets_plot.GGBunch"><code class="xref py py-mod docutils literal notranslate"><span class="pre">GGBunch</span></code></a> and <a class="reference internal" href="api/lets_plot.gggrid.html#lets_plot.gggrid" title="lets_plot.gggrid"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gggrid</span></code></a> shows a collection of plots on one figure.</p>
+<section id="l19-d19-grouping-plots">
+<h2><img alt="l19" class="only-light" src="../../_images/grouping-plots-light.svg" /> <img alt="d19" class="only-dark" src="../../_images/grouping-plots-dark.svg" /> Grouping Plots<a class="headerlink" href="#l19-d19-grouping-plots" title="Link to this heading">#</a></h2>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">ggbunch</span></code> and <code class="xref py py-mod docutils literal notranslate"><span class="pre">gggrid</span></code> shows a collection of plots on one figure.</p>
 <p>Examples:</p>
 <ul>
-<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/ggbunch.ipynb">The GGBunch class</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/demo/ggbunch_indonesia.ipynb">ggbunch(): combining plots with custom layout</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/geopandas_kotlin_isl.ipynb">Inset map of Kotlin island</a></li>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/plot_grid.ipynb">The gggrid() function</a></li>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/gggrid_scale_share.ipynb">Sharing X,Y-axis scale limits</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/ggbunch.ipynb">The ggbunch function</a></li>
 <li><a class="reference external extref" href="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/ZWb7Mmvd4RSzjJ29pOpFvn">Custom theme</a></li>
 </ul>
 </section>
-<section id="l19-d19-presentation-options">
-<h2><img alt="l19" class="only-light" src="../../_images/presentation-options-light.svg" /> <img alt="d19" class="only-dark" src="../../_images/presentation-options-dark.svg" /> Presentation Options<a class="headerlink" href="#l19-d19-presentation-options" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="api/lets_plot.theme.html#lets_plot.theme" title="lets_plot.theme"><code class="xref py py-mod docutils literal notranslate"><span class="pre">theme()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.ggtitle.html#lets_plot.ggtitle" title="lets_plot.ggtitle"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ggtitle()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.ggsize.html#lets_plot.ggsize" title="lets_plot.ggsize"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ggsize()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.xlab.html#lets_plot.xlab" title="lets_plot.xlab"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xlab()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.ylab.html#lets_plot.ylab" title="lets_plot.ylab"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ylab()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.labs.html#lets_plot.labs" title="lets_plot.labs"><code class="xref py py-mod docutils literal notranslate"><span class="pre">labs()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.guide_legend.html#lets_plot.guide_legend" title="lets_plot.guide_legend"><code class="xref py py-mod docutils literal notranslate"><span class="pre">guide_legend()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.guide_colorbar.html#lets_plot.guide_colorbar" title="lets_plot.guide_colorbar"><code class="xref py py-mod docutils literal notranslate"><span class="pre">guide_colorbar()</span></code></a>,
-<a class="reference internal" href="api/lets_plot.guides.html#lets_plot.guides" title="lets_plot.guides"><code class="xref py py-mod docutils literal notranslate"><span class="pre">guides()</span></code></a></p>
+<section id="l20-d20-presentation-options">
+<h2><img alt="l20" class="only-light" src="../../_images/presentation-options-light.svg" /> <img alt="d20" class="only-dark" src="../../_images/presentation-options-dark.svg" /> Presentation Options<a class="headerlink" href="#l20-d20-presentation-options" title="Link to this heading">#</a></h2>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">theme()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">ggtitle()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">ggsize()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">xlab()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">ylab()</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">labs()</span></code></p>
+<p>Examples:</p>
+<ul>
+<li><a class="reference external extref" href="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/ZWb7Mmvd4RSzjJ29pOpFvn">Custom theme</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/default_theme.ipynb">Default theme</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/geom_theme_colors.ipynb">Theme colors for geometries</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/tooltip_config.ipynb">Tooltip customization</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/set_font_faces.ipynb">Set font faces</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/axis_position.ipynb">Axis position</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/axis_text_angle.ipynb">Rotation of axis labels</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/superscript_exponent.ipynb">Exponent format in Lets-Plot</a></li>
+<li><a class="reference external extref" href="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/5n70Ra4matSQVR2O4Dm4PH">Annotation labels</a></li>
+</ul>
 <section id="predefined-themes">
 <h3>Predefined themes<a class="headerlink" href="#predefined-themes" title="Link to this heading">#</a></h3>
-<p><a class="reference internal" href="api/lets_plot.theme_minimal2.html#lets_plot.theme_minimal2" title="lets_plot.theme_minimal2"><code class="xref py py-mod docutils literal notranslate"><span class="pre">minimal2</span></code></a>,
-<a class="reference internal" href="api/lets_plot.theme_bw.html#lets_plot.theme_bw" title="lets_plot.theme_bw"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bw</span></code></a>,
-<a class="reference internal" href="api/lets_plot.theme_grey.html#lets_plot.theme_grey" title="lets_plot.theme_grey"><code class="xref py py-mod docutils literal notranslate"><span class="pre">grey</span></code></a>,
-<a class="reference internal" href="api/lets_plot.theme_classic.html#lets_plot.theme_classic" title="lets_plot.theme_classic"><code class="xref py py-mod docutils literal notranslate"><span class="pre">classic</span></code></a>,
-<a class="reference internal" href="api/lets_plot.theme_light.html#lets_plot.theme_light" title="lets_plot.theme_light"><code class="xref py py-mod docutils literal notranslate"><span class="pre">light</span></code></a>,
-<a class="reference internal" href="api/lets_plot.theme_minimal.html#lets_plot.theme_minimal" title="lets_plot.theme_minimal"><code class="xref py py-mod docutils literal notranslate"><span class="pre">minimal</span></code></a>,
-<a class="reference internal" href="api/lets_plot.theme_void.html#lets_plot.theme_void" title="lets_plot.theme_void"><code class="xref py py-mod docutils literal notranslate"><span class="pre">void</span></code></a>,
-<a class="reference internal" href="api/lets_plot.theme_none.html#lets_plot.theme_none" title="lets_plot.theme_none"><code class="xref py py-mod docutils literal notranslate"><span class="pre">none</span></code></a></p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">minimal2</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">bw</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">grey</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">classic</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">light</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">minimal</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">void</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">none</span></code></p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 wide-grid docutils">
 <div class="sd-row sd-row-cols-3 sd-row-cols-xs-3 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -799,33 +821,77 @@ and each column represents a variable that describes some property of each obser
 </div>
 </div>
 </div>
+<p>Examples:</p>
+<ul>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/default_theme.ipynb">Default theme</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/theme_flavors.ipynb">Theme flavors</a></li>
+<li><a class="reference external extref" href="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/5n70Ra4matSQVR2O4Dm4PH">Annotation labels</a></li>
+</ul>
 </section>
 <section id="color-schemes-flavors">
 <h3>Color schemes (flavors)<a class="headerlink" href="#color-schemes-flavors" title="Link to this heading">#</a></h3>
-<p><a class="reference internal" href="api/lets_plot.flavor_darcula.html#lets_plot.flavor_darcula" title="lets_plot.flavor_darcula"><code class="xref py py-mod docutils literal notranslate"><span class="pre">darcula</span></code></a>,
-<a class="reference internal" href="api/lets_plot.flavor_solarized_light.html#lets_plot.flavor_solarized_light" title="lets_plot.flavor_solarized_light"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solarized</span> <span class="pre">light</span></code></a>,
-<a class="reference internal" href="api/lets_plot.flavor_solarized_dark.html#lets_plot.flavor_solarized_dark" title="lets_plot.flavor_solarized_dark"><code class="xref py py-mod docutils literal notranslate"><span class="pre">solarized</span> <span class="pre">dark</span></code></a>,
-<a class="reference internal" href="api/lets_plot.flavor_high_contrast_light.html#lets_plot.flavor_high_contrast_light" title="lets_plot.flavor_high_contrast_light"><code class="xref py py-mod docutils literal notranslate"><span class="pre">high</span> <span class="pre">contrast</span> <span class="pre">light</span></code></a>,
-<a class="reference internal" href="api/lets_plot.flavor_high_contrast_dark.html#lets_plot.flavor_high_contrast_dark" title="lets_plot.flavor_high_contrast_dark"><code class="xref py py-mod docutils literal notranslate"><span class="pre">high</span> <span class="pre">contrast</span> <span class="pre">dark</span></code></a></p>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">darcula</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">solarized</span> <span class="pre">light</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">solarized</span> <span class="pre">dark</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">high</span> <span class="pre">contrast</span> <span class="pre">light</span></code>,
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">high</span> <span class="pre">contrast</span> <span class="pre">dark</span></code></p>
 <a class="reference external image-reference preview extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/geom_theme_colors.ipynb"><img alt="Theme colors for geometries" title="Theme colors for geometries" src="../../_extref_images/flavors.png" style="width: 1000px;height: 117px;"/></a><p>Examples:</p>
 <ul>
-<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/default_theme.ipynb">Default theme</a></li>
-<li><a class="reference external extref" href="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/ZWb7Mmvd4RSzjJ29pOpFvn">Custom theme</a></li>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/geom_theme_colors.ipynb">Theme colors for geometries</a></li>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/theme_flavors.ipynb">Theme flavors</a></li>
-<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/legend_and_axis.ipynb">Legend and axis</a></li>
-<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/legend_text_multiline.ipynb">Multiple lines for legend text</a></li>
-<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/tooltip_config.ipynb">Tooltip customization</a></li>
-<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/set_font_faces.ipynb">Set font faces</a></li>
-<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/axis_position.ipynb">Axis position</a></li>
-<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/axis_text_angle.ipynb">Rotation of axis labels</a></li>
-<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/superscript_exponent.ipynb">Exponent format in Lets-Plot</a></li>
-<li><a class="reference external extref" href="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/5n70Ra4matSQVR2O4Dm4PH">Annotation labels</a></li>
 </ul>
 </section>
 </section>
 <section id="miscellaneous">
 <h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Link to this heading">#</a></h2>
+<section id="panning-and-zooming">
+<h3>Panning and Zooming<a class="headerlink" href="#panning-and-zooming" title="Link to this heading">#</a></h3>
+<p>Use the <code class="xref py py-mod docutils literal notranslate"><span class="pre">ggtb()</span></code> function to enable <code class="docutils literal notranslate"><span class="pre">Pan</span></code> and <code class="docutils literal notranslate"><span class="pre">Zoom</span></code> interactivity on a chart.</p>
+<p>This function adds a toolbar containing three tool-buttons: pan, rubber-band zoom, and center-point zoom.</p>
+<p>Examples:</p>
+<ul>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/demo/interact_pan_zoom.ipynb">Zoom and Pan interactivity</a></li>
+</ul>
+</section>
+<section id="extended-text-markup">
+<h3>Extended Text Markup<a class="headerlink" href="#extended-text-markup" title="Link to this heading">#</a></h3>
+<p>In tooltips/labels/texts and wherever else there is text, you can use:</p>
+<ul class="simple">
+<li><p>Interactive links, e.g. <code class="docutils literal notranslate"><span class="pre">&lt;a</span> <span class="pre">href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;</span></code>.</p></li>
+<li><p>Limited LaTeX support:</p>
+<ul>
+<li><p>superscript, e.g. <code class="docutils literal notranslate"><span class="pre">\(</span> <span class="pre">a^b</span> <span class="pre">\)</span></code>,</p></li>
+<li><p>subscript, e.g. <code class="docutils literal notranslate"><span class="pre">\(</span> <span class="pre">x_i</span> <span class="pre">\)</span></code>,</p></li>
+<li><p>Greek letters, e.g. <code class="docutils literal notranslate"><span class="pre">\(</span> <span class="pre">\Omega</span> <span class="pre">\)</span></code>, and</p></li>
+<li><p>some special symbols, e.g. <code class="docutils literal notranslate"><span class="pre">\(</span> <span class="pre">a</span> <span class="pre">\cdot</span> <span class="pre">b</span> <span class="pre">\neq</span> <span class="pre">c</span> <span class="pre">\)</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Limited markdown support:</p>
+<ul>
+<li><p>emphasis (<code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, <code class="docutils literal notranslate"><span class="pre">***</span></code>, <code class="docutils literal notranslate"><span class="pre">_</span></code>, <code class="docutils literal notranslate"><span class="pre">__</span></code>, <code class="docutils literal notranslate"><span class="pre">___</span></code>),</p></li>
+<li><p>coloring with inline style (<code class="docutils literal notranslate"><span class="pre">&lt;span</span> <span class="pre">style='color:red'&gt;text&lt;/span&gt;</span></code>),</p></li>
+<li><p>links with anchor tags (<code class="docutils literal notranslate"><span class="pre">&lt;a</span> <span class="pre">href=&quot;https://lets-plot.org&quot;&gt;Lets-Plot&lt;/a&gt;</span></code>), and</p></li>
+<li><p>multiple lines using double space and a newline delimiter (<code class="docutils literal notranslate"><span class="pre">\n</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/demo/lp_verse.ipynb">The observable LP-verse</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/latex_support.ipynb">LaTeX support</a></li>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/markdown.ipynb">Markdown support</a></li>
+</ul>
+</section>
+<section id="manual-legend">
+<h3>Manual Legend<a class="headerlink" href="#manual-legend" title="Link to this heading">#</a></h3>
+<p>In Lets-Plot, as in ggplot2, legends are automatically generated based on the aesthetic mappings in the plot.
+Sometimes, however, this automatic generation doesn’t provide the precise control needed for complex visualizations.
+Options <code class="docutils literal notranslate"><span class="pre">manual_key</span></code> and <code class="docutils literal notranslate"><span class="pre">override_aes</span></code> addresses this limitation.</p>
+<p>Examples:</p>
+<ul>
+<li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/manual_legend.ipynb">Manual legend</a></li>
+</ul>
+</section>
 <section id="multiple-color-scales">
 <h3>Multiple Color Scales<a class="headerlink" href="#multiple-color-scales" title="Link to this heading">#</a></h3>
 <p>Use <code class="docutils literal notranslate"><span class="pre">color_by</span></code>/<code class="docutils literal notranslate"><span class="pre">fill_by</span></code> parameters and <code class="docutils literal notranslate"><span class="pre">paint_a</span></code>/<code class="docutils literal notranslate"><span class="pre">paint_b</span></code>/<code class="docutils literal notranslate"><span class="pre">paint_c</span></code> aesthetics if you need to display two different layers with the same color aesthetic but different color scales.</p>
@@ -838,7 +904,7 @@ and each column represents a variable that describes some property of each obser
 </section>
 <section id="scale-functions">
 <h3>Scale Functions<a class="headerlink" href="#scale-functions" title="Link to this heading">#</a></h3>
-<p>To specify a scale for any group of aesthetics, use the special scale functions: <a class="reference internal" href="api/lets_plot.scale_manual.html#lets_plot.scale_manual" title="lets_plot.scale_manual"><code class="xref py py-mod docutils literal notranslate"><span class="pre">scale_manual()</span></code></a>, <a class="reference internal" href="api/lets_plot.scale_continuous.html#lets_plot.scale_continuous" title="lets_plot.scale_continuous"><code class="xref py py-mod docutils literal notranslate"><span class="pre">scale_continuous()</span></code></a>, <a class="reference internal" href="api/lets_plot.scale_gradient.html#lets_plot.scale_gradient" title="lets_plot.scale_gradient"><code class="xref py py-mod docutils literal notranslate"><span class="pre">scale_gradient()</span></code></a>, etc.</p>
+<p>To specify a scale for any group of aesthetics, use the special scale functions: <code class="xref py py-mod docutils literal notranslate"><span class="pre">scale_manual()</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">scale_continuous()</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">scale_gradient()</span></code>, etc.</p>
 <p>Examples:</p>
 <ul>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/scale_functions.ipynb">Scale functions with parameter aesthetic</a></li>
@@ -858,7 +924,7 @@ and each column represents a variable that describes some property of each obser
 </section>
 <section id="stackable-position-adjustments">
 <h3>Stackable Position Adjustments<a class="headerlink" href="#stackable-position-adjustments" title="Link to this heading">#</a></h3>
-<p>To configure positioning where groups are stacked on top of each other, use the <a class="reference internal" href="api/lets_plot.position_stack.html#lets_plot.position_stack" title="lets_plot.position_stack"><code class="xref py py-mod docutils literal notranslate"><span class="pre">position_stack()</span></code></a> and <a class="reference internal" href="api/lets_plot.position_fill.html#lets_plot.position_fill" title="lets_plot.position_fill"><code class="xref py py-mod docutils literal notranslate"><span class="pre">position_fill()</span></code></a> functions.</p>
+<p>To configure positioning where groups are stacked on top of each other, use the <code class="xref py py-mod docutils literal notranslate"><span class="pre">position_stack()</span></code> and <code class="xref py py-mod docutils literal notranslate"><span class="pre">position_fill()</span></code> functions.</p>
 <p>Examples:</p>
 <ul>
 <li><a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/position_stack.ipynb">Stackable position adjustments</a></li>
@@ -910,9 +976,31 @@ and each column represents a variable that describes some property of each obser
 <div class="sd-card-body docutils">
 <p class="sd-card-text"><em>Python4DS</em> by Arthur Turrell</p>
 <ul class="simple">
-<li><p class="sd-card-text"><a class="reference external" href="https://aeturrell.github.io/python4DS/data-visualise.html">Data Visualisation</a> - will teach you how to visualise your data using using <em>Lets-Plot</em>.</p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://aeturrell.github.io/python4DS/data-visualise.html">Data Visualisation</a> - will teach you how to visualise your data using <em>Lets-Plot</em>.</p></li>
 <li><p class="sd-card-text"><a class="reference external" href="https://aeturrell.github.io/python4DS/vis-layers.html">Layers</a> - a deeper dive into aesthetic mappings, geometric objects, and facets.</p></li>
 <li><p class="sd-card-text"><a class="reference external" href="https://aeturrell.github.io/python4DS/exploratory-data-analysis.html">Exploratory Data Analysis</a> - search for answers by visualising, transforming, and modelling your data.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 wide-grid docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row sd-col-3 sd-col-xs-3 sd-col-sm-3 sd-col-md-3 sd-col-lg-3 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="reference external image-reference" href="https://youtu.be/cBttFHFbAp8"><img alt="../../_images/DSWithSanjaya.jpg" src="../../_images/DSWithSanjaya.jpg" />
+</a>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row sd-col-auto sd-col-xs-auto sd-col-sm-auto sd-col-md-auto sd-col-lg-auto docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><em>Data Science with Sanjaya</em> by Sanjaya Subedi</p>
+<ul class="simple">
+<li><p class="sd-card-text"><a class="reference external" href="https://youtu.be/cBttFHFbAp8">Create Beautiful Plots with Python Let’s Plot Library</a> - Using the <em>Lets-Plot</em> library, the author shows you how to create 10 different but very common types of plots that you’ll see and create often.</p></li>
 </ul>
 </div>
 </div>
@@ -937,7 +1025,8 @@ and each column represents a variable that describes some property of each obser
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
 <div class="sd-card-body docutils">
-<img alt="../../_images/kotlin.svg" src="../../_images/kotlin.svg" /><p class="sd-card-text">Multiplatform</p>
+<img alt="../../_images/kotlin.svg" src="../../_images/kotlin.svg" />
+<p class="sd-card-text">Multiplatform</p>
 <p class="sd-card-text">A <a class="reference internal" href="../index.html"><span class="doc">Grammar of Graphics for Python</span></a> - works in Python notebooks (<a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/quickstart.ipynb">Jupyter</a>, <a class="reference external extref" href="https://datalore.jetbrains.com/view/notebook/Vl3fAET56UBray6rPufmDA">Datalore</a>, <a class="reference external extref" href="https://www.kaggle.com/alshan/lets-plot-quickstart">Kaggle</a>, <a class="reference external extref" href="https://colab.research.google.com/drive/1uYYZcG0g0kP4lJdPkpWB8aBS96ioDii2?usp=sharing">Colab</a>, <a class="reference external extref" href="https://deepnote.com/project/673ea421-638e-469d-8d04-5cc4c6e0258f#%2Fnotebook.ipynb">Deepnote</a>, <a class="reference external extref" href="https://nextjournal.com/alshan/lets-plot-quickstart?token=H8DPBC6A3kZqWmusxWzZ9c">Nextjournal</a>) as well as in <a class="reference external extref" href="https://plugins.jetbrains.com/plugin/14379-lets-plot-in-sciview">PyCharm and Intellij IDEA IDEs</a>.</p>
 <p class="sd-card-text">A <a class="reference external" href="https://lets-plot.org/kotlin/index.html">Grammar of Graphics for Kotlin</a> - a Kotlin multiplatform visualization library which fulfills your needs in the Kotlin ecosystem: from Kotlin notebooks to <a class="reference external" href="https://github.com/JetBrains/lets-plot-skia">Compose-Multiplatform apps</a>.</p>
 </div>
@@ -946,7 +1035,9 @@ and each column represents a variable that describes some property of each obser
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
 <div class="sd-card-body docutils">
-<img alt="../../_images/geospatial-visualization-light.svg" class="only-light" src="../../_images/geospatial-visualization-light.svg" /><img alt="../../_images/geospatial-visualization-dark.svg" class="only-dark" src="../../_images/geospatial-visualization-dark.svg" /><p class="sd-card-text">Geospatial Visualization</p>
+<img alt="../../_images/geospatial-visualization-light.svg" class="only-light" src="../../_images/geospatial-visualization-light.svg" />
+<img alt="../../_images/geospatial-visualization-dark.svg" class="only-dark" src="../../_images/geospatial-visualization-dark.svg" />
+<p class="sd-card-text">Geospatial Visualization</p>
 <p class="sd-card-text">Find spatial objects with the help of our powerful and easy to use <a class="reference internal" href="geocoding.html"><span class="doc">Geocoding</span></a> module. In case you already have <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> on hand - <a class="reference internal" href="geopandas.html"><span class="doc">plot it</span></a> straight away.</p>
 </div>
 </div>
@@ -954,7 +1045,8 @@ and each column represents a variable that describes some property of each obser
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
 <div class="sd-card-body docutils">
-<img alt="../../_images/interactive-maps.svg" src="../../_images/interactive-maps.svg" /><p class="sd-card-text">Interactive Maps</p>
+<img alt="../../_images/interactive-maps.svg" src="../../_images/interactive-maps.svg" />
+<p class="sd-card-text">Interactive Maps</p>
 <p class="sd-card-text">Interactive maps allow zooming and panning around your geospatial data with customizable vector or raster basemaps as a backdrop. <a class="reference internal" href="maps.html"><span class="doc">Learn more</span></a>.</p>
 </div>
 </div>
@@ -962,7 +1054,9 @@ and each column represents a variable that describes some property of each obser
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
 <div class="sd-card-body docutils">
-<img alt="../../_images/tooltips-light.svg" class="only-light" src="../../_images/tooltips-light.svg" /><img alt="../../_images/tooltips-dark.svg" class="only-dark" src="../../_images/tooltips-dark.svg" /><p class="sd-card-text">Customizable Tooltips and Annotations</p>
+<img alt="../../_images/tooltips-light.svg" class="only-light" src="../../_images/tooltips-light.svg" />
+<img alt="../../_images/tooltips-dark.svg" class="only-dark" src="../../_images/tooltips-dark.svg" />
+<p class="sd-card-text">Customizable Tooltips and Annotations</p>
 <p class="sd-card-text">You can customize the content, values formatting and appearance of <a class="reference internal" href="tooltips.html"><span class="doc">tooltip</span></a> and <a class="reference internal" href="annotations.html"><span class="doc">annotation</span></a> for layers of your plot.</p>
 </div>
 </div>
@@ -970,7 +1064,9 @@ and each column represents a variable that describes some property of each obser
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
 <div class="sd-card-body docutils">
-<img alt="../../_images/formatting-light.svg" class="only-light" src="../../_images/formatting-light.svg" /><img alt="../../_images/formatting-dark.svg" class="only-dark" src="../../_images/formatting-dark.svg" /><p class="sd-card-text">Formatting</p>
+<img alt="../../_images/formatting-light.svg" class="only-light" src="../../_images/formatting-light.svg" />
+<img alt="../../_images/formatting-dark.svg" class="only-dark" src="../../_images/formatting-dark.svg" />
+<p class="sd-card-text">Formatting</p>
 <p class="sd-card-text"><em>Lets-Plot</em> supports formatting of numeric and date-time values in tooltips, annotations, legends, on the axes and text geometry layer. <a class="reference internal" href="formats.html"><span class="doc">Learn more</span></a>.</p>
 </div>
 </div>
@@ -978,8 +1074,10 @@ and each column represents a variable that describes some property of each obser
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
 <div class="sd-card-body docutils">
-<img alt="../../_images/export-light.svg" class="only-light" src="../../_images/export-light.svg" /><img alt="../../_images/export-dark.svg" class="only-dark" src="../../_images/export-dark.svg" /><p class="sd-card-text">Export to SVG, HTML, PNG and PDF</p>
-<p class="sd-card-text">Use the <a class="reference internal" href="api/lets_plot.ggsave.html#lets_plot.ggsave" title="lets_plot.ggsave"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ggsave()</span></code></a> function to save your plot to a file. Alternatively, leverage the <a class="reference internal" href="api/lets_plot.plot.core.PlotSpec.html#lets_plot.plot.core.PlotSpec.to_svg" title="lets_plot.plot.core.PlotSpec.to_svg"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_svg()</span></code></a>, <a class="reference internal" href="api/lets_plot.plot.core.PlotSpec.html#lets_plot.plot.core.PlotSpec.to_html" title="lets_plot.plot.core.PlotSpec.to_html"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_html()</span></code></a>, <a class="reference internal" href="api/lets_plot.plot.core.PlotSpec.html#lets_plot.plot.core.PlotSpec.to_png" title="lets_plot.plot.core.PlotSpec.to_png"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_png()</span></code></a>, or <a class="reference internal" href="api/lets_plot.plot.core.PlotSpec.html#lets_plot.plot.core.PlotSpec.to_pdf" title="lets_plot.plot.core.PlotSpec.to_pdf"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_pdf()</span></code></a> methods of the plot object to save it to a file or an in-memory file-like object. <a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/export.ipynb">Learn more</a>.</p>
+<img alt="../../_images/export-light.svg" class="only-light" src="../../_images/export-light.svg" />
+<img alt="../../_images/export-dark.svg" class="only-dark" src="../../_images/export-dark.svg" />
+<p class="sd-card-text">Export to SVG, HTML, PNG and PDF</p>
+<p class="sd-card-text">Use the <code class="xref py py-mod docutils literal notranslate"><span class="pre">ggsave()</span></code> function to save your plot to a file. Alternatively, leverage the <code class="xref py py-meth docutils literal notranslate"><span class="pre">to_svg()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">to_html()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">to_png()</span></code>, or <code class="xref py py-meth docutils literal notranslate"><span class="pre">to_pdf()</span></code> methods of the plot object to save it to a file or an in-memory file-like object. <a class="reference external extref" href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/examples/cookbook/export.ipynb">Learn more</a>.</p>
 </div>
 </div>
 </div>
@@ -989,14 +1087,16 @@ and each column represents a variable that describes some property of each obser
 <img alt="../../_images/show-ext-light.png" class="only-light" src="../../_images/show-ext-light.png" />
 <img alt="../../_images/show-ext-dark.png" class="only-dark" src="../../_images/show-ext-dark.png" />
 <p class="sd-card-text">Option to Display Plots in External Browser</p>
-<p class="sd-card-text">With the “show externally” mode enabled, you can easily display a plot in an external browser by invoking its <code class="docutils literal notranslate"><span class="pre">show()</span></code> method. <a class="reference internal" href="api/lets_plot.LetsPlot.html#lets_plot.LetsPlot.setup_show_ext" title="lets_plot.LetsPlot.setup_show_ext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Learn</span> <span class="pre">more</span></code></a>.</p>
+<p class="sd-card-text">With the “show externally” mode enabled, you can easily display a plot in an external browser by invoking its <code class="docutils literal notranslate"><span class="pre">show()</span></code> method. <code class="xref py py-meth docutils literal notranslate"><span class="pre">Learn</span> <span class="pre">more</span></code>.</p>
 </div>
 </div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
 <div class="sd-card-body docutils">
-<img alt="../../_images/sampling-light.svg" class="only-light" src="../../_images/sampling-light.svg" /><img alt="../../_images/sampling-dark.svg" class="only-dark" src="../../_images/sampling-dark.svg" /><p class="sd-card-text">Sampling</p>
+<img alt="../../_images/sampling-light.svg" class="only-light" src="../../_images/sampling-light.svg" />
+<img alt="../../_images/sampling-dark.svg" class="only-dark" src="../../_images/sampling-dark.svg" />
+<p class="sd-card-text">Sampling</p>
 <p class="sd-card-text">Sampling is a special technique of data transformation, which helps to deal with large datasets and overplotting. <a class="reference internal" href="sampling.html"><span class="doc">Learn more</span></a>.</p>
 </div>
 </div>
@@ -1004,7 +1104,9 @@ and each column represents a variable that describes some property of each obser
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-none docutils">
 <div class="sd-card-body docutils">
-<img alt="../../_images/offline-mode-light.svg" class="only-light" src="../../_images/offline-mode-light.svg" /><img alt="../../_images/offline-mode-dark.svg" class="only-dark" src="../../_images/offline-mode-dark.svg" /><p class="sd-card-text">‘No Javascript’ and Offline Mode</p>
+<img alt="../../_images/offline-mode-light.svg" class="only-light" src="../../_images/offline-mode-light.svg" />
+<img alt="../../_images/offline-mode-dark.svg" class="only-dark" src="../../_images/offline-mode-dark.svg" />
+<p class="sd-card-text">‘No Javascript’ and Offline Mode</p>
 <p class="sd-card-text">In the ‘no javascript’ mode <em>Lets-Plot</em> generates plots as bare-bones SVG images. Plots in the notebook with option <code class="docutils literal notranslate"><span class="pre">offline=True</span></code> will be working without an Internet connection. <a class="reference internal" href="no_js_and_offline_mode.html"><span class="doc">Learn more</span></a>.</p>
 </div>
 </div>
@@ -1025,7 +1127,8 @@ and each column represents a variable that describes some property of each obser
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1051,15 +1154,19 @@ and each column represents a variable that describes some property of each obser
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l13-d13-images">  Images</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l14-d14-facets">  Facets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l15-d15-coordinate-systems">  Coordinate Systems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l16-d16-bistro-plots">  ‘bistro’ Plots</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l17-d17-geopandas-shapes">  GeoPandas Shapes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l18-d18-grouping-plots">  Grouping Plots</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l19-d19-presentation-options">  Presentation Options</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l16-d16-legends-and-guides">  Legends and Guides</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l17-d17-bistro-plots">  ‘bistro’ Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l18-d18-geopandas-shapes">  GeoPandas Shapes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l19-d19-grouping-plots">  Grouping Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l20-d20-presentation-options">  Presentation Options</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predefined-themes">Predefined themes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-schemes-flavors">Color schemes (flavors)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#miscellaneous">Miscellaneous</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#panning-and-zooming">Panning and Zooming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-text-markup">Extended Text Markup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-legend">Manual Legend</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-color-scales">Multiple Color Scales</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-functions">Scale Functions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantiles">Quantiles</a></li>
@@ -1084,8 +1191,8 @@ and each column represents a variable that describes some property of each obser
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1093,7 +1200,7 @@ and each column represents a variable that describes some property of each obser
     <div class="footer-items__start">
       
         <div class="footer-item"><p class="copyright">
-  Copyright © 2019-2024 JetBrains s.r.o.
+  Copyright © 2019-2025 JetBrains s.r.o.
 </p></div>
       
     </div>
@@ -1105,9 +1212,9 @@ and each column represents a variable that describes some property of each obser
 <p class="sphinx-version theme-version">
   Created using
   <a class="reference external" href="https://www.sphinx-doc.org/" target="_blank">Sphinx</a>
-  7.3.7 and
+  8.1.3 and
   <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html" target="_blank">PyData Sphinx Theme</a>
-  0.15.4.
+  0.16.1.
 <p></div>
       
     </div>

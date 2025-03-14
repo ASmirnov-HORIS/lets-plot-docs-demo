@@ -25,38 +25,42 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ac35cfe9" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/colors.css?v=32b6ea70" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=defcf438" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/colors.css?v=75bbc594" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/dataframe.css?v=1855a575" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=9683ad65"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/documentation_options.js?v=68f2c66a"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'python/pages/geopandas';</script>
     <script src="../../_static/js/custom.js?v=a8badf0c"></script>
     <script src="../../_static/js/language_data.js?v=2e3e2f07"></script>
@@ -80,19 +84,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -100,7 +93,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -108,8 +100,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -160,7 +152,7 @@
    
 
 <a class="navbar-brand version" href="whats_new.html">
-  <p>v4.3.3</p>
+  <p>v4.6.1</p>
 </a>
 </div>
     
@@ -176,13 +168,15 @@
     
       
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="api.html">
-    API
+  <a class="nav-link nav-internal" href="notebooks.html">
+    Notebooks
   </a>
 </li>
 
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
@@ -243,29 +237,21 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
         <div class="navbar-item">
 <ul class="navbar-icon-links navbar-nav"
@@ -309,15 +295,11 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
@@ -338,7 +320,8 @@ document.write(`
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -355,8 +338,8 @@ document.write(`
     
       
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="api.html">
-    API
+  <a class="nav-link nav-internal" href="notebooks.html">
+    Notebooks
   </a>
 </li>
 
@@ -415,15 +398,11 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
           <div class="navbar-item">
 <ul class="navbar-icon-links navbar-nav"
@@ -466,9 +445,14 @@ document.write(`
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -500,19 +484,19 @@ document.write(`
 <p>All GeoPandas shapes are “understood” by <em>Lets-Plot</em> and can be plotted using various geometry layers, depending on the type of the shape.</p>
 <p>Use:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="api/lets_plot.geom_point.html#lets_plot.geom_point" title="lets_plot.geom_point"><code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_point()</span></code></a>, <a class="reference internal" href="api/lets_plot.geom_pie.html#lets_plot.geom_pie" title="lets_plot.geom_pie"><code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_pie()</span></code></a>, <a class="reference internal" href="api/lets_plot.geom_text.html#lets_plot.geom_text" title="lets_plot.geom_text"><code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_text()</span></code></a> with Points / Multi-Points</p></li>
-<li><p><a class="reference internal" href="api/lets_plot.geom_path.html#lets_plot.geom_path" title="lets_plot.geom_path"><code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_path()</span></code></a> with Lines / Multi-Lines</p></li>
-<li><p><a class="reference internal" href="api/lets_plot.geom_polygon.html#lets_plot.geom_polygon" title="lets_plot.geom_polygon"><code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_polygon()</span></code></a>, <a class="reference internal" href="api/lets_plot.geom_map.html#lets_plot.geom_map" title="lets_plot.geom_map"><code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_map()</span></code></a> with Polygons / Multi-Polygons</p></li>
-<li><p><a class="reference internal" href="api/lets_plot.geom_rect.html#lets_plot.geom_rect" title="lets_plot.geom_rect"><code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_rect()</span></code></a> when used with Polygon shapes will display corresponding bounding boxes</p></li>
+<li><p><code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_point()</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_pie()</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_text()</span></code> with Points / Multi-Points</p></li>
+<li><p><code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_path()</span></code> with Lines / Multi-Lines</p></li>
+<li><p><code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_polygon()</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_map()</span></code> with Polygons / Multi-Polygons</p></li>
+<li><p><code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_rect()</span></code> when used with Polygon shapes will display corresponding bounding boxes</p></li>
 </ul>
 <section id="plot-preliminaries">
 <h2>Plot Preliminaries<a class="headerlink" href="#plot-preliminaries" title="Link to this heading">#</a></h2>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="kn">from</span> <span class="nn">lets_plot.geo_data</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">lets_plot</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lets_plot.geo_data</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lets_plot</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="n">LetsPlot</span><span class="o">.</span><span class="n">setup_html</span><span class="p">()</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
@@ -528,7 +512,7 @@ document.write(`
 </pre></div>
 </div>
 <div class="output text_html">
-<div id="K6ikZt"></div>
+<div id="DqvvIy"></div>
 <script type="text/javascript" data-lets-plot-script="library">
     if(!window.letsPlotCallQueue) {
         window.letsPlotCallQueue = [];
@@ -539,7 +523,7 @@ document.write(`
     (function() {
         var script = document.createElement("script");
         script.type = "text/javascript";
-        script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.3.3/js-package/distr/lets-plot.min.js";
+        script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.6.1/js-package/distr/lets-plot.min.js";
         script.onload = function() {
             window.letsPlotCall = function(f) {f();};
             window.letsPlotCallQueue.forEach(function(f) {f();});
@@ -552,9 +536,9 @@ document.write(`
             var div = document.createElement("div");
             div.style.color = 'darkred';
             div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("K6ikZt").appendChild(div);
+            document.getElementById("DqvvIy").appendChild(div);
         };
-        var e = document.getElementById("K6ikZt");
+        var e = document.getElementById("DqvvIy");
         e.appendChild(script);
     })()
 </script>
@@ -641,10 +625,37 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">   <div id="GXT9XP"></div>
+<div class="output text_html">   <div id="4aL1Oe"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-       (function() {
-           var plotSpec={
+
+   (function() {
+   // ----------
+
+   const forceImmediateRender = false;
+   const responsive = false;
+
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+
+   const containerDiv = document.getElementById("4aL1Oe");
+   let fig = null;
+
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
 "mapping":{
 },
 "data_meta":{
@@ -659,18 +670,61 @@ document.write(`
 "mapping":{
 },
 "data_meta":{
+"series_annotations":[{
+"type":"str",
+"column":"state"
+},{
+"type":"unknown(pandas:unknown-array)",
+"column":"geometry"
+}],
 "geodataframe":{
 "geometry":"geometry"
 }
 }
 }],
-"metainfo_list":[]
+"metainfo_list":[],
+"spec_id":"1"
 };
-           var plotContainer = document.getElementById("GXT9XP");
-           window.letsPlotCall(function() {{
-               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
-           }});
-       })();
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+
+   if (renderImmediately) {
+       renderPlot();
+   }
+
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+
+       observer.observe(containerDiv);
+   }
+
+   // ----------
+   })();
+
    </script></div></div>
 </div>
 </div>
@@ -686,10 +740,37 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">   <div id="UlXbzk"></div>
+<div class="output text_html">   <div id="9aKHCb"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-       (function() {
-           var plotSpec={
+
+   (function() {
+   // ----------
+
+   const forceImmediateRender = false;
+   const responsive = false;
+
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+
+   const containerDiv = document.getElementById("9aKHCb");
+   let fig = null;
+
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
 "mapping":{
 },
 "data_meta":{
@@ -714,13 +795,49 @@ document.write(`
 "data":{
 }
 }],
-"metainfo_list":[]
+"metainfo_list":[],
+"spec_id":"2"
 };
-           var plotContainer = document.getElementById("UlXbzk");
-           window.letsPlotCall(function() {{
-               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
-           }});
-       })();
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+
+   if (renderImmediately) {
+       renderPlot();
+   }
+
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+
+       observer.observe(containerDiv);
+   }
+
+   // ----------
+   })();
+
    </script></div></div>
 </div>
 </div>
@@ -739,10 +856,37 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">   <div id="44GwNT"></div>
+<div class="output text_html">   <div id="bhtJUh"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-       (function() {
-           var plotSpec={
+
+   (function() {
+   // ----------
+
+   const forceImmediateRender = false;
+   const responsive = false;
+
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+
+   const containerDiv = document.getElementById("bhtJUh");
+   let fig = null;
+
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
 "mapping":{
 },
 "data_meta":{
@@ -759,19 +903,62 @@ document.write(`
 "fill":"state"
 },
 "data_meta":{
+"series_annotations":[{
+"type":"str",
+"column":"state"
+},{
+"type":"unknown(pandas:unknown-array)",
+"column":"geometry"
+}],
 "geodataframe":{
 "geometry":"geometry"
 }
 },
 "color":"white"
 }],
-"metainfo_list":[]
+"metainfo_list":[],
+"spec_id":"3"
 };
-           var plotContainer = document.getElementById("44GwNT");
-           window.letsPlotCall(function() {{
-               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
-           }});
-       })();
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+
+   if (renderImmediately) {
+       renderPlot();
+   }
+
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+
+       observer.observe(containerDiv);
+   }
+
+   // ----------
+   })();
+
    </script></div></div>
 </div>
 </section>
@@ -852,10 +1039,37 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">   <div id="Gp0FCc"></div>
+<div class="output text_html">   <div id="YQbfEw"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-       (function() {
-           var plotSpec={
+
+   (function() {
+   // ----------
+
+   const forceImmediateRender = false;
+   const responsive = false;
+
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+
+   const containerDiv = document.getElementById("YQbfEw");
+   let fig = null;
+
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
 "mapping":{
 },
 "data_meta":{
@@ -872,6 +1086,13 @@ document.write(`
 "fill":"pop_2021"
 },
 "data_meta":{
+"series_annotations":[{
+"type":"str",
+"column":"state"
+},{
+"type":"int",
+"column":"pop_2021"
+}]
 },
 "map":{
 "state":["IL","IN","MI","OH","WI"],
@@ -885,13 +1106,49 @@ document.write(`
 }
 }
 }],
-"metainfo_list":[]
+"metainfo_list":[],
+"spec_id":"4"
 };
-           var plotContainer = document.getElementById("Gp0FCc");
-           window.letsPlotCall(function() {{
-               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
-           }});
-       })();
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+
+   if (renderImmediately) {
+       renderPlot();
+   }
+
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+
+       observer.observe(containerDiv);
+   }
+
+   // ----------
+   })();
+
    </script></div></div>
 </div>
 </section>
@@ -906,10 +1163,37 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">   <div id="4iCs9p"></div>
+<div class="output text_html">   <div id="uol5co"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-       (function() {
-           var plotSpec={
+
+   (function() {
+   // ----------
+
+   const forceImmediateRender = false;
+   const responsive = false;
+
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+
+   const containerDiv = document.getElementById("uol5co");
+   let fig = null;
+
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
 "mapping":{
 },
 "data_meta":{
@@ -935,13 +1219,49 @@ document.write(`
 "data":{
 }
 }],
-"metainfo_list":[]
+"metainfo_list":[],
+"spec_id":"5"
 };
-           var plotContainer = document.getElementById("4iCs9p");
-           window.letsPlotCall(function() {{
-               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
-           }});
-       })();
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+
+   if (renderImmediately) {
+       renderPlot();
+   }
+
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+
+       observer.observe(containerDiv);
+   }
+
+   // ----------
+   })();
+
    </script></div></div>
 </div>
 <div class="line-block">
@@ -955,10 +1275,37 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">   <div id="OEtAwZ"></div>
+<div class="output text_html">   <div id="Q3ZxvX"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-       (function() {
-           var plotSpec={
+
+   (function() {
+   // ----------
+
+   const forceImmediateRender = false;
+   const responsive = false;
+
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+
+   const containerDiv = document.getElementById("Q3ZxvX");
+   let fig = null;
+
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
 "mapping":{
 },
 "data_meta":{
@@ -984,20 +1331,56 @@ document.write(`
 "data":{
 }
 }],
-"metainfo_list":[]
+"metainfo_list":[],
+"spec_id":"6"
 };
-           var plotContainer = document.getElementById("OEtAwZ");
-           window.letsPlotCall(function() {{
-               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
-           }});
-       })();
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+
+   if (renderImmediately) {
+       renderPlot();
+   }
+
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+
+       observer.observe(containerDiv);
+   }
+
+   // ----------
+   })();
+
    </script></div></div>
 </div>
 </section>
 <section id="interactive-maps">
 <h2>Interactive Maps<a class="headerlink" href="#interactive-maps" title="Link to this heading">#</a></h2>
 <p>Apart from the <code class="docutils literal notranslate"><span class="pre">use_crs</span></code> parameter, <code class="docutils literal notranslate"><span class="pre">GeoDataFrames</span></code> are fully supported on <em>Lets-Plot</em> interactive maps.</p>
-<p>When used in combination with <a class="reference internal" href="api/lets_plot.geom_livemap.html#lets_plot.geom_livemap" title="lets_plot.geom_livemap"><code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_livemap()</span></code></a>,
+<p>When used in combination with <code class="xref py py-mod docutils literal notranslate"><span class="pre">geom_livemap()</span></code>,
 the value of the <code class="docutils literal notranslate"><span class="pre">use_crs</span></code> parameter is ignored and all coordinates are reprojected using the Mercator projection.</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
@@ -1006,10 +1389,37 @@ the value of the <code class="docutils literal notranslate"><span class="pre">us
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">   <div id="7xvUcT"></div>
+<div class="output text_html">   <div id="qKTGLY"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-       (function() {
-           var plotSpec={
+
+   (function() {
+   // ----------
+
+   const forceImmediateRender = false;
+   const responsive = false;
+
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+
+   const containerDiv = document.getElementById("qKTGLY");
+   let fig = null;
+
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
 "mapping":{
 },
 "data_meta":{
@@ -1043,19 +1453,62 @@ the value of the <code class="docutils literal notranslate"><span class="pre">us
 "fill":"state"
 },
 "data_meta":{
+"series_annotations":[{
+"type":"str",
+"column":"state"
+},{
+"type":"unknown(pandas:unknown-array)",
+"column":"geometry"
+}],
 "geodataframe":{
 "geometry":"geometry"
 }
 },
 "alpha":0.5
 }],
-"metainfo_list":[]
+"metainfo_list":[],
+"spec_id":"7"
 };
-           var plotContainer = document.getElementById("7xvUcT");
-           window.letsPlotCall(function() {{
-               LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
-           }});
-       })();
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+
+   if (renderImmediately) {
+       renderPlot();
+   }
+
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+
+       observer.observe(containerDiv);
+   }
+
+   // ----------
+   })();
+
    </script></div></div>
 </div>
 </section>
@@ -1098,7 +1551,8 @@ the value of the <code class="docutils literal notranslate"><span class="pre">us
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1135,8 +1589,8 @@ the value of the <code class="docutils literal notranslate"><span class="pre">us
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1144,7 +1598,7 @@ the value of the <code class="docutils literal notranslate"><span class="pre">us
     <div class="footer-items__start">
       
         <div class="footer-item"><p class="copyright">
-  Copyright © 2019-2024 JetBrains s.r.o.
+  Copyright © 2019-2025 JetBrains s.r.o.
 </p></div>
       
     </div>
@@ -1156,9 +1610,9 @@ the value of the <code class="docutils literal notranslate"><span class="pre">us
 <p class="sphinx-version theme-version">
   Created using
   <a class="reference external" href="https://www.sphinx-doc.org/" target="_blank">Sphinx</a>
-  7.3.7 and
+  8.1.3 and
   <a class="reference external" href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html" target="_blank">PyData Sphinx Theme</a>
-  0.15.4.
+  0.16.1.
 <p></div>
       
     </div>
